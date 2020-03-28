@@ -23,9 +23,7 @@ jobs:
         env
         ls
         go build -o gencon ./cmd/gencon/main.go
-        go install ./...
-        ls
-        $GOROOT/bin/gencon -prefix "https://github.com/po3rin/post/blob/master" -difflint
+        ./gencon -prefix "https://github.com/po3rin/post/blob/master" -difflint
 
   test:
     name: Test

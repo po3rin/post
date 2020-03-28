@@ -1,8 +1,11 @@
-# :pencil: pon tech blog post
+# :pencil: posts of pon tech blog 
 
 ![Go Status](https://github.com/po3rin/post/workflows/Go%20Status/badge.svg) ![Contents Status](https://github.com/po3rin/post/workflows/Contents%20Status/badge.svg)
 
 This repository manages my texh blog post.
+* generates Markdown file.
+* creates tech blog contents.
+* stores posts to datastore (TODO)
 
 ## :star: All posts  is here.
 https://github.com/po3rin/post/blob/master/CONTENTS.md

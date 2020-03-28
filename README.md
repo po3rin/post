@@ -1,5 +1,7 @@
 # pon blog
 
+![Go Status](https://github.com/po3rin/post/workflows/Go%20Status/badge.svg) ![Contents Status](https://github.com/po3rin/post/workflows/Contents%20Status/badge.svg)
+
 this repository manages my texh blog post.
 
 ## Post List
@@ -33,7 +35,3 @@ $ gencon
 # or
 $ make contents
 ```
-
-## TODO
-
-- [ ] inport image

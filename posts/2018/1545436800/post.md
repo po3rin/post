@@ -1,4 +1,4 @@
-# Go 1.12 beta 1 の標準パッケージの中で気になったマイナーチェンジを Docker で試したので紹介する。
+# Go 1.12 beta 1 の標準パッケージの中で気になったマイナーチェンジを Docker で試したので紹介する。
 
 Gopher道場 Advent Calendar 2018 の 22日目のエントリです。
 昨日は [hiokidaichi](https://qiita.com/hiokidaichi) さんの [Mac の Go で birth time を取得する](https://qiita.com/hiokidaichi/items/26890e7da566cb3a4121) でした！！

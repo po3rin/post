@@ -42,7 +42,7 @@
 
 ## 2018
 
-[Go 1.12 beta 1 の標準パッケージの中で気になったマイナーチェンジを Docker で試したので紹介する。](https://github.com/po3rin/post/tree/master/posts/2018/1545436800/post.md)
+[Go 1.12 beta 1 の標準パッケージの中で気になったマイナーチェンジを Docker で試したので紹介する。](https://github.com/po3rin/post/tree/master/posts/2018/1545436800/post.md)
 
 [Go言語 + Docker + Elastic Stack (Elasticsearch Logstash Kibana) で始める BI環境構築 ハンズオン](https://github.com/po3rin/post/tree/master/posts/2018/1544572800/post.md)
 

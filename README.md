@@ -29,6 +29,23 @@ $ newpost
 $ make new
 ```
 
+#### Manage media
+
+mediactl upload media to S3 and replace S3 object url from loacl retrive path to media.
+
+```bash
+# if you already installed go
+$ go get -u github.com/po3rin/post/cmd/mediactl
+
+$ go run cmd/mediactl/main.go -bucket < bucket name> -id < post id (year/unixtime) >
+target is posts/<year>/<unixtime>
+----------------------
+img/test.jpeg
+↓
+https://< bucket name >.s3.ap-northeast-1.amazonaws.com/year/unixtime/test.jpeg
+----------------------
+```
+
 #### Sync contents table
 
 sync contens table of post

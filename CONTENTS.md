@@ -2,7 +2,7 @@
 
 ## 2019
 
-[Rust で実装する Average Hash を使った類似画像検索](https:/github.com/po3rin/post/tree/master/posts/2019/1576886400/post.md)
+[Rust で実装する Average Hash を使った類似画像検索](po3rin/post/tree/master/posts/2019/1576886400/post.md)
 
 [Go の strings.Index の内部実装と Rabin-Karp アルゴリズム](https:/github.com/po3rin/post/tree/master/posts/2019/1576108800/post.md)
 

@@ -1,4 +1,4 @@
-name: Contents Table Check
+name: Contents Status
 
 on: [push, pull_request]
 
@@ -22,21 +22,3 @@ jobs:
       run: |
         go build -o gencon ./cmd/gencon/main.go
         ./gencon -prefix "https://github.com/po3rin/post/blob/master" -difflint
-
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-
-    - name: Set up Go 1.13
-      uses: actions/setup-go@v1
-      with:
-        go-version: 1.13
-      id: go
-
-    - name: Check out code into the Go module directory
-      uses: actions/checkout@v2
-
-    - name: check contents table
-      run: |
-        go test ./...

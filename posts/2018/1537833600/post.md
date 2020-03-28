@@ -62,8 +62,6 @@ RUN yarn build
 
 
 FROM node:10.11.0-alpine
-![nu-do.png](../../img/qiita-0cef246755aa655ce53d-1.png)
-![nu-do.png](../../img/qiita-0cef246755aa655ce53d-2.png)
 
 WORKDIR /app
 ENV HOST=0.0.0.0

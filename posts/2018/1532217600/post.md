@@ -1,11 +1,11 @@
 # 「Vue.js + Go言語 + PAY.JP 」でクレジットカード決済できるWEBアプリケーション実装ハンズオン
 
-![pay-cover.png](../../img/qiita-9638eab0a6a70faca86e-1.png)
+![pay-cover.png](img/qiita-9638eab0a6a70faca86e-1.png)
 
 そろそろカード決済の実装経験しとくかと思い、PAY.JPを眺めたらかなりドキュメントが充実してたので使いやすかった。今後、カード決済するサービスを作るのを見越して決済サービスをgRPCでマイクロサービス化してみた。そのまま Vue.js と Go言語を使い、カード決済できるWEBサービスのサンプルを試しに作ってみた。その実装を簡略化してハンズオン形式で紹介します。
 
 全コードは GitHub にあげてます。
-<a href="https://github.com/po3rin/vue-golang-payment-app"><img src="../../img/qiita-9638eab0a6a70faca86e-2.png" width="460px"/></a>
+<a href="https://github.com/po3rin/vue-golang-payment-app"><img src="img/qiita-9638eab0a6a70faca86e-2.png" width="460px"/></a>
 
 (こちらの画像は僕がVue.js+Goで作ったサービスで運用されています。https://ghlinkcard.com/)
 
@@ -21,12 +21,12 @@
 
 ### PAY.JP
 
-![pay.png](../../img/qiita-9638eab0a6a70faca86e-3.png)
+![pay.png](img/qiita-9638eab0a6a70faca86e-3.png)
 
 支払い機能をシンプルなAPIで実装できる！分かりやすい料金形態で決済を導入することが可能です。日本の企業が作ったサービスなので日本語の情報が豊富です。Go言語で実装する方法があまりまとまってないので、今回はそこもお話しします。
 
 ### gRPC
-![grpc-p.png](../../img/qiita-9638eab0a6a70faca86e-4.png)
+![grpc-p.png](img/qiita-9638eab0a6a70faca86e-4.png)
 
 そもそもRPCとは、Remote Procedure Call と呼ばれる、別のアドレス空間にあるサブルーチンや手続きを実行することを可能にする技術です。
 
@@ -36,7 +36,7 @@
 
 ## 今回目指す形
 
-![pay-go-vue.png](../../img/qiita-9638eab0a6a70faca86e-5.png)
+![pay-go-vue.png](img/qiita-9638eab0a6a70faca86e-5.png)
 
 上記のような形を目指していきます。決済機能を持ったマイクロサービスであるpayment-service と APIサーバーのitem-service 間は gRPC で通信します。本当は商品情報を扱う処理もマイクロサービス化したかったのですが、ハンズオンとしては複雑になりそうなのでやめました。
 
@@ -58,13 +58,13 @@
 
 ## Go言語 + gRPC でカード決済サービスをつくる
 
-![pay-grpc-pnly.png](../../img/qiita-9638eab0a6a70faca86e-6.png)
+![pay-grpc-pnly.png](img/qiita-9638eab0a6a70faca86e-6.png)
 
 
 まずは上記の形をめざします。
 `payment-service`というディレクトリにPAY.JPのAPIを叩いて実際に支払いをするマイクロサービスをつくります。手順としては3ステップです。
 
-![grpc3.png](../../img/qiita-9638eab0a6a70faca86e-7.png)
+![grpc3.png](img/qiita-9638eab0a6a70faca86e-7.png)
 
 protoファイルからRPC通信で使うコードを自動生成し、そのコードを使ってサーバーを実装します。
 
@@ -265,7 +265,7 @@ export PAYJP_TEST_SECRET_KEY=sk_test_**************
 
 ## Go言語で JSON API サーバー実装
 
-![sever-pay.png](../../img/qiita-9638eab0a6a70faca86e-8.png)
+![sever-pay.png](img/qiita-9638eab0a6a70faca86e-8.png)
 
 上記のような構成をめざします。上には記載していませんが、DBから商品データをフロントエンドに渡すAPIも作ります。
 つまり下記の機能があるAPIサーバーを作ります。
@@ -660,13 +660,13 @@ mysql -p -u root itemsDB < init/init.sql
 ちょっとここらで動くか確認しましょう。
 
 ```bash
-curl -X GET localhost:8888/api/v1/items/1 
+curl -X GET localhost:8888/api/v1/items/1
 {"ID":1,"Name":"toy","Description":"test-toy","Amount":2000}
 
 curl -X GET localhost:8888/api/v1/items
 [{"ID":1,"Name":"toy","Description":"test-toy","Amount":2000},{"ID":2,"Name":"game","Description":"test-game","Amount":6000}]
 
-curl -X POST localhost:8888/api/v1/charge/items/1 
+curl -X POST localhost:8888/api/v1/charge/items/1
 {"code":2,"message":"Charge.Create() parameter error: One of the following parameters is required: CustomerID, CardToken, Card"}
 ```
 
@@ -678,7 +678,7 @@ curl -X POST localhost:8888/api/v1/charge/items/1
 
 くー長い！もう少しで完成です。最終段階です。最初に見せた形までもっていきます。
 
-![pay-go-vue.png](../../img/qiita-9638eab0a6a70faca86e-9.png)
+![pay-go-vue.png](img/qiita-9638eab0a6a70faca86e-9.png)
 
 
 今回は vue-cli でプロジェクトのひな形を作ります。下記をプロジェクトのルート(GOPATH/src/vue-golang-payment-app)で実行
@@ -709,10 +709,10 @@ ItemCard.vue は Home.vue で使う商品を表示するコンポーネントで
 画面はひどく殺風景ですが下のようになります。
 
 HOME画面(商品リスト表示)
-<img width="444" alt="スクリーンショット 2018-07-23 02.02.14.png" src="../../img/qiita-9638eab0a6a70faca86e-10.png">
+<img width="444" alt="スクリーンショット 2018-07-23 02.02.14.png" src="img/qiita-9638eab0a6a70faca86e-10.png">
 
 商品詳細画面(商品詳細表示)
-<img width="425" alt="スクリーンショット 2018-07-23 02.02.21.png" src="../../img/qiita-9638eab0a6a70faca86e-11.png">
+<img width="425" alt="スクリーンショット 2018-07-23 02.02.21.png" src="img/qiita-9638eab0a6a70faca86e-11.png">
 
 一旦サーバーとのやりとりに必要な axios モジュールを加えます。axios は Promise ベースの HTTPクライアントです。
 
@@ -723,7 +723,7 @@ $ npm install axios --save
 また、今回 PAY.JP で カード情報を Token化するために https://github.com/ngs/vue-payjp-checkout を使います。
 これは PAY.JP のカード情報入力コンポーネントを Vue.js で使えるようにしたものです。このような画面がひらくようになります。
 
-<img width="783" alt="スクリーンショット 2018-07-22 16.43.02.png" src="../../img/qiita-9638eab0a6a70faca86e-12.png">
+<img width="783" alt="スクリーンショット 2018-07-22 16.43.02.png" src="img/qiita-9638eab0a6a70faca86e-12.png">
 
 上のPAY.JPのクレジットカード入力フォームを使うと、開発者はクレジットカード番号に触れることなく決済機能が提供できるようになります。クレジットカード番号は盗み取られたりすると大きなリスクになります。そのため、今回はこの入力フォームを使いましょう。
 
@@ -972,12 +972,12 @@ $ npm run dev
 
 カードデータはPAY.JPが用意しているテスト用の情報をいれます。
 
-<img width="783" alt="スクリーンショット 2018-07-22 16.43.02.png" src="../../img/qiita-9638eab0a6a70faca86e-13.png">
+<img width="783" alt="スクリーンショット 2018-07-22 16.43.02.png" src="img/qiita-9638eab0a6a70faca86e-13.png">
 
 購入確定ボタンを押せば「商品の購入が完了しました！」と画面にでているはずです。
 ここまでいけば支払い情報が PAY.JP の管理画面で確認できます。
 
-<img width="1121" alt="スクリーンショット 2018-07-22 17.54.21.png" src="../../img/qiita-9638eab0a6a70faca86e-14.png">
+<img width="1121" alt="スクリーンショット 2018-07-22 17.54.21.png" src="img/qiita-9638eab0a6a70faca86e-14.png">
 
 ## まとめ
 

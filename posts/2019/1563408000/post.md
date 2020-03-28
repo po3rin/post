@@ -7,7 +7,7 @@
 
 Go で 行列を扱う際には gonum パッケージが鉄板でしょう。gonum は行列だけでなく数値および科学的アルゴリズムの作成を支援するパッケージです。数値計算はこのパッケージに頼りましょう。
 
-<a href="https://github.com/gonum/gonum"><img src="../../img/0217d4b4-78bd-a5c5-d23f-bfdcd9947d1d.png" width="460px"></a>
+<a href="https://github.com/gonum/gonum"><img src="img/0217d4b4-78bd-a5c5-d23f-bfdcd9947d1d.png" width="460px"></a>
 
 ちなみにこのリンク画像は自作サービスで自動生成しています。よかったら使ってみてください！
 https://qiita.com/po3rin/items/eac851304cf058c532af
@@ -426,7 +426,7 @@ func main() {
 
 これを使うと例えばシグモイド関数は下記のように書けますね！
 
-<img width="233" alt="スクリーンショット 2019-07-21 12.06.49.png" src="../../img/594a0be0-c064-6741-566a-86b4dee1e147.png">
+<img width="233" alt="スクリーンショット 2019-07-21 12.06.49.png" src="img/594a0be0-c064-6741-566a-86b4dee1e147.png">
 
 
 ```go

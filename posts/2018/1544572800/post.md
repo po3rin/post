@@ -1,6 +1,6 @@
 # Go言語 + Docker + Elastic Stack (Elasticsearch Logstash Kibana) で始める BI環境構築 ハンズオン
 
-<img width="1151" alt="cover.png" src="../../img/qiita-8c0e1cd2605c1c86f1f2-1.png">
+<img width="1151" alt="cover.png" src="img/qiita-8c0e1cd2605c1c86f1f2-1.png">
 
 この記事は Elastic stack Advent Calendarの12日目の記事となります。
 
@@ -11,25 +11,25 @@ https://github.com/po3rin/go-elastic-starter
 
 ## 今回作るもの & Stack紹介
 
-<img width="1185" alt="arche.png" src="../../img/qiita-8c0e1cd2605c1c86f1f2-2.png">
+<img width="1185" alt="arche.png" src="img/qiita-8c0e1cd2605c1c86f1f2-2.png">
 
 Go言語 + Docker + Elastic Stack で簡単なBI環境を作ります。APIで出るログは Logstash で収集し、Slackへの通知 + Elasticsearch へのログ保存を行います。Elasticsearchに入ったデータはKibanaで可視化できるようにします。
 
 ### Elasticsearch
 
-<img width="200" src="../../img/qiita-8c0e1cd2605c1c86f1f2-3.png">
+<img width="200" src="img/qiita-8c0e1cd2605c1c86f1f2-3.png">
 
 Elasticsearch は Elastic 社が開発しているオープンソースの分散型RESTful検索/分析エンジンです。検索速度や分析柔軟性に優れています。
 
 ### Kibana
 
-<img width="146" src="../../img/qiita-8c0e1cd2605c1c86f1f2-4.png">
+<img width="146" src="img/qiita-8c0e1cd2605c1c86f1f2-4.png">
 
 Kibana も Elastic社が開発しているビジュアライゼーションのためのツール。Elasticsearchというデータベースに入っているデータを様々な形式で描画することができます。
 
 ### Logstash
 
-<img width="166" src="../../img/qiita-8c0e1cd2605c1c86f1f2-5.png">
+<img width="166" src="img/qiita-8c0e1cd2605c1c86f1f2-5.png">
 
 そしてこちらも Elastic社が提供するオープンソースのデータ収集エンジン。
 リアルタイムのパイプライン処理で異なる種類のデータを統一的なフォーマットへ変換して任意の転送先へ送ることができる。
@@ -38,7 +38,7 @@ Log収集ツールとして使われているのをよくみる。
 
 ## Elasticsearch + Kibana 環境を Dockerで立てる。
 
-<img width="834" alt="arche2.png" src="../../img/qiita-8c0e1cd2605c1c86f1f2-6.png">
+<img width="834" alt="arche2.png" src="img/qiita-8c0e1cd2605c1c86f1f2-6.png">
 
 まずは上の形を目指しましょう。ここでKibanaも立てます。
 このセクションでは下記の形のファイル構成になります。
@@ -209,7 +209,7 @@ $ docker-compose up -d
 
 http://localhost:5601 で Kibanaの画面が見れます。
 
-![kibanaUI.png](../../img/qiita-8c0e1cd2605c1c86f1f2-7.png)
+![kibanaUI.png](img/qiita-8c0e1cd2605c1c86f1f2-7.png)
 
 これで Elasticsearch + Kibanaが立ち上がりました！
 
@@ -302,7 +302,7 @@ $ docker-compose down
 
 このセクションで最後の形まで持っていきます。
 
-<img width="1185" alt="arche.png" src="../../img/qiita-8c0e1cd2605c1c86f1f2-8.png">
+<img width="1185" alt="arche.png" src="img/qiita-8c0e1cd2605c1c86f1f2-8.png">
 
 このセクションで最終的に下記のような構成になります。
 
@@ -533,11 +533,11 @@ Hello Elastic Stack
 
 Slack にも API にアクセスがあった旨の通知が来ます。
 
-<img width="654" alt="slack.png" src="../../img/qiita-8c0e1cd2605c1c86f1f2-9.png">
+<img width="654" alt="slack.png" src="img/qiita-8c0e1cd2605c1c86f1f2-9.png">
 
 当然 Kibana にも log のデータが可視化できます。
 
-![kibana_sample.png](../../img/qiita-8c0e1cd2605c1c86f1f2-10.png)
+![kibana_sample.png](img/qiita-8c0e1cd2605c1c86f1f2-10.png)
 
 これで Go言語で APIサーバーを作る際の BI環境が整いました!
 

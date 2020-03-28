@@ -4,7 +4,7 @@
 
 ## そもそもLLBとは
 
-<img src="../../img/qiita-4fa7686c271a20f89c66-1.png" width="460">
+<img src="img/qiita-4fa7686c271a20f89c66-1.png" width="460">
 
 BuildKit は、LLB というプロセスの依存関係グラフを定義するために使用されるバイナリ中間言語を利用して。イメージをビルドしています。
 
@@ -458,7 +458,7 @@ COPY --from=stage1 /go/stage1_bin /
 
 digest値を追っていくと下記のようなDAG構造を取っていることがわかります。
 
-<img src="../../img/qiita-4fa7686c271a20f89c66-2.png" width="640">
+<img src="img/qiita-4fa7686c271a20f89c66-2.png" width="640">
 
 なぜLLBを挟むことで並列化を実現できるかが一目でわかりますね。
 

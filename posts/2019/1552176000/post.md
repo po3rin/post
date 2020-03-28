@@ -8,7 +8,7 @@
 
 ## LLBとは
 
-<img src="../../img/qiita-f414660bd2a6173c587a-1.png"/ width="400px">
+<img src="img/qiita-f414660bd2a6173c587a-1.png" width="400px">
 
 
 Docker 18.09から BuildKit が正式に統合され、Dockerfileのビルドをローレベルの中間ビルドフォーマット（LLB：Low-Level intermediate build format）を介して行われるようになりました。LLBはDAG構造(上の画像のような非循環な構造)を取ることにより、ステージごとの依存を解決し、並列実行可能な形で記述可能です。これにより、BuildKitを使ったdocker build は並列実行を可能にし、従来よりもビルドを高速化しています。
@@ -301,7 +301,7 @@ func main() {
 
 ```dockerfile2llb.Dockerfile2LLB``` 関数が行なっていることを図にすると下記のようなフローになります。(ちょっとBuildable Stages から LLB までの詰めが甘いですが。。)
 
-<img width="260" alt="スクリーンショット 2019-03-10 17.43.05.png" src="../../img/qiita-f414660bd2a6173c587a-2.png">
+<img width="260" alt="スクリーンショット 2019-03-10 17.43.05.png" src="img/qiita-f414660bd2a6173c587a-2.png">
 
 
 Goは読みやすくていいですね。実は README.md の moby/buildkit の buildctl コマンドを使った example でもLLBの構造を簡単に確認できます。暇ならそちらの紹介も記事にします。

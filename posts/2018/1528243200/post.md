@@ -1,12 +1,12 @@
 # Go言語で理解するJWT認証 実装ハンズオン
 
-![go-jwt.png](../../img/qiita-740445d21487dfcb5d9f-1.png)
+![go-jwt.png](img/qiita-740445d21487dfcb5d9f-1.png)
 
 
 僕がWEBアプリケーションを作る時、認証周りをどう実装するか毎回悩むのですが、JWT認証が非常に実装しやすかったのでハンズオン形式で紹介していきます。
 
 ##Go言語
-<img src="../../img/qiita-740445d21487dfcb5d9f-2.png" width=20%>
+<img src="img/qiita-740445d21487dfcb5d9f-2.png" width=20%>
 
 サーバーサイドは Go言語でいきます。Googleが開発したプログラミング言語です。フロントエンド畑で育った僕が、なぜサーバーサイドにGo言語を選ぶかというと、主に下記の理由
 
@@ -65,7 +65,7 @@ func main() {
     r := mux.NewRouter()
     // localhost:8080/publicでpublicハンドラーを実行
 	r.Handle("/public", public)
-    
+
     //サーバー起動
 	if err := http.ListenAndServe(":8080", r); err != nil {
 		log.Fatal("ListenAndServe:", nil)
@@ -238,7 +238,7 @@ JWTが返ってきました。エンコードされていますが、先ほど�
 https://jwt.io/
 
 
-<img width="1134" alt="スクリーンショット 2018-06-06 00.39.03.png" src="../../img/qiita-740445d21487dfcb5d9f-3.png">
+<img width="1134" alt="スクリーンショット 2018-06-06 00.39.03.png" src="img/qiita-740445d21487dfcb5d9f-3.png">
 
 先ほどheaderやclaimsに込めた情報を確認できます。
 このトークンを使って```/private```が叩けます。AuthorizationヘッダにBearerスキームを設定して送信してサーバ側で検証します。

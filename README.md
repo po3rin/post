@@ -8,7 +8,7 @@ this repository manages my texh blog post.
 
 post contents table is here.
 
-github.com/po3rin/post/blob/master/CONTENTS.md
+https://github.com/po3rin/post/blob/master/CONTENTS.md
 
 ## Write new post
 

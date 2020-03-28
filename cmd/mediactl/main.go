@@ -48,7 +48,11 @@ func (w *Walker) Walk(path string, info os.FileInfo, err error) error {
 		return errors.Wrap(err, "read old file")
 	}
 
-	new := bytes.ReplaceAll(b, []byte(path), []byte(res))
+	imgrtr := filepath.Join("img", filepath.Base(path))
+	fmt.Println("----------------------")
+	fmt.Printf("%v\n↓\n%v\n", imgrtr, res)
+
+	new := bytes.ReplaceAll(b, []byte(imgrtr), []byte(res))
 
 	f, err := os.Create(w.mdpath)
 	if err != nil {
@@ -59,9 +63,6 @@ func (w *Walker) Walk(path string, info os.FileInfo, err error) error {
 	if err != nil {
 		return errors.Wrap(err, "write new body")
 	}
-
-	fmt.Println("----------------------")
-	fmt.Printf("%v\n↓\n%v\n", path, res)
 
 	// err = os.Remove()
 	// if err != nil {
@@ -83,6 +84,7 @@ func main() {
 	s := store.New(*bucketName, *id)
 	w := NewWalker(s, postdir)
 
+	fmt.Printf("target is %v\n", postdir)
 	err := filepath.Walk(imgpath, w.Walk)
 	if err != nil {
 		fmt.Println(err)

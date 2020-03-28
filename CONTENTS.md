@@ -76,7 +76,3 @@
 
 [VueCLIからVue.js入門①【VueCLIで出てくるファイルを概要図で理解】](https://github.com/po3rin/post/tree/master/posts/2018/1518912000/post.md)
 
-[LTするならCarbon使ってコードをオシャレに見せようぜ！](https://github.com/po3rin/post/tree/master/posts/2018/1517961600/post.md)
-
-[DockerでPython3.6の環境構築！matplotlibインストールで詰まった話とかも](https://github.com/po3rin/post/tree/master/posts/2018/1517788800/post.md)
-

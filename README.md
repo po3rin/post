@@ -2,15 +2,21 @@
 
 ![Go Status](https://github.com/po3rin/post/workflows/Go%20Status/badge.svg) ![Contents Status](https://github.com/po3rin/post/workflows/Contents%20Status/badge.svg)
 
-this repository manages my texh blog post.
+This repository manages my texh blog post.
 
-## Post List
+## :pencil: Post List
 
 post contents table is here.
 
 https://github.com/po3rin/post/blob/master/CONTENTS.md
 
-## Write new post
+## :triangular_flag_on_post: Contributing
+
+Did you find something technically wrong, something to fix, or something? Please give me Pull Request !! :star:
+
+## :triangular_ruler: Usage
+
+#### Write new post
 
 creates new Markdown file for blog.
 
@@ -23,9 +29,9 @@ $ newpost
 $ make new
 ```
 
-## Create contents table
+#### Sync contents table
 
-creates contens table of post
+sync contens table of post
 
 ```bash
 # if you already installed go

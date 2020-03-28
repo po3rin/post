@@ -4,8 +4,6 @@
 
 ## EPUB とは
 
-<img src="https://qiita-image-store.s3.amazonaws.com/0/186028/25975f57-705e-f5e3-2e15-a3a278ed9c8e.jpeg" width="200px" />
-
 電子書籍フォーマットの一種です。 多くのデバイスの間でも汎用性高く、ここ数年段々普及しているフォーマットです。EPUB については　「EPUB 3とは何か？」 という本が オライリーから無料でダウンロードできます。https://www.oreilly.co.jp/books/9784873115528/
 
 ## Python で EPUB の中から必要なデータを所得する。

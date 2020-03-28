@@ -47,8 +47,6 @@ FirebaseはMBaas(mobile backend as a service)と呼ばれるものの一種で�
 
 ### JWT
 
-<img src="https://qiita-image-store.s3.amazonaws.com/0/186028/b3fe9aef-86d7-55a6-0b2b-f45abc8dcb80.jpeg" width=40%>
-
 JWT(Json Web Token)と書いてジョットと読むらしい。このトークンを使ってクライアント＆サーバー間で認証できる。
 特徴としては、
 

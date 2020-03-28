@@ -1,9 +1,5 @@
 # Docker に正式統合された BuildKit の buildctl コマンドで Dockerfileを使わずにコンテナイメージをビルドするハンズオン
 
-
-
-<img src="https://qiita-image-store.s3.amazonaws.com/0/186028/d435af89-1d50-a437-7e85-e902a0138622.jpeg" width="50%">
-
 こんにちはpo3rinです。日本語解説があまりなかったので buildctlコマンドをセットアップを行い、 docker build を使わずに コンテナイメージをビルドする過程を紹介します。OS は Mac OSX を想定してます。
 
 ## BuildKitとは

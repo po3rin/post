@@ -1,8 +1,5 @@
 # Buildkit の Goのコードを読んで Dockerfile 抽象構文木から LLB を生成するフローを覗いてみよう！！
 
-
-<img src="https://qiita-image-store.s3.amazonaws.com/0/186028/778f9945-64c7-dc9f-852b-3d35a8551a83.jpeg" width="300">
-
 こんにちはpo3rinです。最近趣味でmoby project の buildkit の実装をぼーっと眺めてます。
 
 前回の記事で Dockerfile の parser を使い、Dockerfie の抽象構文木の構造を確認しました。https://qiita.com/po3rin/items/a3934f47b5e390acfdfd

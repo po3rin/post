@@ -1,8 +1,5 @@
 # VueCLIからVue.js入門 ②【トグル機能作成からVue.jsの基本的な機能を掴む】
 
-![vue.001.jpeg](https://qiita-image-store.s3.amazonaws.com/0/186028/4b893102-4c43-5ee9-0ed1-04090f136375.jpeg)
-
-
 前回：[VueCLIからVue.js入門①【VueCLIで出てくるファイルを概要図で理解】 - Qiita](https://qiita.com/po3rin/items/3968f825f3c86f9c4e21)
 
 さて前回Vueアプリケーションの雛形が出来ました。今回はトグル機能作成を通してVue.jsの基本的な機能をつかみます。こういう入門は基本Todoとか作るんですけど、今回はVue.jsの機能だけに集中したいので、実装は簡単だけどVue.jsの基本に触れるトグルをチョイスしました。
@@ -42,7 +39,7 @@ h1, h2 {
 さて、上のコードをベースにここからVue.jsの機能に焦点を当てながらトグルを作っていきます。
 今回解説するのは下記。
 
-![vue.010.jpeg](https://qiita-image-store.s3.amazonaws.com/0/186028/7ed1f425-4860-01c5-12b1-2453a69d32d5.jpeg)
+![vue.010.jpeg](../../img/7ed1f425-4860-01c5-12b1-2453a69d32d5.jpeg)
 
 # 条件付きレンダリングで遊ぶ
 

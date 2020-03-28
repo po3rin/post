@@ -5,7 +5,7 @@
 
 ## Sudachi とは
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/186028/a7378513-f8e8-2bd0-7cc0-b9c420347ae1.png" width="120px">
+<img src="../../img/a7378513-f8e8-2bd0-7cc0-b9c420347ae1.png" width="120px">
 
 Sudachi は日本語形態素解析器です。株式会社ワークスアプリケーションズ下の機関であるワークス徳島人工知能NLP研究所が開発しています。複数の分割単位をサポートしているなどの特徴があります。
 ドキュメントはこちら
@@ -28,7 +28,7 @@ https://github.com/WorksApplications/Sudachi/#sudachi-%E6%97%A5%E6%9C%AC%E8%AA%9
 ```
 
 サンプルのリポジトリはこちらになります。
-<a href="https://github.com/po3rin/sudachi-elasticsearch-sample"><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/186028/820c6338-c29e-f8e3-218a-eb63ca6aa7d3.png" width="460px"></a>
+<a href="https://github.com/po3rin/sudachi-elasticsearch-sample"><img src="../../img/820c6338-c29e-f8e3-218a-eb63ca6aa7d3.png" width="460px"></a>
 
 
 
@@ -273,7 +273,7 @@ POST sample-index/_analyze
 
 Kibana上ではこんな感じになります。
 
-<img width="700" alt="スクリーンショット 2019-10-18 18.46.20.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/186028/f09804fc-e926-62a4-fa3f-1b74c5bae5e4.png">
+<img width="700" alt="スクリーンショット 2019-10-18 18.46.20.png" src="../../img/f09804fc-e926-62a4-fa3f-1b74c5bae5e4.png">
 
 
 ```settings_path``` で指定している ```sudachi.json``` を見て使う辞書をtokenizerが理解してくれます。

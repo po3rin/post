@@ -7,18 +7,18 @@
 (PCブラウザだけ対応してます)
 
 <p align="center">
-    <img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/186028/85e53a57-f870-8556-5189-5f4acd98bfa8.gif" width="80%">
+    <img src="../../img/85e53a57-f870-8556-5189-5f4acd98bfa8.gif" width="80%">
 </p>
 
 今回はこれをどのように作ったのかの共有とハマった点を紹介します。リポジトリはこちら！！
 
-<a href="https://github.com/po3rin/dockerdot"><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/186028/526159db-9aa3-2990-4060-9cd00e85f648.png" width="460px"></a>
+<a href="https://github.com/po3rin/dockerdot"><img src="../../img/526159db-9aa3-2990-4060-9cd00e85f648.png" width="460px"></a>
 
 ## どのように作ったか
 
 全体像はこちらになります。
 
-<img width="800" alt="all.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/186028/e6132b74-c237-5fdb-90a6-059048e82fd0.png">
+<img width="800" alt="all.png" src="../../img/e6132b74-c237-5fdb-90a6-059048e82fd0.png">
 
 
 内部では Dockerfile から LLB(プロセスの依存関係グラフを定義するために使用されるバイナリ中間言語)を取得して、それをdot言語(データ記述言語)に変換しています。今回はその処理を Go + WebAssembly で書いています。WebAssemblyの基本的な使い方に関してはこちらをご覧ください！Hello Worldから解説してくれます！https://github.com/golang/go/wiki/WebAssembly
@@ -56,7 +56,7 @@ showGraph = (dot) => {
 
 BuildKitは内部で```http://golang.org/x/sys/unix```を使っていたので、最初、wasmのビルドに失敗しました。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/186028/591de5b9-a5d4-859e-c8e6-870d021d1042.png" width="740px">
+<img src="../../img/591de5b9-a5d4-859e-c8e6-870d021d1042.png" width="740px">
 
 Twitterでボヤいていたところ、wasmの鬼の @__syuumai さんとGoの鬼の @tenntenn さんにアドバイスいただきました。wasmをビルドするときは```GOOS=js GOARCH=wasm```なのでビルドタグでビルド対象から外されてしますようです。
 

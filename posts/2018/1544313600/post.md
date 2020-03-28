@@ -29,7 +29,7 @@ https://rowanwins.github.io/vue-dropzone/docs/dist/#/installation
 
 下のように Vue.js + Go言語で画像をアップロードを作ってみます。
 
-<img width="512" alt="v-g.png" src="https://qiita-image-store.s3.amazonaws.com/0/186028/5b492d1b-87bc-d535-867a-a4224cd44255.gif">
+<img width="512" alt="v-g.png" src="../../img/5b492d1b-87bc-d535-867a-a4224cd44255.gif">
 
 当然削除やリスト機能も付けます。
 
@@ -333,7 +333,7 @@ func (c *Context) SaveUploadedFile(file *multipart.FileHeader, dst string) error
 
 これだけで画像アップロードを受けれます。Vue.js で作ったクライアントから画像をアップロードしてみましょう。
 
-<img width="512" alt="v-g.png" src="https://qiita-image-store.s3.amazonaws.com/0/186028/b97d35a5-9500-0097-6734-817b5b133278.gif">
+<img width="512" alt="v-g.png" src="../../img/b97d35a5-9500-0097-6734-817b5b133278.gif">
 動きました!
 
 ## ファイルの名前の重複防ぐ
@@ -665,7 +665,7 @@ func List(c *gin.Context) {
 
 アップロード、削除、ページ更新してもアップロードした画像が確認できるのを確認しましょう。
 
-![m3.gif](https://qiita-image-store.s3.amazonaws.com/0/186028/c750560b-8f59-56e6-16fb-9bdac681087c.gif)
+![m3.gif](../../img/c750560b-8f59-56e6-16fb-9bdac681087c.gif)
 
 動いてます！！！
 

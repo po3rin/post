@@ -11,11 +11,11 @@
 
 作ったツールはこちら
 
-<a href="https://github.com/po3rin/gofmtmd"><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/186028/bd634c96-922c-ff10-8abd-6fbce73283ea.png" width="480px"></a>
+<a href="https://github.com/po3rin/gofmtmd"><img src="../../img/bd634c96-922c-ff10-8abd-6fbce73283ea.png" width="480px"></a>
 
 Markdown に埋め込まれた Go のソースコードに gofmt をかけてくれるツールです。例えば下記のようにGoのコードブロックを検知してその中身だけにgofmtがかかります。
 
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/186028/021749ae-73c2-faeb-e6d4-cb0b79923d8f.png" width="640px">
+<img src="../../img/021749ae-73c2-faeb-e6d4-cb0b79923d8f.png" width="640px">
 
 もちろんQiitaのようなMarkdownをサポートしているブログサービスだけでなく、```README.md``` を書く時なんかも便利かもしれません。
 
@@ -41,7 +41,7 @@ $ gofmtmd testdata/testdata.md -w formatted.md
 
 内部の実装を紹介します。主に使ったのはGo製の Markdown Parser である ```gopkg.in/russross/blackfriday.v2``` を使いました。
 
-<a href="https://github.com/russross/blackfriday"><img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/186028/818ff7a7-5724-21bf-db8e-06880c331ec9.png" width="460px"/></a>
+<a href="https://github.com/russross/blackfriday"><img src="../../img/818ff7a7-5724-21bf-db8e-06880c331ec9.png" width="460px"/></a>
 
 これを使ってMarkdownのバイト列をASTに変換しています。
 

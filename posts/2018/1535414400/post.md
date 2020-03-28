@@ -10,15 +10,9 @@ https://github.com/sendgrid/sendgrid-go
 
 <img src="../../img/qiita-cdfcec906b2819b67eba-1.png" width="240px"/>
 
-クラウドベースのmail送信サービス。メールサーバーの運用はめんどいので、それを全部お任せできる。WEB API とか SMTP APIで機能を組み込めるので実装も超簡単。通数上限も 12,000 通/月 なので軽いお問い合わせ程度のものなら毎月無料でも余裕で使えそう！
+クラウドベースのmail送信サービス。メールサーバーの運用はめんどいので、それを全部お任せできる。WEB API とか SMTP APIで機能を組み込めるので実装も超簡単。通数上限も 12,000 通/月 なので軽いお問い合わせ程度のものなら毎月無料でも余裕で使えそう！今回はお問い合わせを受けるAPIサーバーを作ります。POSTで受け取ったデータを自分にメール送信します。
 
 https://sendgrid.kke.co.jp/
-
-## 今回実装するもの
-
-<img src="https://qiita-image-store.s3.amazonaws.com/0/186028/b96eba3f-5f25-40fe-4b94-98f9c835fc84.jpeg" width="820px"/>
-
-お問い合わせを受けるAPIサーバーを作ります。POSTで受け取ったデータを自分にメール送信します。
 
 ## SendGrid の APIキーを所得する
 

@@ -109,7 +109,7 @@ movq    "".x+32(SP), CX
 ちなみにGoコンパイラが吐き出すアセンブリは```Compiler Explorer```というサービスで簡単に確認できて便利です。
 
 [Compiler Explorer](https://go.godbolt.org/z/IWw4hk)
-<img src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/186028/e2f279ed-b7db-28c3-acbb-210d6472c05e.png" wifth="70%">
+<img src="../../img/e2f279ed-b7db-28c3-acbb-210d6472c05e.png" wifth="70%">
 
 
 ## -raceを使ってるのに競合が起きる理由

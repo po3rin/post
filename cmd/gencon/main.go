@@ -57,7 +57,7 @@ func (c *Contents) Walk(path string, info os.FileInfo, err error) error {
 		return errors.Wrap(err, "mdcon: get title")
 	}
 
-	url := filepath.Join(c.prefix, path)
+	url := c.prefix + "/" + path
 	year := strings.Split(path, "/")[1] // must */<< year >>/*
 	c.Posts = append(c.Posts, Post{title, url, year})
 

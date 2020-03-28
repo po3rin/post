@@ -21,8 +21,11 @@ jobs:
     - name: check contents table
       run: |
         env
+        ls
         go build -o gencon ./cmd/gencon/main.go
-        gencon -prefix "https://github.com/po3rin/post/blob/master" -difflint
+        go install ./...
+        ls
+        $GOROOT/bin/gencon -prefix "https://github.com/po3rin/post/blob/master" -difflint
 
   test:
     name: Test

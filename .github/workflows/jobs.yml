@@ -20,6 +20,7 @@ jobs:
 
     - name: check contents table
       run: |
+        env
         go install ./...
         gencon -prefix "https://github.com/po3rin/post/blob/master" -difflint
 

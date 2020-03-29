@@ -16,28 +16,26 @@ Did you find something technically wrong, something to fix, or something? Please
 
 ## :triangular_ruler: Usage
 
+this repository provides ```postctl``` cli
+
+```bash
+go get -u github.com/po3rin/post/cmd/postctl
+```
+
 #### Write new post
 
 creates new Markdown file for blog.
 
 ```bash
-# if you already installed go
-$ go get -u github.com/po3rin/post/cmd/newpost
-
-$ newpost
-# or
-$ make new
+$ postctl new
 ```
 
 #### Manage media
 
-mediactl upload media to S3 and replace S3 object url from loacl retrive path to media.
+postctl media subcommand uploads media to S3 and replace S3 object url from loacl retrive path to media.
 
 ```bash
-# if you already installed go
-$ go get -u github.com/po3rin/post/cmd/mediactl
-
-$ go run cmd/mediactl/main.go -bucket < bucket name> -id < post id (year/unixtime) >
+$ postctl -b < bucket name> -i < post id (year/unixtime) >
 target is posts/<year>/<unixtime>
 ----------------------
 img/test.jpeg
@@ -51,10 +49,5 @@ https://< bucket name >.s3.ap-northeast-1.amazonaws.com/year/unixtime/test.jpeg
 sync contens table of post
 
 ```bash
-# if you already installed go
-$ go get -u github.com/po3rin/post/cmd/gencon
-
-$ gencon
-# or
-$ make contents
+$ postctl contents -p "https://github.com/po3rin/post/tree/master"
 ```

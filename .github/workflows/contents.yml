@@ -20,5 +20,5 @@ jobs:
 
     - name: check contents table
       run: |
-        go build -o gencon ./cmd/gencon/main.go
-        ./gencon -prefix "https://github.com/po3rin/post/tree/master" -difflint
+        go build -o postctl ./cmd/postctl/main.go
+        ./postctl contents -p "https://github.com/po3rin/post/tree/master" -l

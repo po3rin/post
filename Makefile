@@ -4,5 +4,5 @@ new:
 contents:
 	postctl contents -p "https://github.com/po3rin/post/tree/master"
 
-difflint:
+lint:
 	postctl contents -p "https://github.com/po3rin/post/tree/master" -l

@@ -5,7 +5,7 @@
 This repository manages my texh blog post.
 * generates Markdown file.
 * creates tech blog contents.
-* stores posts to datastore (Now supports only S3 )
+* stores posts to datastore (Now supports only S3)
 
 ## :star: All posts  is here.
 https://github.com/po3rin/post/blob/master/CONTENTS.md

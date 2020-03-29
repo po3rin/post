@@ -1,6 +1,6 @@
 # 「Vue.js + Go言語 + Docker」で作る！画像アップロード機能実装ハンズオン
 
-<img width="812" alt="cover.png" src="img/qiita-c70105f684e6816621d2-1.png">
+<img width="812" alt="cover.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1544313600/qiita-c70105f684e6816621d2-1.png">
 
 こんにちはpo3rinです。Vue.js Advent Calender 2018 9日目の記事です。
 8日目の記事は [vue.js(nuxt.js) の plugin はとても便利](https://qiita.com/waterada/items/9ae9d977a543bda1214f) でした。
@@ -12,11 +12,11 @@
 Go言語の実装を飛ばしたい方は、下記のリポジトリから server ディレクトリをローカルに置いておけば大丈夫です。
 
 今回の実装の Github リポジトリはこちら！
- <a href="https://github.com/po3rin/vue-go-image-uploader"><img width="460px" src="img/qiita-c70105f684e6816621d2-2.png" /></a>
+ <a href="https://github.com/po3rin/vue-go-image-uploader"><img width="460px" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1544313600/qiita-c70105f684e6816621d2-2.png" /></a>
 
 ## vue2-dropzone の概要
 
-![dropzone-js-logo.png](img/qiita-c70105f684e6816621d2-3.png)
+![dropzone-js-logo.png](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1544313600/qiita-c70105f684e6816621d2-3.png)
 
 Dropzone.js を使用したファイルアップロード用のVueコンポーネントです。Vue.jsに特化されており、めちゃくちゃ便利です。今回はこの ```vue2-dropzone``` の機能を数多く使うので、こちらのドキュメントを参照しながらの実装をお勧めします。
 https://rowanwins.github.io/vue-dropzone/docs/dist/#/installation
@@ -25,11 +25,11 @@ https://rowanwins.github.io/vue-dropzone/docs/dist/#/installation
 
 構成は単純です。Dockerコンテナで Vue.js でクライアント、Go言語でAPIサーバーを実装します。
 
-<img width="512" alt="v-g.png" src="img/qiita-c70105f684e6816621d2-4.png">
+<img width="512" alt="v-g.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1544313600/qiita-c70105f684e6816621d2-4.png">
 
 下のように Vue.js + Go言語で画像をアップロードを作ってみます。
 
-<img width="512" alt="v-g.png" src="img/5b492d1b-87bc-d535-867a-a4224cd44255.gif">
+<img width="512" alt="v-g.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1544313600/5b492d1b-87bc-d535-867a-a4224cd44255.gif">
 
 当然削除やリスト機能も付けます。
 
@@ -235,7 +235,7 @@ export default {
 
 ```<vue-dropzone>``` コンポーネントは ```:option``` で設定を渡せます。今回は ```dropzoneOptions``` には アップロード対象となるサーバーのエンドポイント ```url``` や アップロード時に使うメソッド ```method``` をセッティングしています。すでにファイルをアップロードできるフォームが出来ています。
 
-<img width="512" alt="v-g.png" src="img/qiita-c70105f684e6816621d2-5.png">
+<img width="512" alt="v-g.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1544313600/qiita-c70105f684e6816621d2-5.png">
 
 この他に option に設定できるもののリストはこちらになります。
 https://www.dropzonejs.com/#configuration-options
@@ -333,7 +333,7 @@ func (c *Context) SaveUploadedFile(file *multipart.FileHeader, dst string) error
 
 これだけで画像アップロードを受けれます。Vue.js で作ったクライアントから画像をアップロードしてみましょう。
 
-<img width="512" alt="v-g.png" src="img/b97d35a5-9500-0097-6734-817b5b133278.gif">
+<img width="512" alt="v-g.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1544313600/b97d35a5-9500-0097-6734-817b5b133278.gif">
 動きました!
 
 ## ファイルの名前の重複防ぐ
@@ -433,7 +433,7 @@ export default {
 
 これで ホバーしたら削除ボタンが表示されます。
 
-<img width="512" alt="vue-image2.png" src="img/qiita-c70105f684e6816621d2-6.png">
+<img width="512" alt="vue-image2.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1544313600/qiita-c70105f684e6816621d2-6.png">
 
 削除ボタンを押すと、form から画像が消えます。しかし、画面上から消えるだけで、サーバーにアップロードした画像は消えていません。削除ボタンを推すと同時にサーバーの画像を削除するリクエストを送れるようにしましょう。
 
@@ -442,7 +442,7 @@ export default {
 ```vue:HelloWorld.vue 
 <template>
   <div class="hello">
-<img width="772" alt="vue-image2.png" src="img/qiita-c70105f684e6816621d2-7.png">
+<img width="772" alt="vue-image2.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1544313600/qiita-c70105f684e6816621d2-7.png">
 
     <!-- removeEventを追加 -->
     <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"
@@ -665,7 +665,7 @@ func List(c *gin.Context) {
 
 アップロード、削除、ページ更新してもアップロードした画像が確認できるのを確認しましょう。
 
-![m3.gif](img/c750560b-8f59-56e6-16fb-9bdac681087c.gif)
+![m3.gif](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1544313600/c750560b-8f59-56e6-16fb-9bdac681087c.gif)
 
 動いてます！！！
 

@@ -33,13 +33,13 @@ h1, h2 {
 
 こんな感じになってる。
 
-<img width="678" alt="スクリーンショット 2018-02-19 23.59.36.png" src="img/qiita-15e1972ef5165b3725bf-1.png">
+<img width="678" alt="スクリーンショット 2018-02-19 23.59.36.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1519084800/qiita-15e1972ef5165b3725bf-1.png">
 
 
 さて、上のコードをベースにここからVue.jsの機能に焦点を当てながらトグルを作っていきます。
 今回解説するのは下記。
 
-![vue.010.jpeg](img/7ed1f425-4860-01c5-12b1-2453a69d32d5.jpeg)
+![vue.010.jpeg](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1519084800/7ed1f425-4860-01c5-12b1-2453a69d32d5.jpeg)
 
 # 条件付きレンダリングで遊ぶ
 
@@ -83,7 +83,7 @@ export default {
 </script>
 ```
 
-<img width="621" alt="スクリーンショット 2018-02-20 00.10.36.png" src="img/qiita-15e1972ef5165b3725bf-2.png">
+<img width="621" alt="スクリーンショット 2018-02-20 00.10.36.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1519084800/qiita-15e1972ef5165b3725bf-2.png">
 
 'Test data'の文が入りました。dataの中で```<template>```内に渡したい値を定義して、{{　}}の中に入れて使います。dataでreturnしている値はデータバインディングされている為、データの値がjs等で書き換わったら自動的に画面の表示も変わります。便利なんです。もうjQueryの```.text()```とかいらない子です。
 
@@ -170,10 +170,10 @@ methodsオブジェクトの中に実行したい関数をガシガシ定義し�
 さて、上のコードを確認するとこんなかんじ
 
 ### showText = false
-<img width="532" alt="スクリーンショット 2018-02-20 00.51.04.png" src="img/qiita-15e1972ef5165b3725bf-3.png">
+<img width="532" alt="スクリーンショット 2018-02-20 00.51.04.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1519084800/qiita-15e1972ef5165b3725bf-3.png">
 
 ### showText = true
-<img width="540" alt="スクリーンショット 2018-02-20 00.51.11.png" src="img/qiita-15e1972ef5165b3725bf-4.png">
+<img width="540" alt="スクリーンショット 2018-02-20 00.51.11.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1519084800/qiita-15e1972ef5165b3725bf-4.png">
 
 
 これで簡単なトグルが実装できました。簡単な実装でしたが、Vue.jsの機能の大雑把な入門ができました。dataの値をデータバインディングしている為、jQueryでDOM操作する必要がなくなります。これがVue.jsの力です。時間があればv-modelディレクティブや v-forディレクティブあたりを抑えておけばいい感じです。

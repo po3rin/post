@@ -64,10 +64,11 @@ func (w *Walker) Walk(path string, info os.FileInfo, err error) error {
 		return errors.Wrap(err, "write new body")
 	}
 
-	// err = os.Remove()
-	// if err != nil {
-	// 	return "", errors.Wrap(err, "delete file")
-	// }
+	// delete local media file.
+	err = os.Remove(path)
+	if err != nil {
+		return errors.Wrap(err, "delete file")
+	}
 
 	return nil
 }

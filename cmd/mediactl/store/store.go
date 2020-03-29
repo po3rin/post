@@ -47,6 +47,7 @@ func (s *Store) Upload(path string) (string, error) {
 		Key:         aws.String(uploadpath),
 		Body:        file,
 		ContentType: aws.String(t),
+		ACL:         aws.String("public-read"),
 	})
 	if err != nil {
 		return "", errors.Wrap(err, "upload media")

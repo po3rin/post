@@ -212,7 +212,7 @@ func main() {
 
 全体像は下記のようになります。
 
-<img width="689" alt="node.png" src="img/qiita-a3934f47b5e390acfdfd-1.png">
+<img width="689" alt="node.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1551744000/qiita-a3934f47b5e390acfdfd-1.png">
 
 
 1行の中でもtokenごとにNodeに分けられます。一番上のNodeがルートNodeと呼ばれます。ルートNode自身はValueを持たずChildren Nodeの一覧を保持します。こう見るとルートNodeのChildrenの数はイメージのレイヤ数と基本的に一致します。Next Nodeは同じ行の中の次のtokenのNodeです。Flagsは ```--from=builder```などのDockerfile上で使われるFlagか格納されます。StartLineとendlineは文字通り、そのノードのDockerfileにおける行数です。Originalは解析前に使用された元の行を格納しています。

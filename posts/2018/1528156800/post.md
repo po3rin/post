@@ -1,6 +1,6 @@
 # GolangとGoogle Cloud Vision APIで画像から文字認識するCLIを速攻でつくる
 
-![go-vapi.png](img/qiita-bf439424e38757c1e69b-1.png)
+![go-vapi.png](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1528156800/qiita-bf439424e38757c1e69b-1.png)
 
 普段、機械学習やらAIやらに縁のない僕ですが、WEBエンジニアとしては、現状のAPIがどこまで出来るのか知っておきたいと思い、Google Cloud Vision APIを試してみたので共有します。使う言語はGo言語です。画像のパスを指定するだけの超シンプルなCLIを作ります。
 

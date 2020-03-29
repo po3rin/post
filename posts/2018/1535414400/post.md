@@ -8,7 +8,7 @@ https://github.com/sendgrid/sendgrid-go
 
 ## SendGrid とは
 
-<img src="img/qiita-cdfcec906b2819b67eba-1.png" width="240px"/>
+<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1535414400/qiita-cdfcec906b2819b67eba-1.png" width="240px"/>
 
 クラウドベースのmail送信サービス。メールサーバーの運用はめんどいので、それを全部お任せできる。WEB API とか SMTP APIで機能を組み込めるので実装も超簡単。通数上限も 12,000 通/月 なので軽いお問い合わせ程度のものなら毎月無料でも余裕で使えそう！今回はお問い合わせを受けるAPIサーバーを作ります。POSTで受け取ったデータを自分にメール送信します。
 
@@ -152,7 +152,7 @@ example@email.com の部分は任意のメールアドレスに書き換えて�
 mailが来ているか確認してみましょう。僕はGmialで受け取りました。
 
 
-<img width="374" alt="スクリーンショット 2018-08-28 17.20.40.png" src="img/qiita-cdfcec906b2819b67eba-2.png">
+<img width="374" alt="スクリーンショット 2018-08-28 17.20.40.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1535414400/qiita-cdfcec906b2819b67eba-2.png">
 
 良いですね。これでお問い合わせをフロントエンドからPOSTで受け取って、そのままメールで受け取ることができるAPIができました。
 SendGridはいろんな使い方ができるので、今後もいろいろ試していきます。

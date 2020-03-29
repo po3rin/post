@@ -129,7 +129,7 @@ $ go run examples/buildkit0/buildkit.go | buildctl debug dump-llb | jq '.'
 
 ## LLB とは
 
-<img src="img/qiita-deb798ed9c1edac5cc4b-1.png" width="480px">
+<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1552348800/qiita-deb798ed9c1edac5cc4b-1.png" width="480px">
 
 BuildKitは、LLB というプロセスの依存関係グラフを定義するために使用されるバイナリ中間言語を利用して。イメージをビルドしています。
 
@@ -137,7 +137,7 @@ BuildKitは、LLB というプロセスの依存関係グラフを定義する�
 
 Dockerfileのビルドを例に見てみましょう。DockerfileをASTに変換した後、ASTからstageごとに解析した構造を生成し、そこからLLBに変換します。
 
-<img src="img/qiita-deb798ed9c1edac5cc4b-2.png" width="300px"></img>
+<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1552348800/qiita-deb798ed9c1edac5cc4b-2.png" width="300px"></img>
 
 LLBを使うことのメリットは並列実行以外にも、効率的にキャッシュが実現できたり、ベンダーに依存しない（つまり、Dockerfile以外の言語を簡単に実装できる）ということが挙げられます。
 

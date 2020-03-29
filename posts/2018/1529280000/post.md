@@ -1,7 +1,7 @@
 # 「Vue.js + Go言語 + Firebase 」で始める! Frontend & Backend API 両方で認証するセキュアなSPA開発ハンズオン!
 
 
-<img width="855" alt="スクリーンショット 2018-06-18 17.52.34.png" src="img/qiita-d3e016d01162e9d9de80-1.png">
+<img width="855" alt="スクリーンショット 2018-06-18 17.52.34.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1529280000/qiita-d3e016d01162e9d9de80-1.png">
 
 
 こんにちは。僕です。最近は Vue.js で SPA、Go言語で APIサーバーを実装しています。ここで意識するのはフロントエンドとバックエンドの分離です。分離させたい理由は二つ。
@@ -12,7 +12,7 @@
 しかし、これをやろうとすると認証どうするの問題が付いてきます。APIサーバ、フロントの両方をセキュアにしようとするとそれだけで時間取られます。そこで使うのが認証基盤である Firebase Authentication です。これを使うと爆速で認証が作れます。そう、爆速です。Vue.js + Firebase の 解説記事はめちゃくちゃありますが、そこで返ってくるJWT を使ったAPIサーバーでの認証はあまり記事になかったので、今回はそこも含めたセキュアなWEBアプリケーションの実装をハンズオン形式で紹介します。タイトル通り、フロントエンドは Vue.js、バックエンドは Go言語、認証基盤として Firebase を使います。
 
 御託はいいからコード見せろという方はこちらへどうぞ
- <a href="https://github.com/po3rin/vue-golang-fireauth"><img width="460px" src="img/qiita-d3e016d01162e9d9de80-2.png"/></a>
+ <a href="https://github.com/po3rin/vue-golang-fireauth"><img width="460px" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1529280000/qiita-d3e016d01162e9d9de80-2.png"/></a>
 
 (こちらの画像は僕がVue.js+Goで作ったサービスで運用されています。https://ghlinkcard.com/)
 
@@ -20,7 +20,7 @@
 
 ### Vue.js
 
-<img src="img/qiita-d3e016d01162e9d9de80-3.png" width=20%>
+<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1529280000/qiita-d3e016d01162e9d9de80-3.png" width=20%>
 
 Vue.jsは現在、非常に人気のあるJavaScriptフレームワークです。GitHubでのstarはjQuery、Reactを抑え、現在最も注目されているJSフレームワークです。導入のし易さや、軽量感、学習コストが少ないことを売りにしている。
 
@@ -29,7 +29,7 @@ Vue.jsの入門記事を前に作ったので、初めて触る人はこちら�
 
 ### Go言語
 
-<img src="img/qiita-d3e016d01162e9d9de80-4.png" width=20%>
+<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1529280000/qiita-d3e016d01162e9d9de80-4.png" width=20%>
 
 フロントエンド畑で育った僕が、なぜサーバーサイドにGo言語を選ぶかというと、主に以下の理由
 
@@ -41,7 +41,7 @@ Vue.jsの入門記事を前に作ったので、初めて触る人はこちら�
 
 ### Firebase
 
-<img src="img/qiita-d3e016d01162e9d9de80-5.png" width=16%>
+<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1529280000/qiita-d3e016d01162e9d9de80-5.png" width=16%>
 
 FirebaseはMBaas(mobile backend as a service)と呼ばれるものの一種で，オンラインでサインアップするだけでサーバのセットアップやメンテナンスに煩わされることなく使い始めることができ，リアルタイム同期型データベースやユーザ認証等の様々な機能が使えます。趣味で開発する規模であればだいたい無料で使えます。
 
@@ -72,7 +72,7 @@ JWTをGo言語で解説した記事を前に作ったので、JWTの解説につ
 
 サインアップはフロント側で行います。サインアップしたアカウントでサインインすると Firebase から JWT が返却されます。このJWTを使ってAPIサーバーにアクセスします。図にすると下記のような形になります。
 
-<img width="859" alt="スクリーンショット 2018-06-18 18.00.38.png" src="img/qiita-d3e016d01162e9d9de80-6.png">
+<img width="859" alt="スクリーンショット 2018-06-18 18.00.38.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1529280000/qiita-d3e016d01162e9d9de80-6.png">
 
 
 ## Vue.jsでSPAを作る
@@ -182,7 +182,7 @@ button {
 
 下のようになります
 
-<img width="790" alt="スクリーンショット 2018-06-19 18.11.14.png" src="img/qiita-d3e016d01162e9d9de80-7.png">
+<img width="790" alt="スクリーンショット 2018-06-19 18.11.14.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1529280000/qiita-d3e016d01162e9d9de80-7.png">
 
 今はAPIを叩くボタンを押しても、まだAPIサーバーを作ってないのでブラウザのconsole上でエラーが出るはずです。
 
@@ -250,7 +250,7 @@ button {
 
 下のようになっているはず。Signupページへ遷移するリンクはつけていないので　`localhost:8080/#/signup`のようなURLでブラウザから直接見てみましょう。（※後ほど説明するルーティングを記述後にアクセスしないとアクセスできません）
 
-<img width="739" alt="スクリーンショット 2018-06-19 18.05.05.png" src="img/qiita-d3e016d01162e9d9de80-8.png">
+<img width="739" alt="スクリーンショット 2018-06-19 18.05.05.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1529280000/qiita-d3e016d01162e9d9de80-8.png">
 
 
 まだサインアップはできません。後程つけていきます。
@@ -317,7 +317,7 @@ button {
 
 そしてこうなります。`localhost:8080/#/signin`のようなURLでブラウザから直接見てみましょう。（※後ほど説明するルーティングを記述後にアクセスしないとアクセスできません）
 
-<img width="792" alt="スクリーンショット 2018-06-19 18.04.40.png" src="img/qiita-d3e016d01162e9d9de80-9.png">
+<img width="792" alt="スクリーンショット 2018-06-19 18.04.40.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1529280000/qiita-d3e016d01162e9d9de80-9.png">
 
 実際に動くサインイン機能は後程実装します。
 
@@ -362,7 +362,7 @@ export default new Router({
 
 ## Vue.jsから叩くAPIサーバーをGo言語で実装する
 
-<img width="815" alt="スクリーンショット 2018-06-18 18.44.12.png" src="img/qiita-d3e016d01162e9d9de80-10.png">
+<img width="815" alt="スクリーンショット 2018-06-18 18.44.12.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1529280000/qiita-d3e016d01162e9d9de80-10.png">
 
 ### 簡易なHTTPサーバー実装
 
@@ -442,7 +442,7 @@ func main() {
 
 ## Firebase Authentication を使って認証機能を追加する
 
-<img width="887" alt="スクリーンショット 2018-06-18 18.45.55.png" src="img/qiita-d3e016d01162e9d9de80-11.png">
+<img width="887" alt="スクリーンショット 2018-06-18 18.45.55.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1529280000/qiita-d3e016d01162e9d9de80-11.png">
 
 では本題の認証をつけていきましょう。まずは上の形を目指します。
 
@@ -708,7 +708,7 @@ firebase.auth().onAuthStateChanged(user => {
 
 ## APIサーバーをJWT認証でセキュアにする
 
-<img width="859" alt="スクリーンショット 2018-06-18 18.00.38.png" src="img/qiita-d3e016d01162e9d9de80-12.png">
+<img width="859" alt="スクリーンショット 2018-06-18 18.00.38.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2018/1529280000/qiita-d3e016d01162e9d9de80-12.png">
 
 
 いよいよ最終段階。最初に見せた上のような形まで持って行きます。

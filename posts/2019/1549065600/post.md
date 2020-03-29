@@ -1,6 +1,6 @@
 # みんなにOSSを見てもらいたい人の為に、GitHubリポジトリのOGP的画像を自動生成してくれるサービスを作った
 
-<img width="792" alt="スクリーンショット 2019-02-02 16.37.48.png" src="img/qiita-eac851304cf058c532af-1.png">
+<img width="792" alt="スクリーンショット 2019-02-02 16.37.48.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-1.png">
 
 こんにちはpo3rinです。GitHub リポジトリのOGP的画像を自動生成してくれるサービスを土日に作ったので紹介します。今まで Qiita等にリポジトリのURLを貼るだけで、クリックされずにスルーされがちだったリポジトリを救うサービスです。
 
@@ -12,7 +12,7 @@
 
 何ができるか。。見てもらった方が早いでしょう。こんなのが作れます。
 
-<a href="https://github.com/po3rin/github_link_creator"><img src="img/qiita-eac851304cf058c532af-2.png" width="400px"/></a>
+<a href="https://github.com/po3rin/github_link_creator"><img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-2.png" width="400px"/></a>
 
 かっこよいい！
 
@@ -24,7 +24,7 @@
 
 実は CLI としても機能を提供しています。インストールは下記のリポジトリのreleaseからbinaryをダウンロードしてください。
 
-<a href="https://github.com/po3rin/github_link_creator"><img src="img/qiita-eac851304cf058c532af-3.png" width="400px"/></a>
+<a href="https://github.com/po3rin/github_link_creator"><img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-3.png" width="400px"/></a>
 
 もし Go言語の環境があるなら下記コマンドでいけます。
 
@@ -53,11 +53,11 @@ repoimg -n po3rin/github_link_creator -o example.png
 
 Go言語では下記のような画像処理を行なっています。
 
-<img width="822" alt="スクリーンショット 2019-02-02 16.26.17.png" src="img/qiita-eac851304cf058c532af-4.png">
+<img width="822" alt="スクリーンショット 2019-02-02 16.26.17.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-4.png">
 
 一番苦労したのはプロフィール画像の丸抜きです。image/draw パッケージで作れるのですが、Go言語で画像を丸抜きする為には少なくとも3つのimageを準備する必要がありました。
 
-<img width="759" alt="スクリーンショット 2019-02-02 16.29.04.png" src="img/qiita-eac851304cf058c532af-5.png">
+<img width="759" alt="スクリーンショット 2019-02-02 16.29.04.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-5.png">
 
 ```go
 draw.DrawMask(dst, dst.Bounds(), src, image.ZP, mask, image.ZP, draw.Over)
@@ -65,7 +65,7 @@ draw.DrawMask(dst, dst.Bounds(), src, image.ZP, mask, image.ZP, draw.Over)
 
 上を使うと丸抜きできますが dst や mask の準備で結構コードが長くなるので、簡略化できるようにしたいと考え、画像をいい感じに丸抜きしてくれるパッケージを作りました。
 
-<a href="https://github.com/po3rin/img2circle"><img src="img/qiita-eac851304cf058c532af-6.png" width="400px"/></a>
+<a href="https://github.com/po3rin/img2circle"><img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-6.png" width="400px"/></a>
 
 これを使えばこうです！実質二行で丸抜き終了です。
 
@@ -101,7 +101,7 @@ func main(){
 
 AWS fargete に deploy しています。CircleCIによる CI/CD もやってます。簡略化して見るとこんな感じ
 
-<img width="993" alt="スクリーンショット 2019-02-02 17.42.28.png" src="img/qiita-eac851304cf058c532af-7.png">
+<img width="993" alt="スクリーンショット 2019-02-02 17.42.28.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-7.png">
 
 初めてFargate使いました。僕は Parametor store に GitHub の ClientID や ClientSecret を保存しています。上の図にはありませんがKMSでデータの暗号化をしています。
 
@@ -119,5 +119,5 @@ https://devblog.thebase.in/entry/2019/01/16
 
 そして、まだ中のコードがボロボロなので少しづつ改良していきます。もちろん皆様のPRもお待ちしています！
 
-<a href="https://github.com/po3rin/github_link_creator"><img src="img/qiita-eac851304cf058c532af-8.png" width="400px"/></a>
+<a href="https://github.com/po3rin/github_link_creator"><img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-8.png" width="400px"/></a>
 

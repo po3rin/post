@@ -24,7 +24,7 @@ array([2, 3, 0])
 
 今回は最もシンプルな Linear Scan アルゴリズムで実装します。やることは[０~weightの合計値]の間でランダムに基準となる値を選び、基準からweightを順に引いていき、０以下になったらそれが選択されます。
 
-<img width="500" alt="スクリーンショット 2019-08-19 17.41.42.png" src="img/8ee51ac1-0368-0b9b-43ff-1d112763b3af.png">
+<img width="500" alt="スクリーンショット 2019-08-19 17.41.42.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1566172800/8ee51ac1-0368-0b9b-43ff-1d112763b3af.png">
 
 
 早速実装していきます。下記はvの中からwの確率分布に従って1つだけ値を取得する関数です。

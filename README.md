@@ -35,7 +35,7 @@ $ postctl new
 postctl media subcommand uploads media to S3 and replace S3 object url from loacl retrive path to media.
 
 ```bash
-$ postctl -b < bucket name> -i < post id (year/unixtime) >
+$ postctl media -b < bucket name> -i < post id (year/unixtime) >
 target is posts/<year>/<unixtime>
 ----------------------
 img/test.jpeg

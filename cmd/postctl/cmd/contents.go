@@ -16,7 +16,6 @@ limitations under the License.
 package cmd
 
 import (
-	"bufio"
 	"bytes"
 	"fmt"
 	"io"
@@ -191,28 +190,4 @@ func (c *Contents) Write(w io.Writer) error {
 	}
 
 	return nil
-}
-
-func mdTitle(path string) (string, error) {
-	f, err := os.Open(path)
-	if err != nil {
-		return "", errors.Wrap(err, "mdcon: file open")
-	}
-	defer f.Close()
-
-	var title string
-	scanner := bufio.NewScanner(f)
-	for scanner.Scan() {
-		title = scanner.Text()
-		if !strings.HasPrefix(title, "# ") {
-			return "", fmt.Errorf("invalid title format in %s", path)
-		}
-		title = strings.ReplaceAll(title, "# ", "")
-		break // first line only // TODO: parse markdown.
-	}
-
-	if err = scanner.Err(); err != nil {
-		return "", errors.Wrap(err, "mdcon: get first line")
-	}
-	return title, nil
 }

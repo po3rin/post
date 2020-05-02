@@ -57,11 +57,11 @@ $ postctl contents -p "https://github.com/po3rin/post/tree/master"
 sync all posts
 
 ```bash
-$ postctl sync -u http://localhost:8080/post -a
+$ postctl sync -u http://localhost:8081/post -a
 ```
 
 specify id
 
 ```bash
-$ postctl sync -u http://localhost:8080/post <unixtime_id>
+$ postctl sync -u http://localhost:8081/post <unixtime_id>
 ```

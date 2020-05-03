@@ -24,6 +24,9 @@ func TestMdMeta(t *testing.T) {
 				date:        date,
 				id:          "dsds",
 				description: "Go is a programming language that makes it easy to build simple",
+				tags: []string{
+					"golang", "markdown",
+				},
 			},
 		},
 	}

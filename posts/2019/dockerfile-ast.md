@@ -4,6 +4,10 @@ cover: img/gopher.png
 date: 2019/03/05
 id: dockerfile-ast
 description: Dockerfile の抽象構文木ってどうなっているんだろうと思い調べてみました。
+tags:
+    - Go
+    - Docker
+    - BuildKit
 ---
 
 こんにちはpo3rinです。Dockerfile の抽象構文木(以降 AST と呼ぶ)ってどうなっているんだろうと思い調べてみました。

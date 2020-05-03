@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"reflect"
 	"time"
 
 	"github.com/pkg/errors"
@@ -39,6 +40,7 @@ type metaData struct {
 	cover       string
 	description string
 	date        time.Time
+	tags        []string
 }
 
 func mdMeta(md []byte) (metaData, error) {
@@ -80,6 +82,14 @@ func mdMeta(md []byte) (metaData, error) {
 	if err != nil {
 		return metaData{}, errors.New("unsupported format ( required format 2006/01/02 )")
 	}
+	tags, ok := m["tags"]
+	if !ok {
+		return metaData{}, errors.New("no tag")
+	}
+	tagsSlice, err := interface2Slice(tags)
+	if err != nil {
+		return metaData{}, errors.Wrap(err, "could not assert tags interface to slice")
+	}
 
 	return metaData{
 		id:          fmt.Sprintf("%v", id),
@@ -87,5 +97,20 @@ func mdMeta(md []byte) (metaData, error) {
 		description: fmt.Sprintf("%v", description),
 		cover:       fmt.Sprintf("%v", cover),
 		date:        t,
+		tags:        tagsSlice,
 	}, nil
+}
+
+func interface2Slice(slice interface{}) ([]string, error) {
+	s := reflect.ValueOf(slice)
+	if s.Kind() != reflect.Slice {
+		return nil, errors.New("is not slice")
+	}
+
+	ret := make([]string, s.Len())
+	for i := 0; i < s.Len(); i++ {
+		ret[i] = fmt.Sprintf("%v", s.Index(i))
+	}
+
+	return ret, nil
 }

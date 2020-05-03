@@ -4,6 +4,9 @@ cover: img/gopher.png
 date: 2019/12/21
 id: rust-avh
 description: 類似画像検知には様々な方法がありますが、今回は基礎的なアルゴリズムである Average Hash を使った類似画像判定をRustの実装を使って紹介します。
+tags:
+    - Rust
+    - Image
 ---
 
 ## Average Hash とは

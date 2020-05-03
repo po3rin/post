@@ -4,6 +4,9 @@ cover: img/gopher.png
 date: 2019/12/12
 id: go-rabin-karp
 description: strings.Index 関数の内部実装と Rabin–Karp アルゴリズムが面白かったので解説します。Go初心者のGoソースコードリーディング入門としても良いサイズなので是非！
+tags:
+    - Go
+    - Algorism
 ---
 
 本記事は[Go Advent Calendar 2019](https://qiita.com/advent-calendar/2019/go)の12日目の記事です。前回の記事は [Go の命名規則](https://micnncim.com/post/2019/12/11/go-naming-conventions/) でした。

@@ -4,6 +4,8 @@ cover: img/gopher.png
 date: 2019/11/12
 id: gofmtmd
 description: Markdown に埋め込まれた Go のソースコードに gofmt をかけてくれるツールを作ったので、ツールの紹介と作り方を記事にしました。
+tags:
+    - Go
 ---
 
 こんにちは pon です。みなさんアドベントカレンダーは参加しますか？僕も今年は Go や Rust、Elasticsearch のアドベントカレンダーに参加する予定です。

@@ -4,6 +4,8 @@ cover: img/gopher.png
 date: 2019/05/29
 id: go-deprecated
 description: 今回の記事は僕のような初心者向けですが、Goのパッケージを開発して公開している方達は特に必見です。
+tags:
+    - Go
 ---
 
 ## Deprecated(非推奨)を利用者に伝える

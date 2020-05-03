@@ -4,6 +4,8 @@ cover: img/gopher.png
 date: 2019/06/11
 id: exp-backoff
 description: 通信先サーバーに過度の負荷をかけないようにするためのリトライ手法「Exponential Backoff」の実装方法をGoを使って説明します。
+tags:
+    - Go
 ---
 
 ## Exponential Backoff とは

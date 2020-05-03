@@ -4,6 +4,10 @@ cover: img/gopher.png
 date: 2019/03/18
 id: deep-dive-llb
 description: BuildKit は LLB というプロセスの依存関係グラフを定義するために使用されるバイナリ中間言語を利用して。イメージをビルドしています。今回はその仕様を探ります。
+tags:
+    - Go
+    - Docker
+    - BuildKit
 ---
 
 こんにちは。po3rin です。今回は前回の記事で解説し損ねた「そもそものLLBの中身はどうなってんねん」というところを解説します。

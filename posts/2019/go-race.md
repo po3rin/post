@@ -4,6 +4,8 @@ cover: img/gopher.png
 date: 2019/09/27
 id: go-race
 description: -race をつけてCIを通しているのにAPIがデータ競合で落ちてしまいました。調べていたら -race がそもそも何をしているかに行き着いたので簡単に共有します。
+tags:
+    - Go
 ---
 
 ## -race とは

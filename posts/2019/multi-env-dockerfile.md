@@ -4,6 +4,9 @@ cover: img/gopher.png
 date: 2019/05/11
 id: multi-env-dockerfile
 description: Dockerfile1つでGoの開発環境(ホットリロード)と本番環境(マルチステージビルド)を記述する方法を紹介します。
+tags:
+    - Go
+    - Docker
 ---
 
 こんにちは。po3rinです。今回は[Docker Meetup Tokyo #29 (Docker Bday #6)](https://dockerjp.connpass.com/event/122084/)で少し話題になった小ネタです。タイトル通りDockerfile1つでGoの開発環境(ホットリロード)と本番環境(マルチステージビルド)を記述する方法を紹介します。今回は「この方法をおすすめします！」というよりかは「こういう方法もあるよー」という紹介なので、開発の状況に合わせて方法を選んでいくと良いでしょう。

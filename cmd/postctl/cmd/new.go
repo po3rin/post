@@ -81,6 +81,9 @@ cover: img/gopher.png
 date: %+v
 id: %s
 description: Go is a programming language
+tags:
+    - golang
+    - markdown
 ---
 
 ## Overview

@@ -4,6 +4,9 @@ cover: img/gopher.png
 date: 2019/10/18
 id: es-sudachi
 description: 今回は Elasticsearch + Sudachi でユーザー辞書を使う Dockerfile を作ったので作り方を共有します。 Elasticsearchのバージョンは現行の最新(v7.4.0)ですがv6.8あたりでも動くことを確認済みです。
+tags:
+    - Elasticsearch
+    - Docker
 ---
 
 ## Sudachi とは

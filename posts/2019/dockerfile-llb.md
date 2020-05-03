@@ -4,6 +4,10 @@ cover: img/gopher.png
 date: 2019/03/10
 id: dockerfile-llb
 description: Dockerfile の AST がどのように LLB に変換されているかを大雑把に探ったので記事にしました。
+tags:
+    - Go
+    - Docker
+    - BuildKit
 ---
 
 # Buildkit の Goのコードを読んで Dockerfile 抽象構文木から LLB を生成するフローを覗いてみよう！！

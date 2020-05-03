@@ -4,6 +4,10 @@ cover: img/gopher.png
 date: 2019/03/12
 id: buildkit-handson
 description: BuildKit を使って docker build を使わずに コンテナイメージをビルドする過程を紹介します。
+tags:
+    - Go
+    - Docker
+    - BuildKit
 ---
 
 こんにちはpo3rinです。日本語解説があまりなかったので buildctlコマンドをセットアップを行い、 docker build を使わずに コンテナイメージをビルドする過程を紹介します。OS は Mac OSX を想定してます。

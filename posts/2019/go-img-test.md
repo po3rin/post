@@ -4,6 +4,9 @@ cover: img/gopher.png
 date: 2019/12/01
 id: go-img-test
 description: 僕はよくGoで画像処理をやるのですが、実は画像のテストに関してネットにあまり情報がありません(というかほぼない)。そこで、僕が他の画像処理パッケージのコードリーディングをしてまとめた画像処理テストの実装パターンを紹介します。
+tags:
+    - Go
+    - Image
 ---
 
 この記事は [Go2 Advent Calendar 2019](https://qiita.com/advent-calendar/2019/go2)の1日目の記事です。

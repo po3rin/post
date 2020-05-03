@@ -4,6 +4,9 @@ cover: img/gopher.png
 date: 2019/08/19
 id: go-wrs
 description: Goで 「Weighted Random Selection」 をしたくなる時があります。しかし、Goでは Pythonの ```numpy```のように便利な関数が提供されていないので自分で作るしかありません。今回は Go で 「Weighted Random Selection」 の実装方法を紹介します。
+tags:
+    - Go
+    - Algorism
 ---
 
 ## Weighted Random Selection とは

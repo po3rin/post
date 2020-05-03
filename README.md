@@ -52,7 +52,7 @@ sync contens table of post
 $ postctl contents -p "https://github.com/po3rin/post/tree/master"
 ```
 
-<!-- #### Sync Posts with External Database
+#### Sync Posts with External Database
 
 sync all posts
 
@@ -63,5 +63,5 @@ $ postctl sync -u http://localhost:8081/post -a
 specify id
 
 ```bash
-$ postctl sync -u http://localhost:8081/post <unixtime_id>
-``` -->
+$ postctl sync -u http://localhost:8081/post filepath
+```

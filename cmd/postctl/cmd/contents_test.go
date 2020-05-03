@@ -64,17 +64,3 @@ func TestWrite(t *testing.T) {
 		})
 	}
 }
-
-func TestMdTitle(t *testing.T) {
-	testmd := "testdata/test.md"
-	want := "How to test package"
-
-	title, err := mdTitle(testmd)
-	if err != nil {
-		t.Fatalf("unexpected error: %v", err)
-	}
-
-	if want != title {
-		t.Fatalf("want:\n%v\ngot:\n%v\n", want, title)
-	}
-}

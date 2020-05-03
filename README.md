@@ -27,7 +27,7 @@ go get -u github.com/po3rin/post/cmd/postctl
 creates new Markdown file for blog.
 
 ```bash
-$ postctl new
+$ postctl new < id >
 ```
 
 #### Manage media
@@ -35,12 +35,12 @@ $ postctl new
 postctl media subcommand uploads media to S3 and replace S3 object url from loacl retrive path to media.
 
 ```bash
-$ postctl media -b < bucket name> -i < post id (year/unixtime) >
-target is posts/<year>/<unixtime>
+$ postctl media -b < bucket name>  < image file path>
+
 ----------------------
 img/test.jpeg
 ↓
-https://< bucket name >.s3.ap-northeast-1.amazonaws.com/year/unixtime/test.jpeg
+https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/test.jpeg
 ----------------------
 ```
 
@@ -52,7 +52,7 @@ sync contens table of post
 $ postctl contents -p "https://github.com/po3rin/post/tree/master"
 ```
 
-#### Sync Posts with External Database
+<!-- #### Sync Posts with External Database
 
 sync all posts
 
@@ -64,4 +64,4 @@ specify id
 
 ```bash
 $ postctl sync -u http://localhost:8081/post <unixtime_id>
-```
+``` -->

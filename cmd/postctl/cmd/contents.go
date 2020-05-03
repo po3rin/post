@@ -152,14 +152,19 @@ func (c *Contents) Walk(path string, info os.FileInfo, err error) error {
 		return nil
 	}
 
-	title, err := mdTitle(path)
+	md, err := ioutil.ReadFile(path)
 	if err != nil {
-		return errors.Wrap(err, "mdcon: get title")
+		return errors.Wrap(err, "contents: get title")
+	}
+
+	meta, err := mdMeta(md)
+	if err != nil {
+		return errors.Wrap(err, "contentws: get title")
 	}
 
 	url := c.prefix + "/" + path
 	year := strings.Split(path, "/")[1] // must */<< year >>/*
-	c.Posts = append(c.Posts, Post{title, url, year})
+	c.Posts = append(c.Posts, Post{meta.title, url, year})
 
 	return nil
 }
@@ -167,7 +172,7 @@ func (c *Contents) Walk(path string, info os.FileInfo, err error) error {
 func (c *Contents) Write(w io.Writer) error {
 	_, err := w.Write([]byte("# Blog post\n\n"))
 	if err != nil {
-		return errors.Wrap(err, "mdcon: write header")
+		return errors.Wrap(err, "contents: write header")
 	}
 
 	posts := c.Posts
@@ -178,14 +183,14 @@ func (c *Contents) Write(w io.Writer) error {
 		if tmpYear != p.year {
 			_, err = w.Write([]byte(fmt.Sprintf("## %s\n\n", p.year)))
 			if err != nil {
-				return errors.Wrap(err, "mdcon: write header")
+				return errors.Wrap(err, "contents: write header")
 			}
 			tmpYear = p.year
 		}
 
 		_, err = w.Write([]byte(fmt.Sprintf("[%s](%s)\n\n", p.title, p.url)))
 		if err != nil {
-			return errors.Wrap(err, "mdcon: write header")
+			return errors.Wrap(err, "contents: write header")
 		}
 	}
 

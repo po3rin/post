@@ -49,22 +49,15 @@ var newCmd = &cobra.Command{
 	Short: "generate new post file",
 	Long:  "generate new post file",
 	Run: func(cmd *cobra.Command, args []string) {
-		var t time.Time
-		if timef == "" {
-			t = time.Now()
-		} else {
-			layout := "2006-01-02"
-			var err error
-			t, err = time.Parse(layout, timef)
-			if err != nil {
-				fmt.Println(err)
-				os.Exit(1)
-			}
+		id := args[0]
+		if id == "" {
+			fmt.Println("id is required")
+			os.Exit(1)
 		}
 
+		t := time.Now()
 		year := strconv.Itoa(t.Year())
-		unix := strconv.FormatInt(t.Unix(), 10)
-		dirpath := filepath.Join(workdir, year, unix)
+		dirpath := filepath.Join(workdir, year)
 
 		err := createDir(dirpath)
 		if err != nil {
@@ -72,7 +65,7 @@ var newCmd = &cobra.Command{
 			os.Exit(1)
 		}
 
-		mdname := "post.md"
+		mdname := id + ".md"
 		p := filepath.Join(dirpath, mdname)
 
 		f, err := os.OpenFile(p, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0777)
@@ -81,7 +74,19 @@ var newCmd = &cobra.Command{
 			os.Exit(1)
 		}
 		defer f.Close()
-		_, err = f.Write([]byte("# new"))
+
+		template := fmt.Sprintf(`---
+title: Try Go
+cover: img/gopher.png
+date: %+v
+id: %s
+description: Go is a programming language
+---
+
+## Overview
+`, t.Format("2006/01/02"), id)
+
+		_, err = f.Write([]byte(template))
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)

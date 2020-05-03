@@ -1,13 +1,16 @@
 package cmd
 
 import (
-	"bufio"
+	"bytes"
 	"fmt"
 	"os"
 	"path/filepath"
-	"strings"
+	"time"
 
 	"github.com/pkg/errors"
+	"github.com/yuin/goldmark"
+	meta "github.com/yuin/goldmark-meta"
+	"github.com/yuin/goldmark/parser"
 )
 
 func createDir(dirpath string) error {
@@ -30,26 +33,59 @@ func isPostMdfile(path string) bool {
 	return true
 }
 
-func mdTitle(path string) (string, error) {
-	f, err := os.Open(path)
+type metaData struct {
+	id          string
+	title       string
+	cover       string
+	description string
+	date        time.Time
+}
+
+func mdMeta(md []byte) (metaData, error) {
+	markdown := goldmark.New(
+		goldmark.WithExtensions(
+			meta.Meta,
+		),
+	)
+
+	var buf bytes.Buffer
+	context := parser.NewContext()
+	if err := markdown.Convert(md, &buf, parser.WithContext(context)); err != nil {
+		return metaData{}, err
+	}
+
+	m := meta.Get(context)
+	id, ok := m["id"]
+	if !ok {
+		return metaData{}, errors.New("no id")
+	}
+	title, ok := m["title"]
+	if !ok {
+		return metaData{}, errors.New("no title")
+	}
+	cover, ok := m["cover"]
+	if !ok {
+		return metaData{}, errors.New("no cover")
+	}
+	description, ok := m["description"]
+	if !ok {
+		return metaData{}, errors.New("no description")
+	}
+	date, ok := m["date"]
+	if !ok {
+		return metaData{}, errors.New("no date")
+	}
+	layout := "2006/01/02"
+	t, err := time.Parse(layout, fmt.Sprintf("%v", date))
 	if err != nil {
-		return "", errors.Wrap(err, "mdcon: file open")
-	}
-	defer f.Close()
-
-	var title string
-	scanner := bufio.NewScanner(f)
-	for scanner.Scan() {
-		title = scanner.Text()
-		if !strings.HasPrefix(title, "# ") {
-			return "", fmt.Errorf("invalid title format in %s", path)
-		}
-		title = strings.ReplaceAll(title, "# ", "")
-		break // first line only // TODO: parse markdown.
+		return metaData{}, errors.New("unsupported format ( required format 2006/01/02 )")
 	}
 
-	if err = scanner.Err(); err != nil {
-		return "", errors.Wrap(err, "mdcon: get first line")
-	}
-	return title, nil
+	return metaData{
+		id:          fmt.Sprintf("%v", id),
+		title:       fmt.Sprintf("%v", title),
+		description: fmt.Sprintf("%v", description),
+		cover:       fmt.Sprintf("%v", cover),
+		date:        t,
+	}, nil
 }

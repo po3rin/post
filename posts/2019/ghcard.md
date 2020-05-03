@@ -3,7 +3,7 @@ title: みんなにOSSを見てもらいたい人の為に、GitHubリポジト�
 cover: img/gopher.png
 date: 2019/02/02
 id: ghcard
-description: GitHub リポジトリのOGP的画像を自動生成してくれるサービスを土日に作ったので紹介します。今まで Qiita等にリポジトリのURLを貼るだけで、クリックされずにスルーされがちだったリポジトリを救うサービスです。
+description: GitHub リポジトリのOGP的画像を自動生成してくれるサービスを Go + Vue.js + Fargate で作りました。
 tags:
     - Go
     - AWS
@@ -21,7 +21,7 @@ tags:
 
 何ができるか。。見てもらった方が早いでしょう。こんなのが作れます。
 
-<a href="https://github.com/po3rin/github_link_creator"><img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-2.png" width="400px"/></a>
+[![img1](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-2.png)](https://github.com/po3rin/github_link_creator)
 
 かっこよいい！
 

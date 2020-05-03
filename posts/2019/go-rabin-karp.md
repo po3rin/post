@@ -3,7 +3,7 @@ title: Go の strings.Index の内部実装と Rabin-Karp アルゴリズム
 cover: img/gopher.png
 date: 2019/12/12
 id: go-rabin-karp
-description: strings.Index 関数の内部実装と Rabin–Karp アルゴリズムが面白かったので解説します。Go初心者のGoソースコードリーディング入門としても良いサイズなので是非！
+description: strings.Index 関数の内部実装と Rabin–Karp アルゴリズムが面白かったので解説します。
 tags:
     - Go
     - Algorism

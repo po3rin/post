@@ -1,15 +1,14 @@
 ---
-title: Go + WebAssembly に入門して Dockerfile の依存グラフを図にしてくれるサービスを作ったので、知見とハマりポイントを共有します。
+title: Go + WebAssembly で Dockerfile の依存グラフを図にするサービスを作ったので、知見とハマりポイントを共有します。
 cover: img/gopher.png
 date: 2019/06/15
 id: web-assembly-dockerfile
-description: 「Go + WebAssembly + BuildKit」 で Dockerfile の依存グラフを図にしてくれる誰得サイトを作ったので紹介します。その名も「Dockerfile Dependency graph」！！！
+description: 「Go + WebAssembly + BuildKit」 で Dockerfile の依存グラフを図にしてくれる誰得サイトを作ったので紹介します
 tags:
     - Go
     - WebAssembly
     - Docker
     - BuildKit
-    - JavaScript
 ---
 
 こんにちはpo3rinです。 「Go + WebAssembly + BuildKit」 で Dockerfile の依存グラフを図にしてくれる誰得サイトを作ったので紹介します。その名も「Dockerfile Dependency graph」！！！

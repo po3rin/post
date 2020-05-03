@@ -3,7 +3,7 @@ title: Elasticsearch + Sudachi + Docker でユーザー辞書を作ってみる�
 cover: img/gopher.png
 date: 2019/10/18
 id: es-sudachi
-description: 今回は Elasticsearch + Sudachi でユーザー辞書を使う Dockerfile を作ったので作り方を共有します。 Elasticsearchのバージョンは現行の最新(v7.4.0)ですがv6.8あたりでも動くことを確認済みです。
+description: 今回は Elasticsearch + Sudachi でユーザー辞書を使う Dockerfile を作ったので作り方を共有します。
 tags:
     - Elasticsearch
     - Docker
@@ -15,7 +15,8 @@ tags:
 
 Sudachi は日本語形態素解析器です。株式会社ワークスアプリケーションズ下の機関であるワークス徳島人工知能NLP研究所が開発しています。複数の分割単位をサポートしているなどの特徴があります。
 ドキュメントはこちら
-https://github.com/WorksApplications/Sudachi/#sudachi-%E6%97%A5%E6%9C%AC%E8%AA%9Ereadme
+
+[Sudachiドキュメント](https://github.com/WorksApplications/Sudachi/#sudachi-%E6%97%A5%E6%9C%AC%E8%AA%9Ereadme)
 
 
 ## 今回のハンズオンの最終構成
@@ -34,9 +35,8 @@ https://github.com/WorksApplications/Sudachi/#sudachi-%E6%97%A5%E6%9C%AC%E8%AA%9
 ```
 
 サンプルのリポジトリはこちらになります。
-<a href="https://github.com/po3rin/sudachi-elasticsearch-sample"><img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1571356800/820c6338-c29e-f8e3-218a-eb63ca6aa7d3.png" width="460px"></a>
 
-
+[![img1](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1571356800/820c6338-c29e-f8e3-218a-eb63ca6aa7d3.png)](https://github.com/po3rin/sudachi-elasticsearch-sample)
 
 ## custom_dict.txt
 
@@ -47,7 +47,7 @@ po3rin,4786,4786,5000,po3rin,名詞,固有名詞,一般,*,*,*,po3rin,po3rin,*,*,
 ```
 
 フォーマットに関してはドキュメントに全てまとまっているのでこちらを参照して下さい。
-https://github.com/WorksApplications/Sudachi/blob/develop/docs/user_dict.md
+[https://github.com/WorksApplications/Sudachi/blob/develop/docs/user_dict.md](https://github.com/WorksApplications/Sudachi/blob/develop/docs/user_dict.md)
 
 もちろん、こんなwordは辞書にないので本来は下記のようにバラバラにtokenizeされてしまいます。
 

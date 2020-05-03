@@ -3,7 +3,7 @@ title: Go + Gonum を使った行列計算まとめ
 cover: img/gopher.png
 date: 2019/07/18
 id: gonum
-description: Goを愛する皆様におかれましてはビッグデータ解析やニューラルネットワークの実装をGoでやりたいですよね！！そうすると嫌が応にも行列の計算が発生します。そこで今回は Go での行列計算をまとめました。
+description: Gonum を使ったニューラルネットワークを実装した経験から Go での行列計算をまとめました。
 tags:
     - Go
 ---

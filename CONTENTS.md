@@ -2,7 +2,7 @@
 
 ## 2019
 
-[Go + WebAssembly に入門して Dockerfile の依存グラフを図にしてくれるサービスを作ったので、知見とハマりポイントを共有します。](https://github.com/po3rin/post/tree/master/posts/2019/web-assembly-dockerfile.md)
+[Go + WebAssembly で Dockerfile の依存グラフを図にするサービスを作ったので、知見とハマりポイントを共有します。](https://github.com/po3rin/post/tree/master/posts/2019/web-assembly-dockerfile.md)
 
 [Rust で実装する Average Hash を使った類似画像検索](https://github.com/po3rin/post/tree/master/posts/2019/rust-avh.md)
 

@@ -127,6 +127,7 @@ var syncCmd = &cobra.Command{
 				Title:       m.title,
 				Body:        string(source),
 				Description: m.description,
+				Cover:       m.cover,
 				Tags:        m.tags,
 				CreatedAt:   m.date,
 				UpdatedAt:   time.Now(),

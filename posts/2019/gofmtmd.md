@@ -1,6 +1,6 @@
 ---
 title: Markdown に埋め込まれた Go のソースコードに gofmt をかけてくれるツールを作った
-cover: img/gopher.png
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/ruler.jpeg
 date: 2019/11/12
 id: gofmtmd
 description: Markdown に埋め込まれた Go のソースコードに gofmt をかけてくれるツールを作ったので、ツールの紹介と作り方を記事にしました。
@@ -18,11 +18,11 @@ tags:
 
 作ったツールはこちら
 
-<a href="https://github.com/po3rin/gofmtmd"><img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1573516800/bd634c96-922c-ff10-8abd-6fbce73283ea.png" width="480px"></a>
+[![img1](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1573516800/bd634c96-922c-ff10-8abd-6fbce73283ea.png)](https://github.com/po3rin/gofmtmd)
 
 Markdown に埋め込まれた Go のソースコードに gofmt をかけてくれるツールです。例えば下記のようにGoのコードブロックを検知してその中身だけにgofmtがかかります。
 
-<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1573516800/021749ae-73c2-faeb-e6d4-cb0b79923d8f.png" width="640px">
+![img2](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1573516800/021749ae-73c2-faeb-e6d4-cb0b79923d8f.png)
 
 もちろんQiitaのようなMarkdownをサポートしているブログサービスだけでなく、```README.md``` を書く時なんかも便利かもしれません。
 
@@ -48,7 +48,7 @@ $ gofmtmd testdata/testdata.md -w formatted.md
 
 内部の実装を紹介します。主に使ったのはGo製の Markdown Parser である ```gopkg.in/russross/blackfriday.v2``` を使いました。
 
-<a href="https://github.com/russross/blackfriday"><img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1573516800/818ff7a7-5724-21bf-db8e-06880c331ec9.png" width="460px"/></a>
+[![img1](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1573516800/818ff7a7-5724-21bf-db8e-06880c331ec9.png)](https://github.com/russross/blackfriday)
 
 これを使ってMarkdownのバイト列をASTに変換しています。
 

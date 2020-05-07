@@ -1,33 +1,31 @@
 ---
-title: Go + WebAssembly で Dockerfile の依存グラフを図にするサービスを作ったので、知見とハマりポイントを共有します。
-cover: img/gopher.png
+title: Go + WebAssembly で Dockerfile の依存グラフを図にするサービスを作った
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/whale.jpeg
 date: 2019/06/15
 id: web-assembly-dockerfile
-description: 「Go + WebAssembly + BuildKit」 で Dockerfile の依存グラフを図にしてくれる誰得サイトを作ったので紹介します
+description: Go + WebAssembly + BuildKit で Dockerfile の依存グラフを図にしてくれるサイトを作ったので紹介します
 tags:
     - Go
     - WebAssembly
     - Docker
-    - BuildKit
 ---
 
 こんにちはpo3rinです。 「Go + WebAssembly + BuildKit」 で Dockerfile の依存グラフを図にしてくれる誰得サイトを作ったので紹介します。その名も「Dockerfile Dependency graph」！！！
 
-:whale: https://po3rin.github.io/dockerdot/ :whale:
+[https://po3rin.github.io/dockerdot/](https://po3rin.github.io/dockerdot/)
 (PCブラウザだけ対応してます)
 
-<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1560556800/85e53a57-f870-8556-5189-5f4acd98bfa8.gif" width="80%">
+![img1](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1560556800/85e53a57-f870-8556-5189-5f4acd98bfa8.gif)
 
 今回はこれをどのように作ったのかの共有とハマった点を紹介します。リポジトリはこちら！！
 
-<a href="https://github.com/po3rin/dockerdot"><img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1560556800/526159db-9aa3-2990-4060-9cd00e85f648.png" width="460px"></a>
+[![img2](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1560556800/526159db-9aa3-2990-4060-9cd00e85f648.png)](https://github.com/po3rin/dockerdot)
 
 ## どのように作ったか
 
 全体像はこちらになります。
 
-<img width="800" alt="all.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1560556800/e6132b74-c237-5fdb-90a6-059048e82fd0.png">
-
+![img3](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1560556800/e6132b74-c237-5fdb-90a6-059048e82fd0.png)
 
 内部では Dockerfile から LLB(プロセスの依存関係グラフを定義するために使用されるバイナリ中間言語)を取得して、それをdot言語(データ記述言語)に変換しています。今回はその処理を Go + WebAssembly で書いています。WebAssemblyの基本的な使い方に関してはこちらをご覧ください！Hello Worldから解説してくれます！https://github.com/golang/go/wiki/WebAssembly
 
@@ -64,12 +62,12 @@ showGraph = (dot) => {
 
 BuildKitは内部で```http://golang.org/x/sys/unix```を使っていたので、最初、wasmのビルドに失敗しました。
 
-<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1560556800/591de5b9-a5d4-859e-c8e6-870d021d1042.png" width="740px">
+![img4](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1560556800/591de5b9-a5d4-859e-c8e6-870d021d1042.png)
 
 Twitterでボヤいていたところ、wasmの鬼の @__syuumai さんとGoの鬼の @tenntenn さんにアドバイスいただきました。wasmをビルドするときは```GOOS=js GOARCH=wasm```なのでビルドタグでビルド対象から外されてしますようです。
 
 Twitterでの会話はこちら
-https://twitter.com/po3rin/status/1139568570239635456
+[https://twitter.com/po3rin/status/1139568570239635456](https://twitter.com/po3rin/status/1139568570239635456)
 
 よって今回は moby/buildkit の中からOSやアーキテクチャ固有の機能に依存している処理を使わないようにmoby/buildkitのコードから必要部分だけをmirrorして使っています。
 
@@ -117,14 +115,15 @@ func registerCallbacks() {
 だいたいここ読んでおけば良い
 
 go wiki: WebAssembly
-https://github.com/golang/go/wiki/WebAssembly
+[https://github.com/golang/go/wiki/WebAssembly](https://github.com/golang/go/wiki/WebAssembly)
+
 (公式による解説)
 
 Go 1.11: WebAssembly for the gophers
-https://medium.zenika.com/go-1-11-webassembly-for-the-gophers-ae4bb8b1ee03
+[https://medium.zenika.com/go-1-11-webassembly-for-the-gophers-ae4bb8b1ee03](https://medium.zenika.com/go-1-11-webassembly-for-the-gophers-ae4bb8b1ee03)
 (syscall/jsの解説が充実している)
 
 GoでWebAssemblyに触れよう
-https://golangtokyo.github.io/codelab/go-webassembly/?index=codelab#0
+[https://golangtokyo.github.io/codelab/go-webassembly/?index=codelab#0](https://golangtokyo.github.io/codelab/go-webassembly/?index=codelab#0)
 (ハンズオンとして最適)
 

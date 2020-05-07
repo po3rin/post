@@ -1,6 +1,6 @@
 ---
 title: Goによる画像処理テストパターンの考察とまとめ
-cover: img/gopher.png
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/camera.jpeg
 date: 2019/12/01
 id: go-img-test
 description: 僕が他の画像処理パッケージのコードリーディングをしてまとめた画像処理テストの実装パターンを紹介します。
@@ -234,7 +234,7 @@ go test -gen_golden_files ./...
 
 また、画像処理のテストにおけるgoldenfileはPNGであることが望まれます。JPEG自体がlossy(情報が欠落する)な非可逆(元に戻せない)圧縮方式なので、一度image.ImageをJPEGに変換してしまうと、元の画像に復元することはできないからです。
 
-<img width="650" alt="png.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1575158400/3b8e8eab-ff95-9fec-a7c8-7e37cc6f6989.png">
+![img1](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1575158400/3b8e8eab-ff95-9fec-a7c8-7e37cc6f6989.png)
 
 ## まとめ
 いろんな画像処理パッケージのテストをのぞいて、画像処理のテストのパターンをまとめました。意外にもたくさんのパターンがあって驚きました。僕がまだ考えついていないテスト実装パターンがあると思うので、もっと良いテスト方法があったらぜひ教えてください！

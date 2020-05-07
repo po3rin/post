@@ -1,6 +1,6 @@
 ---
 title: Go の strings.Index の内部実装と Rabin-Karp アルゴリズム
-cover: img/gopher.png
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/text.jpeg
 date: 2019/12/12
 id: go-rabin-karp
 description: strings.Index 関数の内部実装と Rabin–Karp アルゴリズムが面白かったので解説します。
@@ -270,5 +270,5 @@ Goでは最初の```substr```のhash値を計算する時に一緒に計算し�
 
 この記事書いてる間にコメントのミスに気づいたのでちゃっかりGoへのコントリビュートに成功しました。
 
-https://go-review.googlesource.com/c/go/+/210298
+[https://go-review.googlesource.com/c/go/+/210298](https://go-review.googlesource.com/c/go/+/210298)
 

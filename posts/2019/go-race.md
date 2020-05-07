@@ -1,6 +1,6 @@
 ---
 title: Go の -race option は内部で何をしているのか。何を検知しないのか。
-cover: img/gopher.png
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/watching.jpeg
 date: 2019/09/27
 id: go-race
 description: -race をつけてCIを通しているのにAPIがデータ競合で落ちてしまいました。調べていたら -race がそもそも何をしているかに行き着いたので簡単に共有します。
@@ -44,18 +44,18 @@ func main() {
 
 下記のように実行するとWarningを出します。
 
-```
+```bash
 $ go run -race main.go
 ```
 
 ## -race はそもそも何をしているのか
 
 内部では```C/C++```用の競合検出ライブラリが使われています。簡単に言うと、競合を実行時に検出するコードを出力することができるライブラリです。
-https://github.com/google/sanitizers/wiki/ThreadSanitizerCppManual
+[https://github.com/google/sanitizers/wiki/ThreadSanitizerCppManual](https://github.com/google/sanitizers/wiki/ThreadSanitizerCppManual)
 
 もちろん```Go```のコンパイラはこれをサポートしており、実際に```runtime/race```の```README.md```には```ThreadSanitizer```が使われていることが明記されています。
 
-https://github.com/golang/go/tree/master/src/runtime/race
+[https://github.com/golang/go/tree/master/src/runtime/race](https://github.com/golang/go/tree/master/src/runtime/race)
 
 > untime/race package contains the data race detector runtime library. It is based on ThreadSanitizer race detector, that is currently a part of the LLVM project (http://llvm.org/git/compiler-rt.git).
 
@@ -71,7 +71,7 @@ func Inc(x *int) {
 
 普通にビルドすると下記のようにコンパイルされます。
 
-```
+```bash
 ...
 
 pcdata  $2, $1
@@ -85,7 +85,7 @@ incq    (AX)
 
 ```-race``` をつけると下記のようにコンパイルされます。
 
-```
+```bash
 ...
 
 pcdata  $2, $1
@@ -121,7 +121,7 @@ movq    "".x+32(SP), CX
 -raceでは競合を検知するための命令を追加しているので、そこに到達しないと競合を検知しません。つまりテスト時に-raceをつけてPASSしたからと言って競合が発生しないとは言えません。
 
 Goのドキュメントにも明示されていました。
-https://golang.org/doc/articles/race_detector.html#How_To_Use
+[https://golang.org/doc/articles/race_detector.html#How_To_Use](https://golang.org/doc/articles/race_detector.html#How_To_Use)
 
 > To start, run your tests using the race detector (go test -race). The race detector only finds races that happen at runtime, so it can't find races in code paths that are not executed. If your tests have incomplete coverage, you may find more races by running a binary built with -race under a realistic workload.
 
@@ -130,5 +130,5 @@ https://golang.org/doc/articles/race_detector.html#How_To_Use
 ## Referece
 
 Golang race detection
-https://krakensystems.co/blog/2019/golang-race-detection
+[https://krakensystems.co/blog/2019/golang-race-detection](https://krakensystems.co/blog/2019/golang-race-detection)
 

@@ -1,6 +1,6 @@
 ---
 title: Buildkit の Goのコードを読んで Dockerfile 抽象構文木から LLB を生成するフローを覗いてみよう！！
-cover: img/gopher.png
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/white-con.jpeg
 date: 2019/03/10
 id: dockerfile-llb
 description: Dockerfile の AST がどのように LLB に変換されているかを大雑把に探ったので記事にしました。
@@ -14,17 +14,17 @@ tags:
 
 こんにちはpo3rinです。最近趣味でmoby project の buildkit の実装をぼーっと眺めてます。
 
-前回の記事で Dockerfile の parser を使い、Dockerfie の抽象構文木の構造を確認しました。https://qiita.com/po3rin/items/a3934f47b5e390acfdfd
+前回の記事で Dockerfile の parser を使い、Dockerfie の抽象構文木の構造を確認しました。[https://qiita.com/po3rin/items/a3934f47b5e390acfdfd](https://qiita.com/po3rin/items/a3934f47b5e390acfdfd)
 
 更に暇なので、Dockerfile の AST がどのように LLB に変換されているかを大雑把に探ったので記事にしました。執筆時 moby/buildkit のバージョンはv0.3.3です。
 
 ## LLBとは
 
-<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1552176000/qiita-f414660bd2a6173c587a-1.png" width="400px">
+![img1](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1552176000/qiita-f414660bd2a6173c587a-1.png)
 
 Docker 18.09から BuildKit が正式に統合され、Dockerfileのビルドをローレベルの中間ビルドフォーマット（LLB：Low-Level intermediate build format）を介して行われるようになりました。LLBはDAG構造(上の画像のような非循環な構造)を取ることにより、ステージごとの依存を解決し、並列実行可能な形で記述可能です。これにより、BuildKitを使ったdocker build は並列実行を可能にし、従来よりもビルドを高速化しています。
 
-参考：https://www.publickey1.jp/blog/18/docker_engine_1809buildkit9.html
+参考：[https://www.publickey1.jp/blog/18/docker_engine_1809buildkit9.html](https://www.publickey1.jp/blog/18/docker_engine_1809buildkit9.html)
 
 ## Parserがどこで使われているのか探す
 
@@ -312,8 +312,6 @@ func main() {
 
 ```dockerfile2llb.Dockerfile2LLB``` 関数が行なっていることを図にすると下記のようなフローになります。(ちょっとBuildable Stages から LLB までの詰めが甘いですが。。)
 
-<img width="260" alt="スクリーンショット 2019-03-10 17.43.05.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1552176000/qiita-f414660bd2a6173c587a-2.png">
-
+![img2](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1552176000/qiita-f414660bd2a6173c587a-2.png)
 
 Goは読みやすくていいですね。実は README.md の moby/buildkit の buildctl コマンドを使った example でもLLBの構造を簡単に確認できます。暇ならそちらの紹介も記事にします。
-

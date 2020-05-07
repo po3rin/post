@@ -1,6 +1,6 @@
 ---
-title: Goのパッケージ開発者が関数などのDeprecated(非推奨)を利用者に伝える & 利用者が検知する方法
-cover: img/gopher.png
+title: Goのパッケージ開発者がDeprecatedを利用者に伝える & 利用者が検知する方法
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/old.jpeg
 date: 2019/05/29
 id: go-deprecated
 description: 今回の記事は僕のような初心者向けですが、Goのパッケージを開発して公開している方達は特に必見です。

@@ -1,6 +1,6 @@
 ---
-title: Elasticsearch + Sudachi + Docker でユーザー辞書を作ってみるハンズオン
-cover: img/gopher.png
+title: Elasticsearch + Sudachi + Docker でユーザー辞書を作るハンズオン
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/sudachi.jpeg
 date: 2019/10/18
 id: es-sudachi
 description: 今回は Elasticsearch + Sudachi でユーザー辞書を使う Dockerfile を作ったので作り方を共有します。
@@ -10,8 +10,6 @@ tags:
 ---
 
 ## Sudachi とは
-
-<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1571356800/a7378513-f8e8-2bd0-7cc0-b9c420347ae1.png" width="120px">
 
 Sudachi は日本語形態素解析器です。株式会社ワークスアプリケーションズ下の機関であるワークス徳島人工知能NLP研究所が開発しています。複数の分割単位をサポートしているなどの特徴があります。
 ドキュメントはこちら
@@ -279,7 +277,7 @@ POST sample-index/_analyze
 
 Kibana上ではこんな感じになります。
 
-<img width="700" alt="スクリーンショット 2019-10-18 18.46.20.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1571356800/f09804fc-e926-62a4-fa3f-1b74c5bae5e4.png">
+![img2](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1571356800/f09804fc-e926-62a4-fa3f-1b74c5bae5e4.png)
 
 
 ```settings_path``` で指定している ```sudachi.json``` を見て使う辞書をtokenizerが理解してくれます。

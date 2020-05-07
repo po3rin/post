@@ -1,6 +1,6 @@
 ---
 title: Rust で実装する Average Hash を使った類似画像検索
-cover: img/gopher.png
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/sim.jpeg
 date: 2019/12/21
 id: rust-avh
 description: Average Hash を使った類似画像判定をRustの実装を使って紹介します。
@@ -13,13 +13,13 @@ tags:
 
 下記のような処理で画像をハッシュ化します。
 
-<img width="669" alt="explain.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1576886400/25eff2fc-10d0-8ef8-55c0-c9e2dae4f85e.png">
+![img1](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1576886400/25eff2fc-10d0-8ef8-55c0-c9e2dae4f85e.png)
 
 上記のように画像を0と1だけの一次元配列に変換できれば、あとは0と1が一致している数が多いほど似ていると判断します。かなりシンプルなアルゴリズムですが、それなりに精度が出ます。連写で撮影された画像の判定なんかでは十分な精度が出ます。
 
 下記の画像なんかは簡単に類似画像と判断できます。
 
-<img width="610" alt="similar.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1576886400/44fc49b5-b1dc-26a8-48a2-6f8770b6af18.png">
+![img2](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1576886400/44fc49b5-b1dc-26a8-48a2-6f8770b6af18.png)
 
 ## Rust で類似画像検索を実装する
 
@@ -177,7 +177,7 @@ fn main() {
 
 実行してみます。今回はテスト用に僕がとった画像を使ってみます。
 
-<img width="610" alt="similar.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1576886400/44fc49b5-b1dc-26a8-48a2-6f8770b6af18.png">
+![img3](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1576886400/44fc49b5-b1dc-26a8-48a2-6f8770b6af18.png)
 
 ```rust
 $ cargo run testdata/go1.jpg testdata/go2.jpg
@@ -190,7 +190,7 @@ similar image: true
 
 今回ご紹介した実装方法と同じ処理を Crate として公開しています。Crate版では Builder Pattern で関数や構造体などを使いやすくまとめています。CLI版もあるので是非試してみてください。
 
-<a href="https://github.com/po3rin/simimgrs"><img src="https://github-link-card.s3.ap-northeast-1.amazonaws.com/po3rin/simimgrs.png" width="460px"></a>
+[![img4](https://github-link-card.s3.ap-northeast-1.amazonaws.com/po3rin/simimgrs.png)](https://github.com/po3rin/simimgrs)
 
 ## まとめ
 

@@ -1,6 +1,6 @@
 ---
-title: Docker に正式統合された BuildKit の buildctl コマンドで Dockerfileを使わずにコンテナイメージをビルドするハンズオン
-cover: img/gopher.png
+title: Docker に統合された BuildKit の buildctl で Dockerfile を使わずにコンテナイメージをビルドするハンズオン
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/contaier.jpeg
 date: 2019/03/12
 id: buildkit-handson
 description: BuildKit を使って docker build を使わずに コンテナイメージをビルドする過程を紹介します。
@@ -65,7 +65,7 @@ jq-1.6
 
 ### buildctl の準備
 
-まずは buildctl コマンドをインストールしましょう。README.mdの方法だと、「このOSでは実行できない」と言われてしまったので、https://github.com/moby/buildkit/releases から直接OSにあうバイナリをダウンロードしてくるのをおすすめします。そして、バイナリをPATHの通っているディレクトリ(```/usr/local/bin```など)に配置すれば完了です。
+まずは buildctl コマンドをインストールしましょう。README.mdの方法だと、「このOSでは実行できない」と言われてしまったので、[https://github.com/moby/buildkit/releases](https://github.com/moby/buildkit/releases) から直接OSにあうバイナリをダウンロードしてくるのをおすすめします。そして、バイナリをPATHの通っているディレクトリ(```/usr/local/bin```など)に配置すれば完了です。
 
 ### buildkitd の準備
 
@@ -139,7 +139,7 @@ $ go run examples/buildkit0/buildkit.go | buildctl debug dump-llb | jq '.'
 
 ## LLB とは
 
-<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1552348800/qiita-deb798ed9c1edac5cc4b-1.png" width="480px">
+![img1](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1552348800/qiita-deb798ed9c1edac5cc4b-1.png)
 
 BuildKitは、LLB というプロセスの依存関係グラフを定義するために使用されるバイナリ中間言語を利用して。イメージをビルドしています。
 
@@ -147,7 +147,7 @@ BuildKitは、LLB というプロセスの依存関係グラフを定義する�
 
 Dockerfileのビルドを例に見てみましょう。DockerfileをASTに変換した後、ASTからstageごとに解析した構造を生成し、そこからLLBに変換します。
 
-<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1552348800/qiita-deb798ed9c1edac5cc4b-2.png" width="300px"></img>
+![img2](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1552348800/qiita-deb798ed9c1edac5cc4b-2.png)
 
 LLBを使うことのメリットは並列実行以外にも、効率的にキャッシュが実現できたり、ベンダーに依存しない（つまり、Dockerfile以外の言語を簡単に実装できる）ということが挙げられます。
 

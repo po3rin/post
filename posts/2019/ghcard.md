@@ -1,6 +1,6 @@
 ---
-title: みんなにOSSを見てもらいたい人の為に、GitHubリポジトリのOGP的画像を自動生成してくれるサービスを作った
-cover: img/gopher.png
+title: みんなにOSSを見てもらいたい人の為に、GitHubリポジトリのOGP的画像を生成するサービスを作った
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/card.jpeg
 date: 2019/02/02
 id: ghcard
 description: GitHub リポジトリのOGP的画像を自動生成してくれるサービスを Go + Vue.js + Fargate で作りました。
@@ -33,7 +33,7 @@ tags:
 
 実は CLI としても機能を提供しています。インストールは下記のリポジトリのreleaseからbinaryをダウンロードしてください。
 
-<a href="https://github.com/po3rin/github_link_creator"><img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-3.png" width="400px"/></a>
+[![img1](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-3.png)](https://github.com/po3rin/github_link_creator)
 
 もし Go言語の環境があるなら下記コマンドでいけます。
 
@@ -62,11 +62,11 @@ repoimg -n po3rin/github_link_creator -o example.png
 
 Go言語では下記のような画像処理を行なっています。
 
-<img width="822" alt="スクリーンショット 2019-02-02 16.26.17.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-4.png">
+![img2](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-4.png)
 
 一番苦労したのはプロフィール画像の丸抜きです。image/draw パッケージで作れるのですが、Go言語で画像を丸抜きする為には少なくとも3つのimageを準備する必要がありました。
 
-<img width="759" alt="スクリーンショット 2019-02-02 16.29.04.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-5.png">
+![img3](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-5.png)
 
 ```go
 draw.DrawMask(dst, dst.Bounds(), src, image.ZP, mask, image.ZP, draw.Over)
@@ -74,7 +74,7 @@ draw.DrawMask(dst, dst.Bounds(), src, image.ZP, mask, image.ZP, draw.Over)
 
 上を使うと丸抜きできますが dst や mask の準備で結構コードが長くなるので、簡略化できるようにしたいと考え、画像をいい感じに丸抜きしてくれるパッケージを作りました。
 
-<a href="https://github.com/po3rin/img2circle"><img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-6.png" width="400px"/></a>
+[![img4](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-6.png)](https://github.com/po3rin/img2circle)
 
 これを使えばこうです！実質二行で丸抜き終了です。
 
@@ -110,17 +110,17 @@ func main(){
 
 AWS fargete に deploy しています。CircleCIによる CI/CD もやってます。簡略化して見るとこんな感じ
 
-<img width="993" alt="スクリーンショット 2019-02-02 17.42.28.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-7.png">
+![img4](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-7.png)
 
 初めてFargate使いました。僕は Parametor store に GitHub の ClientID や ClientSecret を保存しています。上の図にはありませんがKMSでデータの暗号化をしています。
 
 構成に関しては @hgsgtk さんの記事が大いに勉強になりました。
-http://khigashigashi.hatenablog.com/entry/2018/08/28/214417
+[http://khigashigashi.hatenablog.com/entry/2018/08/28/214417](http://khigashigashi.hatenablog.com/entry/2018/08/28/214417)
 
 #### 追記
 @hgsgtk さんにコメントで補足頂きました。Fargateでの環境変数設定に関する2019/2時点での情報はこちらをご覧下さい。非常に勉強になります！
 
-https://devblog.thebase.in/entry/2019/01/16
+[https://devblog.thebase.in/entry/2019/01/16](https://devblog.thebase.in/entry/2019/01/16)
 
 ## まとめ
 
@@ -128,5 +128,4 @@ https://devblog.thebase.in/entry/2019/01/16
 
 そして、まだ中のコードがボロボロなので少しづつ改良していきます。もちろん皆様のPRもお待ちしています！
 
-<a href="https://github.com/po3rin/github_link_creator"><img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-8.png" width="400px"/></a>
-
+[![img5](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1549065600/qiita-eac851304cf058c532af-8.png)](https://github.com/po3rin/github_link_creator)

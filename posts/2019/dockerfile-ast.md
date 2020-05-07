@@ -1,6 +1,6 @@
 ---
 title: Goを読んでDockerの抽象構文木の構造をサクッと理解する
-cover: img/gopher.png
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/tower.jpeg
 date: 2019/03/05
 id: dockerfile-ast
 description: Dockerfile の抽象構文木ってどうなっているんだろうと思い調べてみました。
@@ -222,7 +222,7 @@ func main() {
 
 全体像は下記のようになります。
 
-<img width="689" alt="node.png" src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1551744000/qiita-a3934f47b5e390acfdfd-1.png">
+![img1](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1551744000/qiita-a3934f47b5e390acfdfd-1.png)
 
 1行の中でもtokenごとにNodeに分けられます。一番上のNodeがルートNodeと呼ばれます。ルートNode自身はValueを持たずChildren Nodeの一覧を保持します。こう見るとルートNodeのChildrenの数はイメージのレイヤ数と基本的に一致します。Next Nodeは同じ行の中の次のtokenのNodeです。Flagsは ```--from=builder```などのDockerfile上で使われるFlagか格納されます。StartLineとendlineは文字通り、そのノードのDockerfileにおける行数です。Originalは解析前に使用された元の行を格納しています。
 
@@ -309,5 +309,4 @@ Dockerfile の AST はシンプルゆえ複雑なことはできませんが、�
 
 ##追記
 暇だったので、Dockerfile 抽象構文木から LLB を生成するフローを追う記事を書きました。ほぼこの記事の続編です。
-https://qiita.com/po3rin/items/f414660bd2a6173c587a
-
+[https://qiita.com/po3rin/items/f414660bd2a6173c587a](https://qiita.com/po3rin/items/f414660bd2a6173c587a)

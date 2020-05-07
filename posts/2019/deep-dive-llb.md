@@ -1,6 +1,6 @@
 ---
 title: Dockerに統合されたBuildKitのLLB (low-level builder)の仕様を探ってみよう
-cover: img/gopher.png
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/container2.jpeg
 date: 2019/03/18
 id: deep-dive-llb
 description: BuildKit は LLB というプロセスの依存関係グラフを定義するために使用されるバイナリ中間言語を利用して。イメージをビルドしています。今回はその仕様を探ります。
@@ -14,7 +14,7 @@ tags:
 
 ## そもそもLLBとは
 
-<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1552867200/qiita-4fa7686c271a20f89c66-1.png" width="460">
+![img1](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1552867200/qiita-4fa7686c271a20f89c66-1.png)
 
 BuildKit は、LLB というプロセスの依存関係グラフを定義するために使用されるバイナリ中間言語を利用して。イメージをビルドしています。
 
@@ -301,7 +301,7 @@ go run main.go | buildctl debug dump-llb | jq .
 ## LLBの中身をformat定義と比べながら見ていく
 
 LLBの仕様はprotobufで定義されています。
-https://github.com/moby/buildkit/blob/master/solver/pb/ops.proto
+[https://github.com/moby/buildkit/blob/master/solver/pb/ops.proto](https://github.com/moby/buildkit/blob/master/solver/pb/ops.proto)
 
 先ほど説明した通り、LLBは有向非循環グラフの構造をとります。すなわち、ここで定義されているのは主に各ノード(接点。頂点)のデータフォーマット(Op)とノードを枝(エッジ)を表現するータフォーマット(Definition)です。まず基本的なところから見ていきましょう。Opはグラフ構造のノードを表しています。
 
@@ -468,7 +468,7 @@ COPY --from=stage1 /go/stage1_bin /
 
 digest値を追っていくと下記のようなDAG構造を取っていることがわかります。
 
-<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1552867200/qiita-4fa7686c271a20f89c66-2.png" width="640">
+![img2](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/2019/1552867200/qiita-4fa7686c271a20f89c66-2.png)
 
 なぜLLBを挟むことで並列化を実現できるかが一目でわかりますね。
 

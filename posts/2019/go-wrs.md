@@ -6,7 +6,7 @@ id: go-wrs
 description: 今回は Go で 「Weighted Random Selection」 の実装方法を紹介します。
 tags:
     - Go
-    - Algorism
+    - Algorithm
 ---
 
 ## Weighted Random Selection とは

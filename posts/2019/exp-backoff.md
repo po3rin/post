@@ -32,7 +32,7 @@ tags:
 例としてGoによる実装を見ていきます。簡単に実装できることが分かると思います。
 
 ```go
-// Exponential Backoff Algorism for retry
+// Exponential Backoff Algorithm for retry
 func Retry() error {
     var retries int
     maxRetries := 5

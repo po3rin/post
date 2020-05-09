@@ -1,5 +1,5 @@
 ---
-title: Docker に統合された BuildKit の buildctl で Dockerfile を使わずにコンテナイメージをビルドするハンズオン
+title: Docker に統合された BuildKit で Dockerfile を使わずにコンテナイメージをビルドするハンズオン
 cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/contaier.jpeg
 date: 2019/03/12
 id: buildkit-handson

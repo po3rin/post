@@ -118,7 +118,7 @@ func weightedChoice(v, size int, w []float64) ([]float64, error) {
 ```
 
 選択されたアイテムと重みの削除のコードが少し特殊に見えますが、下記の公式Wikiを参考に実装しています。
-https://github.com/golang/go/wiki/SliceTricks#delete
+[https://github.com/golang/go/wiki/SliceTricks#delete](https://github.com/golang/go/wiki/SliceTricks#delete)
 
 これを使えば与えられたweightにしtがってランダムに値を返します。
 

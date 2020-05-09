@@ -233,7 +233,7 @@ services:
 $ docker-compose up --build
 ```
 
-早速 Kibana の URL (http://localhost:5601) にブラウザからアクセスしてみましょう。Menu に ```DevTools```があるので開いてConsoleに以下を記述します。
+早速 Kibana の URL ([http://localhost:5601](http://localhost:5601])) にブラウザからアクセスしてみましょう。Menu に ```DevTools```があるので開いてConsoleに以下を記述します。
 
 ```json
 PUT /sample-index

@@ -3,7 +3,7 @@ title: Go の -race option は内部で何をしているのか。何を検知�
 cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/watching.jpeg
 date: 2019/09/27
 id: go-race
-description: -race をつけてCIを通しているのにAPIがデータ競合で落ちてしまいました。調べていたら -race がそもそも何をしているかに行き着いたので簡単に共有します。
+description: -race をつけてCIを通しているのにデータ競合が起きました。調べていたら -race がそもそも何をしているかに行き着いたので共有します。
 tags:
     - Go
 ---

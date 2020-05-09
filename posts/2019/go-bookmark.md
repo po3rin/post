@@ -112,15 +112,11 @@ VimでGoを触るためのノウハウが体系的にまとまっています。
 
 ### Go Report Card
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/po3rin/gonnp)](https://goreportcard.com/report/github.com/po3rin/gonnp)
-
 GoのリポジトリのURLを入れるだけでgolintやgofmtでコードをチェックしたりmisspellを見つけたりしてくれます。最終的にREADME.mdに貼れる上記のようなバッジがすぐに作れます。
 
 [https://goreportcard.com/](https://goreportcard.com/)
 
 ### GolangCI
-
-[![GolangCI](https://golangci.com/badges/github.com/po3rin/gonnp.svg)](https://golangci.com)
 
 ~~こちらもGoのリポジトリに対して様々な問題を指摘してくれます。structcheck、errcheck、gosimpleなどのツールで細かい問題点も指摘してくれます。こちらもバッジが作れます。https://golangci.com/~~
 

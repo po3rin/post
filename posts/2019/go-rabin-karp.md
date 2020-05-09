@@ -14,7 +14,7 @@ tags:
 ## strings.Index とは
 
 簡単に言うと、任意の文字列の中にある文字列が含まれているかをチェックして、もしあればその始まりのindexの値を返す関数です。
-https://github.com/golang/go/blob/go1.13.1/src/strings/strings.go#L1027
+[https://github.com/golang/go/blob/go1.13.1/src/strings/strings.go#L1027](https://github.com/golang/go/blob/go1.13.1/src/strings/strings.go#L1027)
 
 ```go
 func Index(s, substr string) int
@@ -131,7 +131,7 @@ func Index(s, substr string) int {
 長い文字列の時、つまり```n > bytealg.MaxLen:```のケースでも、短い文字列の時と同じようにある程度まで **Brute-force** で頑張りますが、ちょっと厳しそうとなったら**Rabin-Karp**アルゴリズムを利用します。これは文字列から計算されるハッシュを使用してテキスト内に任意の文字列があるかを検索するアルゴリズムです。[Rabin–Karp algorithm](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm)
 
 実際にGoでは```indexRabinKarp```という関数がRabin-karpのアルゴリズムを実装しています。
-https://github.com/golang/go/blob/go1.13.1/src/strings/strings.go#L1107
+[https://github.com/golang/go/blob/go1.13.1/src/strings/strings.go#L1107](https://github.com/golang/go/blob/go1.13.1/src/strings/strings.go#L1107)
 
 ```go
 func indexRabinKarp(s, substr string) int
@@ -233,7 +233,7 @@ h1 = h0 * prime + 114 - 107 * prime^len(substr)
 ```prime^len(substr)``` をかけているのは素数の次数を合わせるためです。まとめると、もし文字列がマッチしなくても既に計算した値を使って次のhashを計算することで計算を最適化しているのです。このようにローリングしながらhashを計算する手法をローリングハッシュと言います。
 
 では実際に ```indexRabinKarp``` の内部をみてみましょう。
-https://github.com/golang/go/blob/go1.13.1/src/strings/strings.go#L1107
+[https://github.com/golang/go/blob/go1.13.1/src/strings/strings.go#L1107](https://github.com/golang/go/blob/go1.13.1/src/strings/strings.go#L1107)
 
 ```go
 func indexRabinKarp(s, substr string) int {

@@ -36,5 +36,5 @@
 
 [Dockerに統合されたBuildKitのLLB (low-level builder)の仕様を探ってみよう](https://github.com/po3rin/post/tree/master/posts/2019/deep-dive-llb.md)
 
-[Docker に統合された BuildKit の buildctl で Dockerfile を使わずにコンテナイメージをビルドするハンズオン](https://github.com/po3rin/post/tree/master/posts/2019/buildkit-handson.md)
+[Docker に統合された BuildKit で Dockerfile を使わずにコンテナイメージをビルドするハンズオン](https://github.com/po3rin/post/tree/master/posts/2019/buildkit-handson.md)
 

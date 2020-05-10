@@ -5,14 +5,14 @@
 This repository manages my texh blog post.
 * generates Markdown file.
 * creates tech blog contents.
-* stores posts to datastore (Now supports only S3)
+* stores post's media to datastore (Now supports only S3)
 
 ## :star: All posts  is here.
 https://github.com/po3rin/post/blob/master/CONTENTS.md
 
 ## :triangular_flag_on_post: Contributing
 
-Did you find something technically wrong, something to fix, or something? Please give me Pull Request !!
+Did you find something technically wrong, something to fix, or something? Please give me Issue or Pull Request !!
 
 ## :triangular_ruler: Usage
 

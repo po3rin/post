@@ -43,7 +43,7 @@ go get github.com/po3rin/github_link_creator/cmd/repoimg
 
 CLIをインストールできたら下記のコマンドで画像生成終了です。ローカルに画像ができます。
 
-```
+```bash
 repoimg -n po3rin/github_link_creator
 ```
 
@@ -51,7 +51,7 @@ repoimg -n po3rin/github_link_creator
 
 一応 ```-o``` フラッグも提供していて、生成するファイル名を指定できます。
 
-```
+```bash
 repoimg -n po3rin/github_link_creator -o example.png
 ```
 

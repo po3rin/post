@@ -2,6 +2,8 @@
 
 ## 2020
 
+[破棄容易性の観点から、データパイプラインのk8s移行にまつわるGoコード改修を振り返る](https://github.com/po3rin/post/tree/master/posts/2020/mq-reconnect.md)
+
 [Elasticsearch の Mapping 管理を Go + CUE に移行した](https://github.com/po3rin/post/tree/master/posts/2020/mapping-cue.md)
 
 [Nuxt.js + Markdown でテックブログを作るハンズオン](https://github.com/po3rin/post/tree/master/posts/2020/blog-nuxt.md)

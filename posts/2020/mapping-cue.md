@@ -11,7 +11,7 @@ tags:
 
 ## Overview
 
-こんにちは[pon](https://twitter.com/po3rin)です。弊社では```Elasticsearch```を利用しているのですが、顧客ごとにIndexの設定、言語、Analyzerなどをカスタマイズできるようになっています。そのため、顧客の設定をDBから取得してGoで構造体を通してJSONを生成し、Mappingを作成/更新する機構が存在します。これを ***Go + CUE*** に移行して課題が解決できたので共有します。少し珍しいCUEのusecaseだと思います。
+こんにちは[pon](https://twitter.com/po3rin)です。私が働いている[白ヤギコーポレーション](https://shiroyagi.co.jp/)では```Elasticsearch```を利用しているのですが、顧客ごとにIndexの設定、言語、Analyzerなどをカスタマイズできるようになっています。そのため、顧客の設定をDBから取得してGoで構造体を通してJSONを生成し、Mappingを作成/更新する機構が存在します。これを ***Go + CUE*** に移行して課題が解決できたので共有します。少し珍しいCUEのusecaseだと思います。
 
 ## Before
 

@@ -224,6 +224,21 @@ type Messenger interface {
 }
 ```
 
+これでもまだ引数でurlを必ず要求するので初期化関数でURLを渡せるようにしとくとinterfaceの定義内ではURLという存在すら抽象化できます。
+
+```go
+// 引数からURLを消せたので、もはやURLという具象すら抽象化できている。
+type Messenger interface {
+	Send(message string) error
+	Ping() error
+}
+
+// ...
+
+// Messengerを実装する具象を返す。引数にURLを要求する。
+func NewMessenger(url string) *messenger
+```
+
 これでGetter/Setterを削除してinterfaceに定義するのを振る舞いのみに限定することで抽象度を保ち、interfaceを小さく保てました。当然Getter/Setterが必要なinterfaceもあります。
 
 ## まとめ

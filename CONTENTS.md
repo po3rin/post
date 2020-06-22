@@ -6,6 +6,8 @@
 
 [Elasticsearch の Mapping 管理を Go + CUE に移行した](https://github.com/po3rin/post/tree/master/posts/2020/mapping-cue.md)
 
+[Goのインターフェース抽象度を美しく保つ為の思考](https://github.com/po3rin/post/tree/master/posts/2020/go-interface.md)
+
 [Nuxt.js + Markdown でテックブログを作るハンズオン](https://github.com/po3rin/post/tree/master/posts/2020/blog-nuxt.md)
 
 ## 2019

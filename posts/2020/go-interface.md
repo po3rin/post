@@ -67,7 +67,7 @@ type Repository interface {
 ```
 
 ```RegisterUser```は何にユーザーを保存するかまで抽象化していますが、```ResisterGroupToDB```はDBを使うことを要求しているので抽象度が揃っていません。 **抽象度が違うinterfaceは結局一番抽象度の低い振る舞いと同じ抽象度になります** 。このような抽象度が揃っていないinterfaceがある場合はなるべく抽象度を揃えてあげると良いでしょう。下記はDBへの処理を抽象化している例です。
-s
+
 ```go
 type DBRepository interface {
 	RegisterUser(user User) error
@@ -198,7 +198,7 @@ type Messenger interface {
 }
 ```
 
-とあるURLに対してメッセージを送信する振る舞いを持つinterfaceです。これだと```URL```や```Message```というデータ構造を持つ具象を要求するので抽象度は低いです。このようにフィールド毎にGetter/Setterを定義すると抽象度が大きく下がる可能性があります。
+とあるURLに対してメッセージを送信する振る舞いを持つinterfaceです。これだと```URL```や```Message```という **データ構造を持つ具象を要求する** ので抽象度は低いです。このようにフィールド毎にGetter/Setterを定義すると抽象度が大きく下がる可能性があります。
 
 また抽象度だけでなく別の問題も発生します。それは **interfaceの肥大化** です。interfaceを小さく保つことは、interfaceを実装する側を楽にするのでなるべくミニマムに保ちたいところです。弊社ではGetter/Setterの定義で10個以上のメソッドが定義された巨大interfaceがそびえ立っていたこともあります。
 
@@ -224,7 +224,7 @@ type Messenger interface {
 }
 ```
 
-これでもまだ引数でurlを必ず要求するので初期化関数でURLを渡せるようにしとくとinterfaceの定義内ではURLという存在すら抽象化できます。
+これでもまだ引数でurlという具象を必ず要求するので初期化関数でURLを渡せるようにしとくとinterfaceの定義内ではURLという存在すら抽象化できます。
 
 ```go
 // 引数からURLを消せたので、もはやURLという具象すら抽象化できている。
@@ -239,7 +239,7 @@ type Messenger interface {
 func NewMessenger(url string) *messenger
 ```
 
-これでGetter/Setterを削除してinterfaceに定義するのを振る舞いのみに限定することで抽象度を保ち、interfaceを小さく保てました。当然Getter/Setterが必要なinterfaceもあります。
+これでGetter/Setterを削除してinterfaceに定義するのを振る舞いのみに限定することで抽象度を保ち、interfaceを小さく保てました。一方で全てのGetter/Setterを消せというわけでなく、当然Getter/Setterが必要な抽象化もあるので注意しましょう。
 
 ## まとめ
 

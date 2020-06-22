@@ -26,12 +26,12 @@ tags:
 
 ## 振る舞いの抽象化の度合いを意識する
 
-振る舞いをinterfaceとして定義していくのがGoの抽象化ですが、そもそも **抽象化は度合いのある概念です** 。この度合いを意識しないと適切なinterfaceの設計は困難です。例えばMySQLにUserを登録する振る舞いがある時、このようなinterfaceを定義するかもしれません。
+振る舞いをinterfaceとして定義していくのがGoの抽象化ですが、そもそも **抽象化は度合いのある概念です** 。この度合いを意識しないと適切なinterfaceの設計は困難です。例えばMySQLにUserを登録する振る舞いがある時、リポジトリパターンによる抽象化を目的にこのようなinterfaceを定義するかもしれません。
 
 ```go
 // MySQLへの具体的な登録処理を抽象化
-type Register interface {
-    RegistUserToMySQL(user User) error
+type Repository interface {
+	RegisterUserToMySQL(user User) error
 }
 ```
 
@@ -39,8 +39,8 @@ type Register interface {
 
 ```go
 // DBへの登録を抽象化
-type Register interface {
-    RegistUserToDB(user User) error
+type Repository interface {
+	RegisterUserToDB(user User) error
 }
 ```
 
@@ -48,8 +48,8 @@ MySQLという具象をデータベースという形で抽象化した為、先
 
 ```go
 // ユーザー登録を抽象化
-type Register interface {
-    RegistUser(user User) error
+type Repository interface {
+	RegisterUser(user User) error
 }
 ```
 
@@ -60,30 +60,30 @@ type Register interface {
 これを意識できると、抽象度が揃っていないことに気付けるようになります。下記のinterfaceは抽象度が揃っていない例です。
 
 ```go
-type Register interface {
-    RegistUser(user User) error
-    ResistGroupToDB(group Group) error
+type Repository interface {
+	RegisterUser(user User) error
+	ResisterGroupToDB(group Group) error
 }
 ```
 
-```RegistUser```は何にユーザーを登録するかまで抽象化していますが、```ResistGroupToDB```はDBを使うことを要求しているので抽象度が揃っていません。 **抽象度が違うinterfaceは結局一番抽象度の低い振る舞いと同じ抽象度になります** 。このような抽象度が揃っていないinterfaceがある場合はなるべく抽象度を揃えてあげると良いでしょう。下記はDBへの処理を抽象化している例です。
-
+```RegisterUser```は何にユーザーを保存するかまで抽象化していますが、```ResisterGroupToDB```はDBを使うことを要求しているので抽象度が揃っていません。 **抽象度が違うinterfaceは結局一番抽象度の低い振る舞いと同じ抽象度になります** 。このような抽象度が揃っていないinterfaceがある場合はなるべく抽象度を揃えてあげると良いでしょう。下記はDBへの処理を抽象化している例です。
+s
 ```go
-type DB interface {
-    RegistUser(user User) error
-    ResistGroup(group Group) error
+type DBRepository interface {
+	RegisterUser(user User) error
+	ResisterGroup(group Group) error
 }
 ```
 
-DBという名前に変えてあげることでDBへの登録処理という形で抽象度を合わせています。
+DBという名前に変えてあげることでDBへの保存処理という形で抽象度を合わせています。
 
 ## 抽象度をどこまであげるか
 
 **抽象度を高く保つことが常に正義であるという勘違い** をしないことも重要です。抽象化にはデメリットも存在します。下記のコードを見てみましょう。
 
 ```go
-type Register interface {
-    User(user User) error
+type Repository interface {
+	RegisterUser(user User) error
 }
 ```
 
@@ -94,8 +94,8 @@ type Register interface {
 抽象化の目的がミドルウェアの変更容易性の向上であり、実は変更するミドルウェアをDBのみに想定しているなら(MySQL -> PostgreSQL など)下記のようにDBの実装を抽象化するだけで十分です。
 
 ```go
-type DB interface {
-    RegistUser(user User) error
+type DBRepository interface {
+	RegisterUser(user User) error
 }
 ```
 
@@ -111,8 +111,8 @@ interfaceで振る舞いを抽象化したのにも関わらず、**具象が引
 
 ```go
 type Store interface {
-   // ...
-   SimilarItems(p elasticsearch.SearchParams) ([]Item, error)
+	// ...
+	SimilarItems(p elasticsearch.SearchParams) ([]Item, error)
 }
 ```
 
@@ -122,8 +122,8 @@ type Store interface {
 
 ```go
 type Store interface {
-   // ...
-   SimilarItems(item Item) ([]Item, error)
+	// ...
+	SimilarItems(item Item) ([]Item, error)
 }
 ```
 
@@ -135,8 +135,8 @@ type Store interface {
 
 ```go
 type Store interface {
-   CreateQuery(words []string) Query
-   SearchItems(q Query) ([]Item, error)
+	CreateQuery(words []string) Query
+	SearchItems(q Query) ([]Item, error)
 }
 ```
 
@@ -144,7 +144,7 @@ type Store interface {
 
 ```go
 type Store interface {
-   SearchItems(words []string) ([]Item, error)
+	SearchItems(words []string) ([]Item, error)
 }
 ```
 
@@ -156,24 +156,26 @@ type Store interface {
 
 ```go
 // interface定義側
-type UserRegister interface {
-   CreateUser(name string) User //ユーザー生成
-   RegistData(u User) //ユーザーを登録
+type Repository interface {
+	CreateUser(name string) User //ユーザー生成
+	RegisterUser(u User)         //ユーザーを登録
 }
 
 // interface利用側。動作が逐次的凝縮になっている。
-func RegistUser(r UserRegister) {
-    user := r.CreateUser("pon")
-    r.RegistData(user)
+func XXX(r Repository) {
+	// ...
+	user := r.CreateUser("pon")
+	r.RegisterUser(user)
+	// ...
 }
 ```
 
 ユーザー登録をする際にこの２つのメソッドが手続き的凝縮になって利用されているので、振る舞いを１つにまとめることができます。
 
 ```go
-type UserRegister interface {
-   // 内部で CreateUser と同等の処理を持つことを期待する。これで十分では？
-   RegistData(name string) error
+type Repository interface {
+	// 内部で CreateUser と同等の処理を持つことを期待する。これで十分では？
+	RegisterUser(name string) error
 }
 ```
 
@@ -188,11 +190,11 @@ interfaceが巨大になったら、凝縮性の観点からも振る舞いの�
 ```go
 // とあるURLに対してメッセージを送信する振る舞いを抽象化
 type Messenger interface {
-    GetURL() string
-    SetURL(url string)
-    GetMessage() string
-    SetMessage(msg string)
-    Send() error
+	GetURL() string
+	SetURL(url string)
+	GetMessage() string
+	SetMessage(msg string)
+	Send() error
 }
 ```
 
@@ -209,7 +211,7 @@ interfaceにフィールド毎のGetter/Setterを定義してしまう問題の�
 
 ```go
 type Messenger interface {
-    Send(url string message string)
+	Send(url string, message string)
 }
 ```
 
@@ -217,8 +219,8 @@ type Messenger interface {
 
 ```go
 type Messenger interface {
-    Send(url string message string) error
-    Ping(url string) error
+	Send(url string, message string) error
+	Ping(url string) error
 }
 ```
 

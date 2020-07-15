@@ -270,7 +270,8 @@ main.trieNode{
 ```
 
 ちなみに深い構造体のデバッグでは下記のprint用パッケージが最高でおすすめです。
-<a href="https://github.com/k0kubun/pp"><img src="https://github-link-card.s3.ap-northeast-1.amazonaws.com/k0kubun/pp.png" width="460px"></a>
+
+[![img1](https://github-link-card.s3.ap-northeast-1.amazonaws.com/k0kubun/pp.png)](https://github.com/k0kubun/pp)
 
 Trieの構築は```GenericReplacer```の生成時に合わせて行なっています。
 

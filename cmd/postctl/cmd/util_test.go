@@ -27,6 +27,7 @@ func TestMdMeta(t *testing.T) {
 				tags: []string{
 					"golang", "markdown",
 				},
+				draft: true,
 			},
 		},
 	}

@@ -41,6 +41,7 @@ type metaData struct {
 	description string
 	date        time.Time
 	tags        []string
+	draft       bool
 }
 
 func mdMeta(md []byte) (metaData, error) {
@@ -91,14 +92,26 @@ func mdMeta(md []byte) (metaData, error) {
 		return metaData{}, errors.Wrap(err, "could not assert tags interface to slice")
 	}
 
-	return metaData{
+	meta := metaData{
 		id:          fmt.Sprintf("%v", id),
 		title:       fmt.Sprintf("%v", title),
 		description: fmt.Sprintf("%v", description),
 		cover:       fmt.Sprintf("%v", cover),
 		date:        t,
 		tags:        tagsSlice,
-	}, nil
+	}
+
+	d, ok := m["draft"]
+	if !ok {
+		return meta, nil
+	}
+	draft, ok := d.(bool)
+	if !ok {
+		return metaData{}, errors.New("draft field requires boolean")
+	}
+	meta.draft = draft
+
+	return meta, nil
 }
 
 func interface2Slice(slice interface{}) ([]string, error) {

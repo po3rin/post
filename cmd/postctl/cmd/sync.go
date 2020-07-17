@@ -122,6 +122,11 @@ var syncCmd = &cobra.Command{
 				os.Exit(1)
 			}
 
+			if m.draft {
+				fmt.Printf("passed draft: %+v", m.id)
+				continue
+			}
+
 			req := request{
 				ID:          m.id,
 				Title:       m.title,

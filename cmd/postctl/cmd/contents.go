@@ -162,8 +162,13 @@ func (c *Contents) Walk(path string, info os.FileInfo, err error) error {
 		return errors.Wrap(err, "contentws: get title")
 	}
 
+	if meta.draft {
+		return nil
+	}
+
 	url := c.prefix + "/" + path
 	year := strings.Split(path, "/")[1] // must */<< year >>/*
+
 	c.Posts = append(c.Posts, Post{meta.title, url, year})
 
 	return nil

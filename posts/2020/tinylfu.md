@@ -1,7 +1,7 @@
 ---
 title: キャッシュ機構 TinyLFU のアーキテクチャと、それを支えるアルゴリズム
 cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/tinylfu-cover.jpeg
-date: 2020/07/17
+date: 2020/07/20
 id: tinylfu
 description: TinyLFUの論文を読んだので概要と、それを支えるアルゴリズムを紹介します。
 tags:

@@ -133,7 +133,7 @@ Database Internals では TinyLFU としてこちらの W-TinyLFU が紹介さ�
 
 #### まとめ
 
-TinyLFUを紹介し、その拡張であるW-TinyLFUの概要を紹介しました。僕がよく書くGoでは```ristretto```をいうキャッシュパッケージが内部でこの考え方を採用しているようです。
+TinyLFUを紹介し、その拡張であるW-TinyLFUの概要を紹介しました。僕がよく書くGoでは```ristretto```というキャッシュパッケージが内部でこの考え方を採用しているようです。
 
 [![doorkeeper](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/ristretto.png)](https://github.com/dgraph-io/ristretto)
 

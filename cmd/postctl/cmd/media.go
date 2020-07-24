@@ -59,16 +59,13 @@ var mediaCmd = &cobra.Command{
 			fmt.Println(err)
 			os.Exit(1)
 		}
-		fmt.Println("-------------")
-		fmt.Println(filepath)
-		fmt.Println("↓")
-		fmt.Println(resutl)
-		fmt.Println("-------------")
 
 		err = os.Remove(filepath)
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)
 		}
+
+		fmt.Println(resutl)
 	},
 }

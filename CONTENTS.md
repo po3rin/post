@@ -8,6 +8,8 @@
 
 [Elasticsearch の Mapping 管理を Go + CUE に移行した](https://github.com/po3rin/post/tree/master/posts/2020/mapping-cue.md)
 
+[Go製ダブル配列パッケージと最長一致法を使った形態素解析の実装](https://github.com/po3rin/post/tree/master/posts/2020/longest-match.md)
+
 [Goの文字列置換とその内部実装](https://github.com/po3rin/post/tree/master/posts/2020/go-replacer.md)
 
 [Goのインターフェース抽象度を美しく保つ為の思考](https://github.com/po3rin/post/tree/master/posts/2020/go-interface.md)

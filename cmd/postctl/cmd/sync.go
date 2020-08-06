@@ -17,21 +17,29 @@ package cmd
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
+	"os/exec"
+	"os/signal"
 	"path/filepath"
+	"strings"
+	"syscall"
 	"time"
 
 	"github.com/spf13/cobra"
+	"golang.org/x/sync/errgroup"
 )
 
 var (
-	url string
-	all bool
+	url       string
+	agentMode bool
+
+	oldRevision string
 )
 
 func init() {
@@ -46,7 +54,7 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	syncCmd.Flags().StringVarP(&url, "url", "u", "", "API URL which handles posts")
-	syncCmd.Flags().BoolVarP(&all, "all", "a", false, "whether taget is all posts")
+	syncCmd.Flags().BoolVarP(&agentMode, "agent-mode", "a", false, "whether run with agent mode")
 }
 
 type request struct {
@@ -75,7 +83,41 @@ func allFilePath(workdir string) ([]string, error) {
 	return result, nil
 }
 
-func syncPost(r request) error {
+func gitDiffFiles() ([]string, error) {
+	revision, err := exec.Command("git", "rev-parse", "HEAD").Output()
+	if err != nil {
+		fmt.Println("dddd")
+		return nil, err
+	}
+
+	fmt.Println(string(revision))
+
+	if oldRevision == string(revision) {
+		return []string{}, nil
+	}
+
+	if oldRevision == "" {
+		oldRevision = "HEAD"
+	}
+
+	// diff from old revision
+	out, err := exec.Command("git", "diff", "--name-only", string(oldRevision)).Output()
+	if err != nil {
+		return nil, err
+	}
+	oldRevision = string(revision)
+	files := strings.Split(string(out), "\n")
+
+	var posts []string
+	for _, path := range files {
+		if isPostMdfile(path) {
+			posts = append(posts, path)
+		}
+	}
+	return posts, nil
+}
+
+func sendPost(r request) error {
 	reqJSON, err := json.Marshal(r)
 	if err != nil {
 		return err
@@ -90,6 +132,42 @@ func syncPost(r request) error {
 	return nil
 }
 
+func syncPost(files []string) error {
+	for _, filepath := range files {
+		source, err := ioutil.ReadFile(filepath)
+		if err != nil {
+			return err
+		}
+
+		m, err := mdMeta(source)
+		if err != nil {
+			return err
+		}
+
+		if m.draft {
+			fmt.Printf("passed draft: %+v", m.id)
+			continue
+		}
+
+		req := request{
+			ID:          m.id,
+			Title:       m.title,
+			Body:        string(source),
+			Description: m.description,
+			Cover:       m.cover,
+			Tags:        m.tags,
+			CreatedAt:   m.date,
+			UpdatedAt:   time.Now(),
+		}
+
+		err = sendPost(req)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
 // newCmd represents the new command
 var syncCmd = &cobra.Command{
 	Use:   "sync",
@@ -97,52 +175,59 @@ var syncCmd = &cobra.Command{
 	Long:  "sync post external store",
 	Run: func(cmd *cobra.Command, args []string) {
 		var filepaths []string
-		if all {
-			allpath, err := allFilePath(workdir)
+		var err error
+		if !agentMode {
+			filepaths, err = allFilePath(workdir)
 			if err != nil {
 				fmt.Println(err)
 				os.Exit(1)
 			}
-			fmt.Println(allpath)
-			filepaths = allpath
-		} else {
-			filepaths = args
+			err = syncPost(filepaths)
+			if err != nil {
+				fmt.Println(err)
+				os.Exit(1)
+			}
+			return
 		}
 
-		for _, filepath := range filepaths {
-			source, err := ioutil.ReadFile(filepath)
-			if err != nil {
-				fmt.Println(err)
-				os.Exit(1)
+		ctx, cancel := context.WithTimeout(context.Background(), 50*time.Second)
+		defer cancel()
+		eg, ctx := errgroup.WithContext(ctx)
+		eg.Go(func() error {
+			for {
+				select {
+				case <-ctx.Done():
+					return ctx.Err()
+				default:
+					filepaths, err = gitDiffFiles()
+					if err != nil {
+						return err
+					}
+					err = syncPost(filepaths)
+					if err != nil {
+						return err
+					}
+					time.Sleep(3 * time.Second)
+				}
 			}
+		})
 
-			m, err := mdMeta(source)
-			if err != nil {
-				fmt.Println(err)
-				os.Exit(1)
-			}
+		quit := make(chan os.Signal, 1)
+		defer close(quit)
+		signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 
-			if m.draft {
-				fmt.Printf("passed draft: %+v", m.id)
-				continue
-			}
+		fmt.Println("start!")
 
-			req := request{
-				ID:          m.id,
-				Title:       m.title,
-				Body:        string(source),
-				Description: m.description,
-				Cover:       m.cover,
-				Tags:        m.tags,
-				CreatedAt:   m.date,
-				UpdatedAt:   time.Now(),
-			}
-
-			err = syncPost(req)
-			if err != nil {
-				fmt.Println(err)
-				os.Exit(1)
-			}
+		select {
+		case <-quit:
+			cancel()
+		case <-ctx.Done():
 		}
+
+		if err := eg.Wait(); err != nil {
+			fmt.Println(err)
+		}
+
+		fmt.Println("done")
 	},
 }

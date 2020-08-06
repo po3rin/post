@@ -191,14 +191,14 @@ var syncCmd = &cobra.Command{
 			return
 		}
 
-		ctx, cancel := context.WithTimeout(context.Background(), 50*time.Second)
+		ctx, cancel := context.WithCancel(context.Background())
 		defer cancel()
 		eg, ctx := errgroup.WithContext(ctx)
 
 		// git helthz
 		eg.Go(func() error {
 			var retryCounter int
-			ticker := time.NewTicker(5 * time.Second)
+			ticker := time.NewTicker(30 * time.Second)
 			for {
 				select {
 				case <-ctx.Done():

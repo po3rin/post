@@ -198,43 +198,45 @@ var syncCmd = &cobra.Command{
 		// git helthz
 		eg.Go(func() error {
 			var retryCounter int
+			ticker := time.NewTicker(5 * time.Second)
 			for {
 				select {
 				case <-ctx.Done():
 					return ctx.Err()
-				default:
+				case <-ticker.C:
 					_, err := exec.Command("git", "status").Output()
 					if err != nil {
 						if maxRetry < retryCounter {
 							return err
 						}
-						log.Error("failed to git command exec")
+						log.Errorf("failed to git command exec: %+v", err)
 						retryCounter++
+						continue
 					}
 					retryCounter = 0 // reset
-					time.Sleep(10 * time.Second)
 				}
 			}
 		})
 
 		// agent cycle
 		eg.Go(func() error {
+			ticker := time.NewTicker(10 * time.Second)
 			for {
 				select {
 				case <-ctx.Done():
 					return ctx.Err()
-				default:
+
+				case <-ticker.C:
 					filepaths, err = gitDiffFiles()
 					if err != nil {
-						log.Error(err)
+						log.Errorf("get diff files: %+v", err)
 						continue
 					}
 					err = syncPost(filepaths)
 					if err != nil {
-						log.Error(err)
+						log.Errorf("sync post: %+v", err)
 						continue
 					}
-					time.Sleep(10 * time.Minute)
 				}
 			}
 		})

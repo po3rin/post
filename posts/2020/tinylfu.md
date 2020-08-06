@@ -137,4 +137,4 @@ TinyLFUを紹介し、その拡張であるW-TinyLFUの概要を紹介しまし�
 
 [![doorkeeper](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/ristretto.png)](https://github.com/dgraph-io/ristretto)
 
-もっと詳しく知りたい方は論文を読んでみてください。実戦で使える手札としてこういうコンピュータサイエンスの論文は趣味でどんどん追っていきたいと思います！
+もっと詳しく知りたい方は論文を読んでみてください。実戦で使える手札としてこういうコンピュータサイエンスの論文は趣味でどんどん追っていきたいと思います！！

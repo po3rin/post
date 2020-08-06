@@ -204,12 +204,12 @@ var syncCmd = &cobra.Command{
 				case <-ctx.Done():
 					return ctx.Err()
 				case <-ticker.C:
-					_, err := exec.Command("git", "status").Output()
+					out, err := exec.Command("git", "status").Output()
 					if err != nil {
 						if maxRetry < retryCounter {
 							return err
 						}
-						log.Errorf("failed to git command exec: %+v", err)
+						log.Errorf("git command exec: %+v, msg: %+v", err, string(out))
 						retryCounter++
 						continue
 					}
@@ -220,7 +220,7 @@ var syncCmd = &cobra.Command{
 
 		// agent cycle
 		eg.Go(func() error {
-			ticker := time.NewTicker(10 * time.Second)
+			ticker := time.NewTicker(30 * time.Second)
 			for {
 				select {
 				case <-ctx.Done():

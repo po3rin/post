@@ -91,7 +91,7 @@ func allFilePath(workdir string) ([]string, error) {
 func gitDiffFiles() ([]string, error) {
 	cmd := exec.Command("git", "rev-parse", "HEAD")
 	cmd.Dir = root
-	revision, err := cmd.Output()
+	revision, err := cmd.CombinedOutput()
 	if err != nil {
 		return nil, err
 	}

@@ -40,7 +40,7 @@ import (
 const maxRetry = 10
 
 var (
-	url       string
+	url, root string
 	agentMode bool
 
 	oldRevision string
@@ -58,6 +58,7 @@ func init() {
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
 	syncCmd.Flags().StringVarP(&url, "url", "u", "", "API URL which handles posts")
+	syncCmd.Flags().StringVarP(&root, "root", "r", "", "Git repository root")
 	syncCmd.Flags().BoolVarP(&agentMode, "agent-mode", "a", false, "whether run with agent mode")
 }
 
@@ -88,7 +89,9 @@ func allFilePath(workdir string) ([]string, error) {
 }
 
 func gitDiffFiles() ([]string, error) {
-	revision, err := exec.Command("git", "rev-parse", "HEAD").Output()
+	cmd := exec.Command("git", "rev-parse", "HEAD")
+	cmd.Dir = root
+	revision, err := cmd.Output()
 	if err != nil {
 		return nil, err
 	}
@@ -102,7 +105,9 @@ func gitDiffFiles() ([]string, error) {
 	}
 
 	// diff from old revision
-	out, err := exec.Command("git", "diff", "--name-only", string(oldRevision)).Output()
+	cmd = exec.Command("git", "diff", "--name-only", string(oldRevision))
+	cmd.Dir = root
+	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return nil, err
 	}
@@ -204,7 +209,9 @@ var syncCmd = &cobra.Command{
 				case <-ctx.Done():
 					return ctx.Err()
 				case <-ticker.C:
-					out, err := exec.Command("git", "status").Output()
+					cmd := exec.Command("git", "status")
+					cmd.Dir = root
+					out, err := cmd.CombinedOutput()
 					if err != nil {
 						if maxRetry < retryCounter {
 							return err

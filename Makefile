@@ -8,5 +8,5 @@ lint:
 sync:
 	postctl sync -u http://localhost:8081/post
 
-sync-agen:
-	poscttl sync -u http://localhost:8081/post -agent-mode
+sync-agent:
+	postctl sync -u http://localhost:8081/post --agent-mode

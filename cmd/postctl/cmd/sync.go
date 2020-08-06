@@ -90,8 +90,6 @@ func gitDiffFiles() ([]string, error) {
 		return nil, err
 	}
 
-	fmt.Println(string(revision))
-
 	if oldRevision == string(revision) {
 		return []string{}, nil
 	}

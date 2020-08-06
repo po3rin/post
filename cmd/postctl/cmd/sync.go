@@ -31,9 +31,13 @@ import (
 	"syscall"
 	"time"
 
+	log "github.com/sirupsen/logrus"
+
 	"github.com/spf13/cobra"
 	"golang.org/x/sync/errgroup"
 )
+
+const maxRetry = 10
 
 var (
 	url       string
@@ -86,7 +90,6 @@ func allFilePath(workdir string) ([]string, error) {
 func gitDiffFiles() ([]string, error) {
 	revision, err := exec.Command("git", "rev-parse", "HEAD").Output()
 	if err != nil {
-		fmt.Println("dddd")
 		return nil, err
 	}
 
@@ -191,6 +194,30 @@ var syncCmd = &cobra.Command{
 		ctx, cancel := context.WithTimeout(context.Background(), 50*time.Second)
 		defer cancel()
 		eg, ctx := errgroup.WithContext(ctx)
+
+		// git helthz
+		eg.Go(func() error {
+			var retryCounter int
+			for {
+				select {
+				case <-ctx.Done():
+					return ctx.Err()
+				default:
+					_, err := exec.Command("git", "status").Output()
+					if err != nil {
+						if maxRetry < retryCounter {
+							return err
+						}
+						log.Error("failed to git command exec")
+						retryCounter++
+					}
+					retryCounter = 0 // reset
+					time.Sleep(10 * time.Second)
+				}
+			}
+		})
+
+		// agent cycle
 		eg.Go(func() error {
 			for {
 				select {
@@ -199,13 +226,15 @@ var syncCmd = &cobra.Command{
 				default:
 					filepaths, err = gitDiffFiles()
 					if err != nil {
-						return err
+						log.Error(err)
+						continue
 					}
 					err = syncPost(filepaths)
 					if err != nil {
-						return err
+						log.Error(err)
+						continue
 					}
-					time.Sleep(3 * time.Second)
+					time.Sleep(10 * time.Minute)
 				}
 			}
 		})
@@ -214,7 +243,7 @@ var syncCmd = &cobra.Command{
 		defer close(quit)
 		signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 
-		fmt.Println("start!")
+		log.Info("start sync-agent")
 
 		select {
 		case <-quit:
@@ -223,9 +252,9 @@ var syncCmd = &cobra.Command{
 		}
 
 		if err := eg.Wait(); err != nil {
-			fmt.Println(err)
+			log.Error(err)
 		}
 
-		fmt.Println("done")
+		log.Info("done")
 	},
 }

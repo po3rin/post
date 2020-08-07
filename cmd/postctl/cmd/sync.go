@@ -213,7 +213,7 @@ func gitDiffPostFiles() ([]string, error) {
 		}
 	}
 
-	log.Infof("detects diff files: %+v\n", files)
+	log.Infof("detects diff files: %+v", files)
 	oldRevision = headRevision // update with latest revision
 	return posts, nil
 }

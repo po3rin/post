@@ -361,4 +361,4 @@ func (r *genericReplacer) WriteString(w io.Writer, s string) (n int, err error) 
 
 ## まとめ
 
-```func Replace``` と ```func (*Replacer) Replace``` の内部で利用されているアルゴリズム、データ構造を紹介しました。今回はコードを詳細に追わず、流れだけを追ったので、もっと詳しく知りたい方(Nodeにkeyの値がないけどなんで？？とか)は実際にコードを読んでみてください。
+```func Replace``` と ```func (*Replacer) Replace``` の内部で利用されているアルゴリズム&データ構造を紹介しました。今回はコードを詳細に追わず、流れだけを追ったので、もっと詳しく知りたい方(Nodeにkeyの値がないけどなんで？？とか)は実際にコードを読んでみてください。

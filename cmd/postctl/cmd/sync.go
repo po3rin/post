@@ -108,7 +108,7 @@ var syncCmd = &cobra.Command{
 					out, err := cmd.CombinedOutput()
 					if err != nil {
 						if maxRetry < retryCounter {
-							return err
+							return fmt.Errorf("status: %+v", out)
 						}
 						log.Errorf("git command exec: %+v, msg: %+v", err, string(out))
 						retryCounter++
@@ -181,11 +181,12 @@ func postFiles(workdir string) ([]string, error) {
 func gitDiffPostFiles() ([]string, error) {
 	cmd := exec.Command("git", "rev-parse", "HEAD")
 	cmd.Dir = root
-	revision, err := cmd.CombinedOutput()
+	out, err := cmd.CombinedOutput()
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("get revision: %+v", out)
 	}
 
+	revision := out
 	if oldRevision == string(revision) {
 		return []string{}, nil
 	}
@@ -197,9 +198,9 @@ func gitDiffPostFiles() ([]string, error) {
 	// diff from old revision
 	cmd = exec.Command("git", "diff", "--name-only", string(oldRevision))
 	cmd.Dir = root
-	out, err := cmd.CombinedOutput()
+	out, err = cmd.CombinedOutput()
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("get diff: %+v", out)
 	}
 	oldRevision = string(revision)
 	files := strings.Split(string(out), "\n")

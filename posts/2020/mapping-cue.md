@@ -232,7 +232,7 @@ mappingJSON := mapping.Article().
 _, err := client.CreateIndex(name).BodyJson(mappingJSON).Do(ctx)
 ```
 
-ご覧の通り、CUEファイルからJSON生成、インデックス生成まで一回も構造体を介していません。そのため、***Mapping生成のためだけに存在していた構造体を全て削除できました。***
+ご覧の通り、CUEファイルからJSON生成、インデックス生成まで一回も構造体を介していません。そのため、***Mapping生成のためだけに存在していた構造体が不要になりました。***
 
 ## CUEを使ってみた所感
 

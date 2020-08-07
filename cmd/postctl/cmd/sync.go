@@ -74,20 +74,29 @@ var syncCmd = &cobra.Command{
 	Short: "sync post external store",
 	Long:  "sync post external store",
 	Run: func(cmd *cobra.Command, args []string) {
+		// sync all process
 		var filepaths []string
 		var err error
+
+		filepaths, err = allPostFiles(filepath.Join(root, workdir))
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
+		err = syncPost(filepaths)
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
+
 		if !agentMode {
-			filepaths, err = postFiles(workdir)
-			if err != nil {
-				fmt.Println(err)
-				os.Exit(1)
-			}
-			err = syncPost(filepaths)
-			if err != nil {
-				fmt.Println(err)
-				os.Exit(1)
-			}
 			return
+		}
+
+		oldRevision, err = gitHeadRevision()
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
 		}
 
 		ctx, cancel := context.WithCancel(context.Background())
@@ -163,7 +172,7 @@ var syncCmd = &cobra.Command{
 	},
 }
 
-func postFiles(workdir string) ([]string, error) {
+func allPostFiles(workdir string) ([]string, error) {
 	var result []string
 	err := filepath.Walk(workdir, func(path string, info os.FileInfo, err error) error {
 		if !isPostMdfile(path) {
@@ -178,16 +187,23 @@ func postFiles(workdir string) ([]string, error) {
 	return result, nil
 }
 
-func gitDiffPostFiles() ([]string, error) {
+func gitHeadRevision() (string, error) {
 	cmd := exec.Command("git", "rev-parse", "HEAD")
 	cmd.Dir = root
 	out, err := cmd.CombinedOutput()
 	if err != nil {
-		return nil, fmt.Errorf("get revision: %+v", string(out))
+		return "", fmt.Errorf("get revision: %+v", string(out))
 	}
-	headRevision := strings.TrimRight(string(out), "\n")
+	return strings.TrimRight(string(out), "\n"), nil
+}
 
-	// TODO: should initialize oldRevision Before being first accessed.
+func gitDiffPostFiles() ([]string, error) {
+	headRevision, err := gitHeadRevision()
+	if err != nil {
+		return nil, err
+	}
+
+	// just in case when oldRevision is not initialized.
 	if oldRevision == "" {
 		oldRevision = headRevision
 		return []string{}, nil
@@ -198,9 +214,9 @@ func gitDiffPostFiles() ([]string, error) {
 
 	// diff from old revision
 	log.Infof("diff in revision %+v and %+v", oldRevision, headRevision)
-	cmd = exec.Command("git", "diff", "--name-only", oldRevision)
+	cmd := exec.Command("git", "diff", "--name-only", oldRevision)
 	cmd.Dir = root
-	out, err = cmd.CombinedOutput()
+	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return nil, fmt.Errorf("get diff: %+v", string(out))
 	}

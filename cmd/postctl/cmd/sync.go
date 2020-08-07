@@ -51,7 +51,7 @@ var (
 func init() {
 	rootCmd.AddCommand(syncCmd)
 
-	syncCmd.Flags().StringVarP(&url, "url", "u", "", "API URL which handles posts")
+	syncCmd.Flags().StringVarP(&url, "url", "u", "http://localhost:8081/post", "API URL which handles posts")
 	syncCmd.Flags().StringVarP(&root, "root", "r", "", "Git repository root")
 	syncCmd.Flags().IntVarP(&port, "port", "p", 9300, "API port")
 	syncCmd.Flags().BoolVarP(&agentMode, "agent-mode", "a", false, "whether run with agent mode")
@@ -291,6 +291,7 @@ func router() *gin.Engine {
 		rg.POST("/sync", func(c *gin.Context) {
 			err := syncDiff()
 			if err != nil {
+				log.Error(err)
 				c.JSON(http.StatusInternalServerError, gin.H{"msg": err.Error()})
 			}
 			c.JSON(http.StatusOK, gin.H{"msg": "success in data sync"})

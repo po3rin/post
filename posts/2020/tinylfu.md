@@ -64,7 +64,7 @@ k 個のハッシュ関数を利用しており、それぞれがキー値を配
 
 これの強力なところは、データ自体を格納する必要がない為、データ効率が格段に高く、要素数に関わらず```O(k)```時間で集合内に要素が無いことを確定できる。すごい。
 
-過去にGoでBloom Filterを実装したことがあるのでもし良ければ参考に!
+過去にGoでBloom FilterをGoで実装したことがあるのでもし良ければ参考に!
 [Go bloomfilter package](https://github.com/po3rin/go_playground/tree/master/bloomfilter)
 
 

@@ -121,7 +121,7 @@ var syncCmd = &cobra.Command{
 
 		// sync hook API
 		eg.Go(func() error {
-			s := newServer(string(port))
+			s := newServer(fmt.Sprintf(":%v", port))
 			return s.run(ctx)
 		})
 
@@ -288,12 +288,12 @@ func router() *gin.Engine {
 		rg.GET("/healthz", func(c *gin.Context) {
 			c.JSON(http.StatusOK, "ok!")
 		})
-		rg.GET("/sync", func(c *gin.Context) {
+		rg.POST("/sync", func(c *gin.Context) {
 			err := syncDiff()
 			if err != nil {
 				c.JSON(http.StatusInternalServerError, gin.H{"msg": err.Error()})
 			}
-			c.JSON(http.StatusOK, gin.H{"msg": "success data sync"})
+			c.JSON(http.StatusOK, gin.H{"msg": "success in data sync"})
 		})
 	}
 	return r

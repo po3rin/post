@@ -185,35 +185,34 @@ func gitDiffPostFiles() ([]string, error) {
 	if err != nil {
 		return nil, fmt.Errorf("get revision: %+v", string(out))
 	}
+	headRevision := strings.TrimRight(string(out), "\n")
 
-	revision := out
-	if oldRevision == string(revision) {
+	// TODO: should initialize oldRevision Before being first accessed.
+	if oldRevision == "" {
+		oldRevision = headRevision
+		return []string{}, nil
+	}
+	if oldRevision == headRevision {
 		return []string{}, nil
 	}
 
-	if oldRevision == "" {
-		oldRevision = "HEAD"
-	}
-
-	compareRevision := strings.TrimRight(string(oldRevision), "\n")
-
 	// diff from old revision
-	cmd = exec.Command("git", "diff", "--name-only", compareRevision)
+	cmd = exec.Command("git", "diff", "--name-only", oldRevision)
 	cmd.Dir = root
 	out, err = cmd.CombinedOutput()
 	if err != nil {
 		return nil, fmt.Errorf("get diff: %+v", string(out))
 	}
 
-	oldRevision = compareRevision
 	files := strings.Split(string(out), "\n")
-
 	var posts []string
 	for _, path := range files {
 		if isPostMdfile(path) {
 			posts = append(posts, path)
 		}
 	}
+
+	oldRevision = headRevision // update with latest revision
 	return posts, nil
 }
 

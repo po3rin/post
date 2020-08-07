@@ -197,7 +197,7 @@ func gitDiffPostFiles() ([]string, error) {
 	}
 
 	// diff from old revision
-	log.Infof("diff in revision %+v and %+v\n", oldRevision, headRevision)
+	log.Infof("diff in revision %+v and %+v", oldRevision, headRevision)
 	cmd = exec.Command("git", "diff", "--name-only", oldRevision)
 	cmd.Dir = root
 	out, err = cmd.CombinedOutput()
@@ -219,8 +219,8 @@ func gitDiffPostFiles() ([]string, error) {
 }
 
 func syncPost(files []string) error {
-	for _, filepath := range files {
-		source, err := ioutil.ReadFile(filepath)
+	for _, f := range files {
+		source, err := ioutil.ReadFile(filepath.Join(root, f))
 		if err != nil {
 			return err
 		}

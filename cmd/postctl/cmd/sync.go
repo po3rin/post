@@ -225,7 +225,7 @@ func gitDiffPostFiles() ([]string, error) {
 	var posts []string
 	for _, path := range files {
 		if isPostMdfile(path) {
-			posts = append(posts, path)
+			posts = append(posts, filepath.Join(root, path))
 		}
 	}
 
@@ -236,7 +236,7 @@ func gitDiffPostFiles() ([]string, error) {
 
 func syncPost(files []string) error {
 	for _, f := range files {
-		source, err := ioutil.ReadFile(filepath.Join(root, f))
+		source, err := ioutil.ReadFile(f)
 		if err != nil {
 			return err
 		}

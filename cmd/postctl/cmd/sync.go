@@ -182,7 +182,6 @@ func gitDiffPostFiles() ([]string, error) {
 	cmd := exec.Command("git", "rev-parse", "HEAD")
 	cmd.Dir = root
 	out, err := cmd.CombinedOutput()
-	fmt.Println(cmd.String())
 	if err != nil {
 		return nil, fmt.Errorf("get revision: %+v", string(out))
 	}
@@ -196,18 +195,17 @@ func gitDiffPostFiles() ([]string, error) {
 		oldRevision = "HEAD"
 	}
 
-	fmt.Println(string(oldRevision))
+	compareRevision := strings.TrimRight(string(oldRevision), "\n")
 
 	// diff from old revision
-	cmd = exec.Command("git", "diff", "--name-only", string(oldRevision))
+	cmd = exec.Command("git", "diff", "--name-only", compareRevision)
 	cmd.Dir = root
 	out, err = cmd.CombinedOutput()
-	fmt.Println(cmd.String())
 	if err != nil {
 		return nil, fmt.Errorf("get diff: %+v", string(out))
 	}
 
-	oldRevision = string(revision)
+	oldRevision = compareRevision
 	files := strings.Split(string(out), "\n")
 
 	var posts []string

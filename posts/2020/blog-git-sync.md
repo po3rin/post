@@ -4,7 +4,6 @@ cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/blog-git-syn
 date: 2020/08/07
 id: blog-git-sync
 description: ブログをPush型からPull型のデータ同期に移行したので、そのアーキテクチャを共有します。
-draft: true
 tags:
     - Go
     - k8s

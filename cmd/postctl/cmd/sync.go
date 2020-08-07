@@ -197,6 +197,7 @@ func gitDiffPostFiles() ([]string, error) {
 	}
 
 	// diff from old revision
+	log.Infof("diff in revision %+v and %+v\n", oldRevision, headRevision)
 	cmd = exec.Command("git", "diff", "--name-only", oldRevision)
 	cmd.Dir = root
 	out, err = cmd.CombinedOutput()
@@ -212,6 +213,7 @@ func gitDiffPostFiles() ([]string, error) {
 		}
 	}
 
+	log.Infof("detects diff files: %+v\n", files)
 	oldRevision = headRevision // update with latest revision
 	return posts, nil
 }

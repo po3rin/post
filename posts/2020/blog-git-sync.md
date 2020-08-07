@@ -6,7 +6,7 @@ id: blog-git-sync
 description: ブログをPush型からPull型のデータ同期に移行したので、そのアーキテクチャを共有します。
 tags:
     - Go
-    - k8s
+    - Kubernetes
 ---
 
 ## Overview

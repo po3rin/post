@@ -3,7 +3,7 @@ title: エムスリーに転職します
 cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/m3-cover.jpeg
 date: 2020/08/07
 id: join-m3
-description: エムスリーのAI・機械学習チームにデータエンジニアとしてjoinするのでその心境を共有します。
+description: エムスリーのAI・機械学習チームにソフトウェアエンジニアとしてjoinするのでその心境を共有します。
 tags:
     - Poem
 ---

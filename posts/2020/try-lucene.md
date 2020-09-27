@@ -3,7 +3,7 @@ title: Luceneを使った検索エンジン構築に入門する
 cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/try-lucene.jpeg
 date: 2020/09/28
 id: try-lucene
-description: 最近Elasticsearchをより深く知るためにLuceneに入門しました。今回はLuceneを使って簡単な検索エンジン構築をやってみます。
+description: 最近Elasticsearchを深く知るためにLuceneに入門しました。今回はLuceneを使って簡単な検索エンジンを構築します。
 tags:
     - Java
     - Lucene
@@ -26,7 +26,7 @@ Luceneは転置インデックスを使った全文検索を採用していま�
 
 簡単な例をあげると、あるドキュメントD1,D2が次のように与えられると
 
-```
+```bash
 D1:私は焼肉を食べる
 D2:私はサラダも食べる
 ```
@@ -163,7 +163,7 @@ public class TryLucene {
 
 これを実行してみます。前もって```data```ディレクトリを作って適当なテキストファイルを2、3個入れておき、インデックス格納用ディレクトリ```index```を作っておきましょう。
 
-```
+```bash
 3 files indexed
 ```
 
@@ -223,7 +223,7 @@ public class Indexer {
 
 先ほどの動作確認でインデックスを作成したものが永続化されているはずなので実際に```index```ディレクトリの中身をのぞいてみましょう。
 
-```
+```bash
 tree index
 index
 ├── _0.cfe
@@ -235,7 +235,7 @@ index
 
 なにやらファイルができています。詳細は公式の [Index FIle Formats](https://lucene.apache.org/core/8_6_2/core/org/apache/lucene/codecs/lucene86/package-summary.html#package.description) にお任せしますが(自分もまだ勉強中...)、```_0```という名前はセグメントごとに異なりますので、このファイル群からセグメントが1つ出来ていることがわかります。これは```IndexWriter```のClose時にメモリバッファに溜まったドキュメントをセグメントとしてまとめて永続化しているためです。もう一度実行すると、当然セグメントがもう1つ作成されていることがわかります。indexディレクトリからもそれが確認できます。
 
-```
+```bash
 tree index
 index
 ├── _0.cfe
@@ -359,7 +359,7 @@ public class TryLucene {
 
 これで全ての実装を終えました！インデックス構築、検索をやってみます。
 
-```
+```bash
 2 hits documents found
 File: /path/to/tutorial/data/test2.txt
 File: /path/to/tutorial/data/test3.txt

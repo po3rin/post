@@ -117,6 +117,9 @@ public class Indexer {
 
 ちなみに```TextField```に渡している```TextField.Store.YES```はそのままの文字列を保存できるようにするオプションです。短いメタデータなどを保存するときに有用です。
 
+ここまでを図にするとこんな感じ
+
+![indexer-archi](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/lucene-archi.png)
 
 これでローカルのテキストファイルから転置インデックス構築用のクラスができました。早速エントリポイントを作ってこのクラスを使ってみましょう。
 
@@ -174,10 +177,10 @@ public class TryLucene {
 LuceneのFile Formatsについては[Apache Lucene - Index File Formats](https://lucene.apache.org/core/8_6_2/core/org/apache/lucene/codecs/lucene86/package-summary.html#package.description)で定義されています。indexに格納される```document```や```document```に属する```filed```、```term```という概念の説明があります。
 
 > A document is a sequence of fields.
-> A field is a named sequence of terms.
-> A term is a sequence of bytes.
+A field is a named sequence of terms.
+A term is a sequence of bytes.
 
-また、Luceneにはセグメントという重要な単位があり、インデックスは物理的には一つまたは複数のセグメントから構成されます。各セグメントは完全に独立したインデックスであり、個別に検索できます。ElasticsearchとLuceneのIndexの関係を図にするとShardの単位がLuceneのIndexの単位に相当します。Elasticsearchに詳しい方は知っているかもしれませんが、Luceneのセグメントはimmutableです。
+また、Luceneには ***セグメント*** という重要な単位があり、インデックスは物理的には一つまたは複数のセグメントから構成されます。各セグメントは完全に独立したインデックスであり、個別に検索できます。ElasticsearchとLuceneのIndexの関係を図にするとShardの単位がLuceneのIndexの単位に相当します。Elasticsearchに詳しい方はご存知かもしれませんが、Luceneのセグメントはimmutableです。
 
 ![es-lucene-index](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/es-lucene-index.png)
 
@@ -189,7 +192,7 @@ Luceneにドキュメントのインデックスを行うと内部的には下�
 
 ![segment](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/segment-buffer.png)
 
-1セグメント内のDocumentの最大数やmergeのタイミングなどはLuceneの設定で行えます。IndexWriterConfigに設定を付与していくコード例を下記に示します。
+1セグメント内のDocumentの最大数やmergeのタイミングなどはLuceneの設定で行えます。```IndexWriterConfig```に設定を付与していくコード例を下記に示します。
 
 ```java
 // ...

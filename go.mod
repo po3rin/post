@@ -3,19 +3,26 @@ module github.com/po3rin/post
 go 1.13
 
 require (
-	github.com/aws/aws-sdk-go v1.29.34
+	github.com/aws/aws-sdk-go v1.34.32
 	github.com/gin-contrib/cors v1.3.1
 	github.com/gin-gonic/gin v1.6.3
+	github.com/go-playground/validator/v10 v10.3.0 // indirect
+	github.com/golang/protobuf v1.4.2 // indirect
+	github.com/json-iterator/go v1.1.10 // indirect
 	github.com/kr/pretty v0.2.0 // indirect
 	github.com/kr/text v0.2.0 // indirect
+	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
+	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/pkg/errors v0.9.1
-	github.com/sirupsen/logrus v1.2.0
-	github.com/spf13/cobra v0.0.7
+	github.com/sirupsen/logrus v1.6.0
+	github.com/spf13/cobra v1.0.0
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/yuin/goldmark v1.1.30
+	github.com/ugorji/go v1.1.8 // indirect
+	github.com/yuin/goldmark v1.2.1
 	github.com/yuin/goldmark-meta v0.0.0-20191126180153-f0638e958b60
 	golang.org/x/net v0.0.0-20200301022130-244492dfa37a // indirect
-	golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e
-	golang.org/x/text v0.3.2 // indirect
-	gopkg.in/yaml.v2 v2.2.8 // indirect
+	golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208
+	golang.org/x/sys v0.0.0-20200923182605-d9f96fdee20d // indirect
+	google.golang.org/protobuf v1.25.0 // indirect
+	gopkg.in/yaml.v2 v2.3.0 // indirect
 )

@@ -1,5 +1,5 @@
 ---
-title: Luceneを使った検索エンジン構築に入門する
+title: Elasticsearchを理解するためにLuceneを使った検索エンジン構築に入門してみた
 cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/try-lucene.jpeg
 date: 2020/09/28
 id: try-lucene

@@ -12,7 +12,7 @@ tags:
 
 ## Overview
 
-こんにちは [pon](https://twitter.com/po3rin) です。Elasticsearchで思わぬ挙動にでくわすと、Javaすらやったことのない僕に出来ることはネットの海を彷徨うだけでした。これはよくないと思い、Elasticsearchの仕組みをある程度理解できるようにLuceneに入門しました。今回はLuceneのパッケージを利用して簡単な検索エンジンを動かしてみようと思います。Elasticsearch内部でどのようにLuceneを使っているのか知りたい人は必見です。
+こんにちは [pon](https://twitter.com/po3rin) です。Elasticsearchで思わぬ挙動にでくわすと、Javaすらやったことのない僕に出来ることはネットの海を彷徨うだけでした。これはよくないと思い、Elasticsearchの仕組みをある程度理解できるように ***Lucene*** に入門しました。今回はLuceneのパッケージを利用して簡単な検索エンジンを動かしてみようと思います。Elasticsearch内部でどのようにLuceneを使っているのか知りたい人は必見です。
 
 ## Lucene とは
 

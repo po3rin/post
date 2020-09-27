@@ -18,7 +18,7 @@ require (
 	github.com/spf13/cobra v1.0.0
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/ugorji/go v1.1.8 // indirect
-	github.com/yuin/goldmark v1.2.1
+	github.com/yuin/goldmark v1.1.30
 	github.com/yuin/goldmark-meta v0.0.0-20191126180153-f0638e958b60
 	golang.org/x/net v0.0.0-20200301022130-244492dfa37a // indirect
 	golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208

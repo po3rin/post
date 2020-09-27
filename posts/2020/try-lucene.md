@@ -376,12 +376,10 @@ Luceneを使った転置インデックス構築、簡単な検索を実装で�
 
 ## Reference
 
-「Lucene公式ページ」
-https://lucene.apache.org/
+[Lucene公式ページ](https://lucene.apache.org/)
 
-「転置索引とは何か？」
-https://gihyo.jp/dev/serial/01/search-engine/0003
 
-「Apache Lucene: ricerca libera per il vostro sito web」
-https://www.ionos.it/digitalguide/server/configurazione/apache-lucene/
+[転置索引とは何か？](https://gihyo.jp/dev/serial/01/search-engine/0003)
 
+
+[Apache Lucene: ricerca libera per il vostro sito web](https://www.ionos.it/digitalguide/server/configurazione/apache-lucene/)

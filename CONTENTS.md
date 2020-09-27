@@ -2,7 +2,7 @@
 
 ## 2020
 
-[Luceneを使った検索エンジン構築に入門する](https://github.com/po3rin/post/tree/master/posts/2020/try-lucene.md)
+[Elasticsearchを理解するためにLuceneを使った検索エンジン構築に入門してみた](https://github.com/po3rin/post/tree/master/posts/2020/try-lucene.md)
 
 [キャッシュ機構 TinyLFU のアーキテクチャと、それを支えるアルゴリズム](https://github.com/po3rin/post/tree/master/posts/2020/tinylfu.md)
 

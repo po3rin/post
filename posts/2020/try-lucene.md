@@ -3,7 +3,7 @@ title: Elasticsearchを理解するためにLuceneを使った検索エンジン
 cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/try-lucene.jpeg
 date: 2020/09/28
 id: try-lucene
-description: 最近Elasticsearchを深く知るためにLuceneに入門しました。今回はLuceneを使って簡単な検索エンジンを構築します。
+description: Elasticsearchを理解する為にLuceneに入門しました。今回は簡単な検索エンジンを構築します。
 tags:
     - Java
     - Lucene

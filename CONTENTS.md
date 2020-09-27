@@ -2,61 +2,61 @@
 
 ## 2020
 
-[Luceneを使った検索エンジン構築に入門する](/posts/2020/try-lucene.md)
+[Luceneを使った検索エンジン構築に入門する](https://github.com/po3rin/post/tree/master/posts/2020/try-lucene.md)
 
-[キャッシュ機構 TinyLFU のアーキテクチャと、それを支えるアルゴリズム](/posts/2020/tinylfu.md)
+[キャッシュ機構 TinyLFU のアーキテクチャと、それを支えるアルゴリズム](https://github.com/po3rin/post/tree/master/posts/2020/tinylfu.md)
 
-[破棄容易性の観点から、データパイプラインのk8s移行にまつわるGoコード改修を振り返る](/posts/2020/mq-reconnect.md)
+[破棄容易性の観点から、データパイプラインのk8s移行にまつわるGoコード改修を振り返る](https://github.com/po3rin/post/tree/master/posts/2020/mq-reconnect.md)
 
-[Elasticsearch の Mapping 管理を Go + CUE に移行した](/posts/2020/mapping-cue.md)
+[Elasticsearch の Mapping 管理を Go + CUE に移行した](https://github.com/po3rin/post/tree/master/posts/2020/mapping-cue.md)
 
-[Go製ダブル配列パッケージと最長一致法を使った形態素解析の実装](/posts/2020/longest-match.md)
+[Go製ダブル配列パッケージと最長一致法を使った形態素解析の実装](https://github.com/po3rin/post/tree/master/posts/2020/longest-match.md)
 
-[エムスリーに転職します](/posts/2020/join-m3.md)
+[エムスリーに転職します](https://github.com/po3rin/post/tree/master/posts/2020/join-m3.md)
 
-[Goの文字列置換とその内部実装](/posts/2020/go-replacer.md)
+[Goの文字列置換とその内部実装](https://github.com/po3rin/post/tree/master/posts/2020/go-replacer.md)
 
-[Goのインターフェース抽象度を美しく保つ為の思考](/posts/2020/go-interface.md)
+[Goのインターフェース抽象度を美しく保つ為の思考](https://github.com/po3rin/post/tree/master/posts/2020/go-interface.md)
 
-[Nuxt.js + Markdown でテックブログを作るハンズオン](/posts/2020/blog-nuxt.md)
+[Nuxt.js + Markdown でテックブログを作るハンズオン](https://github.com/po3rin/post/tree/master/posts/2020/blog-nuxt.md)
 
-[kubernetes/git-sync でブログのPull型データ同期を構築した](/posts/2020/blog-git-sync.md)
+[kubernetes/git-sync でブログのPull型データ同期を構築した](https://github.com/po3rin/post/tree/master/posts/2020/blog-git-sync.md)
 
 ## 2019
 
-[Go + WebAssembly で Dockerfile の依存グラフを図にするサービスを作った](/posts/2019/web-assembly-dockerfile.md)
+[Go + WebAssembly で Dockerfile の依存グラフを図にするサービスを作った](https://github.com/po3rin/post/tree/master/posts/2019/web-assembly-dockerfile.md)
 
-[Rust で実装する Average Hash を使った類似画像検索](/posts/2019/rust-avh.md)
+[Rust で実装する Average Hash を使った類似画像検索](https://github.com/po3rin/post/tree/master/posts/2019/rust-avh.md)
 
-[1つのDockerfileだけでGoの開発環境(ホットリロード)と本番環境(マルチステージビルド)を記述する](/posts/2019/multi-env-dockerfile.md)
+[1つのDockerfileだけでGoの開発環境(ホットリロード)と本番環境(マルチステージビルド)を記述する](https://github.com/po3rin/post/tree/master/posts/2019/multi-env-dockerfile.md)
 
-[Go + Gonum を使った行列計算まとめ](/posts/2019/gonum.md)
+[Go + Gonum を使った行列計算まとめ](https://github.com/po3rin/post/tree/master/posts/2019/gonum.md)
 
-[Markdown に埋め込まれた Go のソースコードに gofmt をかけてくれるツールを作った](/posts/2019/gofmtmd.md)
+[Markdown に埋め込まれた Go のソースコードに gofmt をかけてくれるツールを作った](https://github.com/po3rin/post/tree/master/posts/2019/gofmtmd.md)
 
-[任意の重みに従ってランダムに値を返す「Weighted Random Selection」をGoで実装する！](/posts/2019/go-wrs.md)
+[任意の重みに従ってランダムに値を返す「Weighted Random Selection」をGoで実装する！](https://github.com/po3rin/post/tree/master/posts/2019/go-wrs.md)
 
-[Go の -race option は内部で何をしているのか。何を検知しないのか。](/posts/2019/go-race.md)
+[Go の -race option は内部で何をしているのか。何を検知しないのか。](https://github.com/po3rin/post/tree/master/posts/2019/go-race.md)
 
-[Go の strings.Index の内部実装と Rabin-Karp アルゴリズム](/posts/2019/go-rabin-karp.md)
+[Go の strings.Index の内部実装と Rabin-Karp アルゴリズム](https://github.com/po3rin/post/tree/master/posts/2019/go-rabin-karp.md)
 
-[Goによる画像処理テストパターンの考察とまとめ](/posts/2019/go-img-test.md)
+[Goによる画像処理テストパターンの考察とまとめ](https://github.com/po3rin/post/tree/master/posts/2019/go-img-test.md)
 
-[Goのパッケージ開発者がDeprecatedを利用者に伝える & 利用者が検知する方法](/posts/2019/go-deprecated.md)
+[Goのパッケージ開発者がDeprecatedを利用者に伝える & 利用者が検知する方法](https://github.com/po3rin/post/tree/master/posts/2019/go-deprecated.md)
 
-[Goを始めて最高にお世話になったGo関連ブックマークを晒します](/posts/2019/go-bookmark.md)
+[Goを始めて最高にお世話になったGo関連ブックマークを晒します](https://github.com/po3rin/post/tree/master/posts/2019/go-bookmark.md)
 
-[みんなにOSSを見てもらいたい人の為に、GitHubリポジトリのOGP的画像を生成するサービスを作った](/posts/2019/ghcard.md)
+[みんなにOSSを見てもらいたい人の為に、GitHubリポジトリのOGP的画像を生成するサービスを作った](https://github.com/po3rin/post/tree/master/posts/2019/ghcard.md)
 
-[リトライ処理の効率的アプローチ「Exponential Backoff」の概要とGoによる実装](/posts/2019/exp-backoff.md)
+[リトライ処理の効率的アプローチ「Exponential Backoff」の概要とGoによる実装](https://github.com/po3rin/post/tree/master/posts/2019/exp-backoff.md)
 
-[Elasticsearch + Sudachi + Docker でユーザー辞書を作るハンズオン](/posts/2019/es-sudachi.md)
+[Elasticsearch + Sudachi + Docker でユーザー辞書を作るハンズオン](https://github.com/po3rin/post/tree/master/posts/2019/es-sudachi.md)
 
-[Buildkit の Goのコードを読んで Dockerfile 抽象構文木から LLB を生成するフローを覗いてみよう！！](/posts/2019/dockerfile-llb.md)
+[Buildkit の Goのコードを読んで Dockerfile 抽象構文木から LLB を生成するフローを覗いてみよう！！](https://github.com/po3rin/post/tree/master/posts/2019/dockerfile-llb.md)
 
-[Goを読んでDockerの抽象構文木の構造をサクッと理解する](/posts/2019/dockerfile-ast.md)
+[Goを読んでDockerの抽象構文木の構造をサクッと理解する](https://github.com/po3rin/post/tree/master/posts/2019/dockerfile-ast.md)
 
-[Dockerに統合されたBuildKitのLLB (low-level builder)の仕様を探ってみよう](/posts/2019/deep-dive-llb.md)
+[Dockerに統合されたBuildKitのLLB (low-level builder)の仕様を探ってみよう](https://github.com/po3rin/post/tree/master/posts/2019/deep-dive-llb.md)
 
-[Docker に統合された BuildKit で Dockerfile を使わずにコンテナイメージをビルドするハンズオン](/posts/2019/buildkit-handson.md)
+[Docker に統合された BuildKit で Dockerfile を使わずにコンテナイメージをビルドするハンズオン](https://github.com/po3rin/post/tree/master/posts/2019/buildkit-handson.md)
 

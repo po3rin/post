@@ -180,7 +180,7 @@ LuceneのFile Formatsについては[Apache Lucene - Index File Formats](https:/
 A field is a named sequence of terms.
 A term is a sequence of bytes.
 
-また、Luceneには ***セグメント*** という重要な単位があり、インデックスは物理的には一つまたは複数のセグメントから構成されます。各セグメントは完全に独立したインデックスであり、個別に検索できます。ElasticsearchとLuceneのIndexの関係を図にするとShardの単位がLuceneのIndexの単位に相当します。Elasticsearchに詳しい方はご存知かもしれませんが、Luceneのセグメントはimmutableです。
+また、Luceneには ***セグメント*** という重要な単位があり、インデックスは物理的には一つまたは複数のセグメントから構成されます。各セグメントは完全に独立したインデックスであり、個別に検索できます。ElasticsearchとLuceneのIndexの関係を図にするとShardの単位がLuceneのIndexの単位に相当します。
 
 ![es-lucene-index](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/es-lucene-index.png)
 

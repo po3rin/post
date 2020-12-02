@@ -1,5 +1,5 @@
 ---
-title: Lucene IndexWriter Internal(1) ~DWPT,IndexingChain導入編~
+title: Lucene IndexWriter Internal (DWPT IndexingChain 導入編)
 cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/indexwriter1.jpg
 date: 2020/12/02
 id: indexwriter-internal

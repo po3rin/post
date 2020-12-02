@@ -1,5 +1,5 @@
 ---
-title: Lucene IndexWriter Internal (DWPT IndexingChain 導入編)
+title: 読んで理解する全文検索 (IndexWriter, DWPT, IndexingChain 導入編)
 cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/indexwriter1.jpg
 date: 2020/12/02
 id: indexwriter-internal
@@ -11,7 +11,8 @@ tags:
 
 ## Overview
 
-Luceneの内部を理解するためにIndexWriterを追います。IndexWriterを追うことで内部のインデックスのデータ構造などを学べるはずです。まずは第一弾として 「DWPT, IndexingChain 導入編」を書きました。
+こんにちは [pon](https://twitter.com/po3rin) です。
+全文検索エンジンは男の夢です。故に全文検索ライブラリであるLuceneの内部を理解するためにIndexWriterの実装をコードで追います。IndexWriterを追うことで内部のインデックスのデータ構造などを学べるはずです。まずは第一弾として 「DWPT, IndexingChain 導入編」を書きました。
 
 ## IndexWriter
 

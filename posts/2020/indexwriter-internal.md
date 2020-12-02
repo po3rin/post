@@ -107,7 +107,7 @@ writer.updateDocument(new Term("id", "001"), doc2);
 
 ![indexer-archi](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/dwpt.png)
 
-各DWPTは、書き込まれる1つのセグメントに対応します。各DWPTが独立した場所でtokenizeなどを行うので、データの処理にはロックが不要ですがFlush時にはLockを必要とします。
+各DWPTは、書き込まれる1つのセグメントに対応します。各DWPTが独立した場所でtokenizeなどを行います、tokenizeなどの処理にはロックが不要ですがFlush時にはLockを必要とします。
 
 DWPTの概要を掴んだところで```DocumentsWriterPerThread.updateDocuments```を覗いていきましょう。
 

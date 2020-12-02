@@ -14,6 +14,8 @@
 
 [エムスリーに転職します](https://github.com/po3rin/post/tree/master/posts/2020/join-m3.md)
 
+[Lucene IndexWriter Internal(1) ~DWPT,IndexingChain導入編~](https://github.com/po3rin/post/tree/master/posts/2020/indexwriter-internal.md)
+
 [Goの文字列置換とその内部実装](https://github.com/po3rin/post/tree/master/posts/2020/go-replacer.md)
 
 [Goのインターフェース抽象度を美しく保つ為の思考](https://github.com/po3rin/post/tree/master/posts/2020/go-interface.md)

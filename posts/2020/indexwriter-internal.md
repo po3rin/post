@@ -1,20 +1,21 @@
 ---
-title: Lucene IndexWriter コードリーディング
-cover: img/gopher.png
+title: Lucene IndexWriter Internal(1) ~DWPT,IndexingChain導入編~
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/indexwriter1.jpg
 date: 2020/12/02
 id: indexwriter-internal
-description: Lucene IndexWriter の内部を冒険しました。
+description: Lucene IndexWriter の内部を冒険します。
 tags:
     - Lucene
     - Java
-draft: true
 ---
 
 ## Overview
 
+Luceneの内部を理解するためにIndexWriterを追います。IndexWriterを追うことで内部のインデックスのデータ構造などを学べるはずです。まずは第一弾として 「DWPT, IndexingChain 導入編」を書きました。
+
 ## IndexWriter
 
-```IndexWriter```は前回のブログで説明したように下記のアーキテクチャを持ちます。
+```IndexWriter```は[前回のブログ](https://po3rin.com/blog/try-lucene)で説明したように下記のアーキテクチャを持ちます。
 
 ![indexer-archi](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/lucene-archi.png)
 
@@ -44,7 +45,7 @@ draft: true
 writer.updateDocument(new Term("id", "001"), doc2);
 ```
 
-```DocumentsWriterDeleteQueue```という名前から削除に関してはQueueを使って実装されていることがわかります。この辺は後にみていきます。
+```DocumentsWriterDeleteQueue```という名前から削除に関してはQueueを使って実装されていることがわかります。
 続いて```updateDocuments```をみていきます。
 
 ```java
@@ -65,7 +66,7 @@ writer.updateDocument(new Term("id", "001"), doc2);
 
 ```DocumentsWriter``` クラスである```docWriter```がupdate処理を引き受けます。
 
-![indexer-archi](../../img/docwriter.png)
+![indexer-archi](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/docwriter.png)
 
 ```java
   long updateDocuments(final Iterable<? extends Iterable<? extends IndexableField>> docs,
@@ -87,9 +88,6 @@ writer.updateDocument(new Term("id", "001"), doc2);
         if (dwpt.isAborted()) {
           flushControl.doOnAbort(dwpt);
         }
-        // We don't know how many documents were actually
-        // counted as indexed, so we must subtract here to
-        // accumulate our separate counter:
         numDocsInRAM.addAndGet(dwpt.getNumDocsInRAM() - dwptNumDocs);
       }
       final boolean isUpdate = delNode != null && delNode.isDelete();
@@ -97,14 +95,13 @@ writer.updateDocument(new Term("id", "001"), doc2);
     } finally {
       // ...
     }
-
     // ...
   }
 ```
 
 ここで```DWPT```という概念が登場します。これは ```DocumentsWriterPerThread``` の略でLuceneのコードやドキュメントで度々この単語が登場します。複数のスレッドにドキュメント更新を分散させます。各DWPTが個別にメモリを管理しており、ドキュメント追加でメモリに十分なドキュメントを保持すると、DWPTはフラッシュ処理ですべての変更をディレクトリに永続化します。
 
-![indexer-archi](../../img/dwpt.png)
+![indexer-archi](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/dwpt.png)
 
 各DWPTは、書き込まれる1つのセグメントに対応します。各DWPTが独立した場所でtokenizeなどを行うので、データの処理にはロックが不要ですがFlush時にはLockを必要とします。
 
@@ -204,3 +201,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/doc-values.html
 ポイントバリューは数値を表し、通常のテキストとは異なるインデックスが付けられます。転置インデックスの代わりに、ポイントはKDツリーなどのデータ構造でインデックス付けされます。
 
 ## まとめ
+
+IndexWriterのaddがupdateのwrapであること、deleteはQueueで実装されていることを確認し、DWPT、IndexingChainなどの概念を簡単に抑えました。
+
+次回から更にフィールド毎の処理やアルゴリズムを追っていきます。

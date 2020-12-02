@@ -7,6 +7,7 @@ description: Lucene IndexWriter の内部を冒険しました。
 tags:
     - Lucene
     - Java
+draft: true
 ---
 
 ## Overview

@@ -194,13 +194,13 @@ Indexing Chain内では、フィールドのタイプごとに下記の順番で
 * doc_values
 * point
 
-storeやdoc_valuesはElasticsearchに精通していればすぐにピンとくるはずです。
+storeやdoc_valuesはElasticsearchに精通していればすぐにピンとくるはずです。説明はElasticsearchのドキュメントに任せます。
 
 store
-https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-store.html
+[Elasticsearch store](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-store.html)
 
 doc_values
-https://www.elastic.co/guide/en/elasticsearch/reference/current/doc-values.html
+[Elasticsearch doc_values](https://www.elastic.co/guide/en/elasticsearch/reference/current/doc-values.html)
 
 ポイントバリューは数値を表し、通常のテキストとは異なるインデックスが付けられます。転置インデックスの代わりに、ポイントはKDツリーなどのデータ構造でインデックス付けされます。
 

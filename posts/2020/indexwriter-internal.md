@@ -105,7 +105,7 @@ writer.updateDocument(new Term("id", "001"), doc2);
 
 各DWPTは、書き込まれる1つのセグメントに対応します。各DWPTが独立した場所でtokenizeなどを行うので、データの処理にはロックが不要ですがFlush時にはLockを必要とします。
 
-DWPTの概要を掴んだところで```DocumentsWeiterPerThread.updateDocuments```を覗いていきましょう。
+DWPTの概要を掴んだところで```DocumentsWriterPerThread.updateDocuments```を覗いていきましょう。
 
 ```java
   long updateDocuments(Iterable<? extends Iterable<? extends IndexableField>> docs, DocumentsWriterDeleteQueue.Node<?> deleteNode, DocumentsWriter.FlushNotifications flushNotifications) throws IOException {

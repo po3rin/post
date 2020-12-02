@@ -12,7 +12,7 @@ tags:
 ## Overview
 
 こんにちは [pon](https://twitter.com/po3rin) です。
-全文検索エンジンは男の夢です。故に全文検索ライブラリであるLuceneの内部を理解するためにIndexWriterの実装をコードで追います。IndexWriterを追うことで内部のインデックスのデータ構造などを学べるはずです。まずは第一弾として 「DWPT, IndexingChain 導入編」を書きました。
+全文検索エンジンは男の夢です。故に全文検索ライブラリであるLuceneの内部を理解するために```IndexWriter```の実装をコードで追います。IndexWriterを追うことで内部のインデックスのデータ構造などを学べるはずです。まずは第一弾として **「DWPT, IndexingChain 導入編」** を書きました。
 
 Luceneに触れるのが初めての人は私の過去ブログがおすすめです。
 [Elasticsearchを理解するためにLuceneを使った検索エンジン構築に入門してみた](https://po3rin.com/blog/try-lucene)

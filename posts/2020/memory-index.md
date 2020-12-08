@@ -1,7 +1,7 @@
 ---
 title: Goで実装するインメモリ静的転置インデックス
 cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/memory-index.jpeg
-date: 2020/12/08
+date: 2020/12/09
 id: memory-index
 description: 「情報検索」の第4章を読みながらインメモリ転置インデックスをGoで実装してきます。
 tags:
@@ -120,7 +120,7 @@ Hello search engines.
 Many search engines incorporate an inverted index.
 ```
 
-テキストコレクションはタームとその出現位置のペアの集合をみなせるので、まずは(term, position)のペアのスライス```terms```を作成します。
+テキストコレクションはタームとその出現位置のペアの集合をみなせるので、まずは(term, position)のペアのスライス```terms```を作成します。なおエラーハンドリングは省略しています。
 
 ```go
 package main
@@ -141,10 +141,7 @@ func clean(document string) string {
 func main() {
 	datadir := "data"
 
-	files, err := ioutil.ReadDir(datadir)
-	if err != nil {
-		log.Fatal(err)
-	}
+	files, _ := ioutil.ReadDir(datadir)
 
 	terms := make(terms, 0)
 	var pos int
@@ -152,10 +149,8 @@ func main() {
 		if file.IsDir() {
 			continue
 		}
-		b, err := ioutil.ReadFile(filepath.Join(datadir, file.Name()))
-		if err != nil {
-			log.Fatal(err)
-		}
+		b, _ := ioutil.ReadFile(filepath.Join(datadir, file.Name()))
+		
 		tokens := strings.Split(string(b), " ") //　tokenize
 		for _, t := range tokens {
 			pos++

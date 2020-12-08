@@ -1,6 +1,6 @@
 ---
 title: Rust初心者が楽して作るHTTPクライアントCLI (surf & clap)
-cover: img/rust-http-client.png
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/rust-http-client.jpeg
 date: 2020/12/06
 id: rust-http-client
 description: 実務で使うツールをRustでサラッと実装したので、僕が踏んだ実装方法を紹介します。

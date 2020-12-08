@@ -1,6 +1,6 @@
 ---
 title: Goで実装するインメモリ静的転置インデックス
-cover: img/memory-index.jpeg
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/memory-index.jpeg
 date: 2020/12/08
 id: memory-index
 description: 「情報検索」の第4章を読みながらインメモリ転置インデックスをGoで実装してきます。
@@ -19,11 +19,14 @@ draft: true
 
 [情報検索 :検索エンジンの実装と評価](https://www.amazon.co.jp/dp/4627817614/ref=cm_sw_em_r_mt_dp_op2ZFb4B15S8W)
 
-![buttcher](../../img/buttcher.jpeg)
+[![buttcher](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/buttcher.jpeg)](https://github.com/po3rin/inmemindex)
+
 
 そこで学んだインメモリインデックスは検索に使われる転置インデックスを理解するのにはシンプルである為、情報検索データ構造に関してあまり詳しくない僕のような人間が情報検索を理解する足がかりになるでしょう。
 
-今回はButtcher本で解説されているインメモリインデックスをGoで実装しながら理解していきます。
+今回はButtcher本で解説されているインメモリインデックスをGoで実装しながら理解していきます。コードはこちらのリポジトリに置いてあります。
+
+![in memory index](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/inmemindex-cd.png)
 
 ## 転置インデックスとは
 
@@ -59,7 +62,7 @@ draft: true
 
 各データ構造は順に解説していきます。全体像はこちらになります。
 
-![index data structure](../../img/inmem-index-archi.png)
+![index data structure](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/inmem-index-archi.png)
 
 ### 辞書
 
@@ -67,7 +70,7 @@ draft: true
 
 ハッシュ配列辞書はハッシュテーブルを用いて辞書を構築するデータ構造です。ハッシュが衝突した場合は衝突チェインで繋いでいきます。下図はハッシュ配列辞書を表したものです。
 
-![index data structure](../../img/dict-hash.png)
+![index data structure](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/dict-hash.png)
 
 辞書へのアクセスをより高速にするためには単語の出現頻度に現れる[ジップの法則](https://ja.wikipedia.org/wiki/%E3%82%B8%E3%83%83%E3%83%97%E3%81%AE%E6%B3%95%E5%89%87)を考慮する必要があります。テキスト中のほとんどのトークンはごく少数の高頻度トークンで占められているため、この高頻度トークンへのアクセスをなるべく高速にするために辞書でアクセスしやすい位置においておく必要があります。そのためにハッシュテーブルに適用できる2つの手法があります。
 
@@ -85,11 +88,11 @@ draft: true
 
 拡張可能性を考慮して、例えばポスティングリストを ***linked list*** として実装すると簡単にポスティングリストは拡張可能ですが、ポインタ分のスペースが余分に必要になるというデメリットがあります。下図はlinked listを使った時のポスティングリストを表しています。
 
-![linked list を使った辞書の実装](../../img/linkeddict.png)
+![linked list を使った辞書の実装](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/linkeddict.png)
 
 そこでこのデメリットを解消しつつ、CPUキャッシュヒット率もあげられるという ***(展開リンクリスト)unrolled linked list*** というデータ構造で実装します。下図は展開リンクリストを使ったポスティングリストを表したものです。これはコンパイラのループ展開の最適化手法が元になっているみたい。
 
-![index data structure](../../img/postings-unrolled.png)
+![index data structure](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/postings-unrolled.png)
 
 ポスティングリストをグループにまとめることで内部断片量も制御できます。ポスティングリストを拡張する際には新しいgroupにメモリを割り当てるだけなので```realloc```を使ったメモリの割り当て変更よりも低コストで拡張できます。1groupの容量は
 

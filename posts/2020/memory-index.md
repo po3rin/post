@@ -319,41 +319,40 @@ func main() {
 	}
 
 	for t, e := range dict {
-		fmt.Println("--------------")
+		fmt.Println("")
 		fmt.Printf("term: %v\n", t)
 		ps := e.get()
 		fmt.Printf("pos: %v\n", ps)
 	}
 }
-
 ```
 
 これを実行してみましょう。狙った通りのスキーマ非依存型の静的インデックスが作成できました。
 
 ```bash
 $ go run main.go
---------------
+
 term: engines
 pos: [6 9]
---------------
+
 term: many
 pos: [7]
---------------
+
 term: incorporate
 pos: [10]
---------------
+
 term: an
 pos: [11]
---------------
+
 term: hello
 pos: [1 4]
---------------
+
 term: inverted
 pos: [2 12]
---------------
+
 term: index
 pos: [3 13]
---------------
+
 term: search
 pos: [5 8]
 ```

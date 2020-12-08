@@ -7,20 +7,17 @@ description: 「情報検索」の第4章を読みながらインメモリ転置
 tags:
     - Go
     - Search Engine
-draft: true
 ---
 
 ## Overview
 
 こんにちは [pon](https://twitter.com/po3rin) です。これは[「情報検索：検索エンジンの実装と評価」（Buttcher本） Advent Calendar 2020](https://adventar.org/calendars/4968) の記事です。
 
-
 仕事では主に検索基盤を担当しているので、検索エンジンの内部を知りたくなるのは仕方のないことです。そこでいわゆるButtcher本を読み始めました。
 
 [情報検索 :検索エンジンの実装と評価](https://www.amazon.co.jp/dp/4627817614/ref=cm_sw_em_r_mt_dp_op2ZFb4B15S8W)
 
 [![buttcher](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/buttcher.jpeg)](https://github.com/po3rin/inmemindex)
-
 
 そこで学んだインメモリインデックスは検索に使われる転置インデックスを理解するのにはシンプルである為、情報検索データ構造に関してあまり詳しくない僕のような人間が情報検索を理解する足がかりになるでしょう。
 

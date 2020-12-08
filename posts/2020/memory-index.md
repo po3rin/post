@@ -172,7 +172,7 @@ func main() {
 
 ファイルの中身を見ていき、正規表現を使う```clean```関数で不要な記号などを取り除いてから```terms```に格納していきます。これを実行すると下記の結果が得られます。
 
-```
+```bach
 # go run main.go
 [{hello 1} {inverted 2} {index 3} {hello 4} {search 5} {engines 6} {many 7} {search 8} {engines 9} {incorporate 10} {an 11} {inverted 12} {index 13}]
 ```

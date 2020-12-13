@@ -1,6 +1,6 @@
 ---
 title: go-plugin × gRPC で自作Goツールにプラグイン機構を実装する方法
-cover: ../../img/go-plug.jpeg
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/go-plug.jpeg
 date: 2020/12/15
 id: go-plug
 description: go-pluginパッケージを使ってgRPCプラグイン機構を提供する方法を調べたので紹介します。
@@ -19,11 +19,11 @@ draft: true
 
 go-pluginは、RPCを介したGoのプラグインシステムです。
 
-[![go-plugin](../../img/go-plugin.png)](https://github.com/hashicorp/go-plugin)
+[![go-plugin](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/go-plugin.png)](https://github.com/hashicorp/go-plugin)
 
 TerraformなどHashicorpの様々なOSSの内部でも使われているので実績は抜群です。RPCを介すると言いますがローカルでの接続しかサポートしていませんが、gRPCベースのプラグインを使用すると、プラグインを任意の言語で作成できます。内部的にはプラグインをfork-execし、やりとりをRPCで行います。下記はgRPCを使った例です。
 
-![go-plugin architecture](../../img/go-plug-archi.png)
+![go-plugin architecture](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/go-plug-archi.png)
 
 go-pluginパッケージはfork-exec、negotiation info、health checkのやりとりはgo-pluginが内部でやってくれるので、やるべきことはProtocol Buffersを定義し、コード生成し、インターフェースを実装してgo-pluginに渡してあげるだけです。
 

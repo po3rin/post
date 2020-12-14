@@ -6,7 +6,6 @@ id: go-plug
 description: go-pluginパッケージを使ってgRPCプラグイン機構を提供する方法を調べたので紹介します。
 tags:
     - Go
-draft: true
 ---
 
 ## Overview
@@ -311,3 +310,4 @@ hello gopher
 
 Exampleが非常に参考になります。
 [hashicorp/go-plugin](https://github.com/hashicorp/go-plugin)
+

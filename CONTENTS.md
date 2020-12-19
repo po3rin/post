@@ -6,6 +6,8 @@
 
 [キャッシュ機構 TinyLFU のアーキテクチャと、それを支えるアルゴリズム](https://github.com/po3rin/post/tree/master/posts/2020/tinylfu.md)
 
+[Rust初心者が楽して作るHTTPクライアントCLI (surf & clap)](https://github.com/po3rin/post/tree/master/posts/2020/rust-http-client.md)
+
 [破棄容易性の観点から、データパイプラインのk8s移行にまつわるGoコード改修を振り返る](https://github.com/po3rin/post/tree/master/posts/2020/mq-reconnect.md)
 
 [Goで実装するインメモリ静的転置インデックス](https://github.com/po3rin/post/tree/master/posts/2020/memory-index.md)
@@ -19,6 +21,8 @@
 [読んで理解する全文検索 (IndexWriter, DWPT, IndexingChain 導入編)](https://github.com/po3rin/post/tree/master/posts/2020/indexwriter-internal.md)
 
 [Goの文字列置換とその内部実装](https://github.com/po3rin/post/tree/master/posts/2020/go-replacer.md)
+
+[go-plugin × gRPC で自作Goツールにプラグイン機構を実装する方法](https://github.com/po3rin/post/tree/master/posts/2020/go-plug.md)
 
 [Goのインターフェース抽象度を美しく保つ為の思考](https://github.com/po3rin/post/tree/master/posts/2020/go-interface.md)
 

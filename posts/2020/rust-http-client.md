@@ -124,7 +124,7 @@ let app = App::new("rust-http-cli")
         .about("basic auth user")
         .short('u')          
         .long("user")         
-        .takes_value(true) // 値をとるフラグか
+        .takes_value(true) // 値をとるフラグかどうか
     )
     .arg(Arg::new("pass")
         .about("basic auth pass")
@@ -181,3 +181,4 @@ surf + clap でRust初心者でもサクッとHTTPクラアントCLIが作れま
 [Rust の HTTP クライアント surf を試してみる](https://blog-dry.com/entry/2020/02/29/152325)
 
 [clap-rs/clap](https://github.com/clap-rs/clap)
+

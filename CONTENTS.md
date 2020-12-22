@@ -26,6 +26,8 @@
 
 [Goのインターフェース抽象度を美しく保つ為の思考](https://github.com/po3rin/post/tree/master/posts/2020/go-interface.md)
 
+[今年読んだ超主観テック本グランド大賞2020](https://github.com/po3rin/post/tree/master/posts/2020/books-2020.md)
+
 [Nuxt.js + Markdown でテックブログを作るハンズオン](https://github.com/po3rin/post/tree/master/posts/2020/blog-nuxt.md)
 
 [kubernetes/git-sync でブログのPull型データ同期を構築した](https://github.com/po3rin/post/tree/master/posts/2020/blog-git-sync.md)

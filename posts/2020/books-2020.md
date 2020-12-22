@@ -28,7 +28,7 @@ tags:
 
 [［試して理解］Linuxのしくみ ～実験と図解で学ぶOSとハードウェアの基礎知識](https://www.amazon.co.jp/dp/B079YJS1J1/ref=cm_sw_em_r_mt_dp_VfF4FbQC99TVZ)  
 
-[アルゴリズムイントロダクション 第3版 第1巻: 基礎・ソート・データ構造・数学 (世界標準MIT教科書)](https://www.amazon.co.jp/dp/4764904063/ref=cm_sw_em_r_mt_dp_ugF4Fb0DB6X1R)  
+[アルゴリズムイントロダクション 第3版 第1巻](https://www.amazon.co.jp/dp/4764904063/ref=cm_sw_em_r_mt_dp_ugF4Fb0DB6X1R)  
 
 [Kubernetesで実践するクラウドネイティブDevOps](https://www.amazon.co.jp/dp/4873119014/ref=cm_sw_em_r_mt_dp_8gF4Fb44HT084)  
 
@@ -62,7 +62,7 @@ tags:
 
 [アクション リーディング　1日30分でも自分を変える“行動読書”](https://www.amazon.co.jp/dp/B01G6U99B8/ref=cm_sw_em_r_mt_dp_.pF4Fb02PN2ZJ)  
 
-[SCRUM BOOT CAMP THE BOOK【増補改訂版】 スクラムチームではじめるアジャイル開発](https://www.amazon.co.jp/dp/B086GBXRN6/ref=cm_sw_em_r_mt_dp_QqF4Fb57Z1QRF)  
+[SCRUM BOOT CAMP THE BOOK スクラムチームではじめるアジャイル開発](https://www.amazon.co.jp/dp/B086GBXRN6/ref=cm_sw_em_r_mt_dp_QqF4Fb57Z1QRF)  
 
 [患者目線の医療改革](https://www.amazon.co.jp/dp/B07Y229JV4/ref=cm_sw_em_r_mt_dp_lrF4FbC8MKZF4)  
 
@@ -91,7 +91,7 @@ How to ばかり勉強してきたので、ここでWhyを語れるエンジニ�
 
 ## 第3位
 
-![アルゴリズムイントロダクション 第3版 第1巻: 基礎・ソート・データ構造・数学 (世界標準MIT教科書)](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-alg.jpg)  
+![アルゴリズムイントロダクション 第3版 第1巻](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-alg.jpg)  
 
 [アルゴリズムイントロダクション 第3版 第1巻: 基礎・ソート・データ構造・数学 (世界標準MIT教科書)](https://www.amazon.co.jp/dp/4764904063/ref=cm_sw_em_r_mt_dp_ugF4Fb0DB6X1R)
 
@@ -107,8 +107,6 @@ How to ばかり勉強してきたので、ここでWhyを語れるエンジニ�
 完全に行動に落とせてないので何度も繰り返し読むべき本だと思っています。
 
 ## 超主観テック本グランド大賞2020
-
-<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-pdm.jpg" width="280px">
 
 ![プロダクトマネジメント ―ビルドトラップを避け顧客に価値を届ける](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-pdm.jpg)  
 

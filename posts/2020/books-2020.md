@@ -75,28 +75,32 @@ tags:
 [失敗の科学　失敗から学習する組織、学習できない組織](https://www.amazon.co.jp/dp/B01MU364ID/ref=cm_sw_em_r_mt_dp_ytF4Fb3393BMK)
 
 ## 第5位
-![高速文字列解析の世界](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-kousoku.jpg)
+![高速文字列解析の世界](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-kousoku.jpg)  
+
 [高速文字列解析の世界](https://www.amazon.co.jp/dp/4000069748/ref=cm_sw_em_r_mt_dp_DkF4FbRKEQJM6)
 
 この本は情報検索を学ぶ中で興味を持った文字列解析に関する本です。少し古い本ですが文字列解析の基礎から解説してくれます。練りに練られた文字列解析のアイデアたちは感動すら覚えます。この本を読んで他の文字列アルゴリズムにも興味を持つキッカケになった本であり、今年の僕の勉強ベクトルに大きく影響を与えたので第5位にランクインです。
 
 ## 第4位
 
-![UNIXという考え方](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-unix.jpg)
+![UNIXという考え方](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-unix.jpg)  
+
 [UNIXという考え方](https://www.amazon.co.jp/dp/4274064069/ref=cm_sw_em_r_mt_dp_XhF4Fb5AJG5JT)
 
 How to ばかり勉強してきたので、ここでWhyを語れるエンジニアになりたいと思い、手始めに読んだ本が「UNIXという考え方」です。ど有名な本なので説明は不要かと思いますが、自作ツールを作ることが多い僕としては実装時に考える頭の指針として今でも重宝しています。
 
 ## 第3位
 
-![アルゴリズムイントロダクション 第3版 第1巻: 基礎・ソート・データ構造・数学 (世界標準MIT教科書)](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-alg.jpg)
+![アルゴリズムイントロダクション 第3版 第1巻: 基礎・ソート・データ構造・数学 (世界標準MIT教科書)](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-alg.jpg)  
+
 [アルゴリズムイントロダクション 第3版 第1巻: 基礎・ソート・データ構造・数学 (世界標準MIT教科書)](https://www.amazon.co.jp/dp/4764904063/ref=cm_sw_em_r_mt_dp_ugF4Fb0DB6X1R)
 
 情報系の出身ではないのでアルゴリズムに対して全く素人だったので読みました。アルゴリズムを紹介していく本ですが、新しく出会ったアルゴリズムを理解する筋肉がつく本だと思っています。生半可なアルゴリズム紹介本を読むならこの本を読んで基礎を固めるのをお勧めします。僕はミドルウェアの内部アルゴリズムを理解することが好きなので、この本が基礎になりいろんな調査がスムーズに行えました。
 
 ## 第2位
 
-![採用基準](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-saiyou.jpg)
+![採用基準](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-saiyou.jpg)  
+
 [採用基準](https://www.amazon.co.jp/dp/B00B42SX70/ref=cm_sw_em_r_mt_dp_GoF4FbFBEREZ1)
 
 今年の転職してすぐに紹介された本です。自分のエンジニアとしての働き方を見直すキッカケになった素晴らしい本です。エムスリーでは入社したてのほやほやでもいきなりリーダーシップを求められます。リーダーシップという言葉は抽象的なので実践するにはこのリーダーシップという言葉を行動に落とせるレベルに腹落ちさせておく必要があります。その時にこの本はベストでしょう。この本を読んで今年は自分が苦手なデータ分析の業務に手をあげるなど、自分の業務にも見える形で影響を与えています。まだ僕自身、
@@ -104,7 +108,10 @@ How to ばかり勉強してきたので、ここでWhyを語れるエンジニ�
 
 ## 超主観テック本グランド大賞2020
 
-![プロダクトマネジメント ―ビルドトラップを避け顧客に価値を届ける](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-pdm.jpg)
+<img src="https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-pdm.jpg" width="280px">
+
+![プロダクトマネジメント ―ビルドトラップを避け顧客に価値を届ける](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/book-pdm.jpg)  
+
 [プロダクトマネジメント ―ビルドトラップを避け顧客に価値を届ける](https://www.amazon.co.jp/dp/4873119251/ref=cm_sw_em_r_mt_dp_XrF4FbBHDN6KD)
 
 エンジニアの開発しているプロダクトへの考え方を大きく変えてくれた本です。「これ作って意味あるのかな？」と一瞬でも思ったことのあるエンジニアは全員読むべきです。コストのかからない実験でその実装を行うべきかどうかを早めに決断するというのはすぐに実践できるプラクティスです。弊チームでもコストのかかる実装をせず、手動でデータを用意してユーザーに返して反応をみるなどの施策を回しています。実験とソリューションのサイクルを理解することで開発に対する意識が変わることは間違いありません。個人的にもまだ実践仕切れていないのでもう1度読んでおきたい本です。

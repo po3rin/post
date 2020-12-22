@@ -3,7 +3,7 @@ title: 今年読んだ超主観テック本グランド大賞2020
 cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/books-2020.jpeg
 date: 2020/12/22
 id: books-2020
-description: 今年読んだテック本の紹介をします。
+description: 今年僕が読んだテック本の中から、もっとも影響力のあった超主観テック本グランド大賞2020を決定します。
 tags:
     - Poem
 ---
@@ -24,30 +24,54 @@ tags:
 
 今年僕が完読した本です。技術本にちゃっかりビジネス本も含まれてますがエンジニアの仕事に生かす為に読んだ本なのでノミネートに入れています。今年はどの本が選ばれるのでしょうか。
 
-[マスタリングTCP/IP―入門編―(第6版)](https://www.amazon.co.jp/dp/4274224473/ref=cm_sw_em_r_mt_dp_1eF4FbCGVCFTK)
-[［試して理解］Linuxのしくみ ～実験と図解で学ぶOSとハードウェアの基礎知識](https://www.amazon.co.jp/dp/B079YJS1J1/ref=cm_sw_em_r_mt_dp_VfF4FbQC99TVZ)
-[アルゴリズムイントロダクション 第3版 第1巻: 基礎・ソート・データ構造・数学 (世界標準MIT教科書)](https://www.amazon.co.jp/dp/4764904063/ref=cm_sw_em_r_mt_dp_ugF4Fb0DB6X1R)
-[Kubernetesで実践するクラウドネイティブDevOps](https://www.amazon.co.jp/dp/4873119014/ref=cm_sw_em_r_mt_dp_8gF4Fb44HT084)
-[DNSがよくわかる教科書](https://www.amazon.co.jp/dp/B07KQSRZ1S/ref=cm_sw_em_r_mt_dp_whF4FbDRQ280K)
-[UNIXという考え方](https://www.amazon.co.jp/dp/4274064069/ref=cm_sw_em_r_mt_dp_XhF4Fb5AJG5JT)
-[Infrastructure as Code](https://www.amazon.co.jp/dp/4873117968/ref=cm_sw_em_r_mt_dp_qiF4FbV6CPS20)
-[マイクロサービスアーキテクチャ](https://www.amazon.co.jp/dp/4873117607/ref=cm_sw_em_r_mt_dp_RiF4FbTBMKWGQ)
-[絵でみてわかるOS/ストレージ/ネットワーク](https://www.amazon.co.jp/dp/B07VV2C2QN/ref=cm_sw_em_r_mt_dp_jjF4FbRS0ZMQ3)
-[Elasticsearch実践ガイド](https://www.amazon.co.jp/dp/B07DN87LQV/ref=cm_sw_em_r_mt_dp_HjF4FbXQ9WERC)
-[珠玉のプログラミング](https://www.amazon.co.jp/dp/4621066072/ref=cm_sw_em_r_mt_dp_ikF4Fb2FFSEFT)
-[高速文字列解析の世界](https://www.amazon.co.jp/dp/4000069748/ref=cm_sw_em_r_mt_dp_DkF4FbRKEQJM6)
-[コンピュータシステムの理論と実装](https://www.amazon.co.jp/dp/4873117127/ref=cm_sw_em_r_mt_dp_9kF4FbP90CQX8)
-[実践 ビッグデータ分析基盤開発ストーリーで学ぶGoogle BigQuery](https://www.amazon.co.jp/dp/B0824F8ZZD/ref=cm_sw_em_r_mt_dp_wlF4FbBHT2HEN)
-[Effective Python 第2版 ―Pythonプログラムを改良する90項目](https://www.amazon.co.jp/dp/4873119170/ref=cm_sw_em_r_mt_dp_YlF4FbYHSC2G9)
-[採用基準](https://www.amazon.co.jp/dp/B00B42SX70/ref=cm_sw_em_r_mt_dp_GoF4FbFBEREZ1)
-[HIGH OUTPUT MANAGEMENT](https://www.amazon.co.jp/dp/B01MU055XH/ref=cm_sw_em_r_mt_dp_9oF4FbEXXAQRD)
-[Engineers in VOYAGE ― 事業をエンジニアリングする技術者たち](https://www.amazon.co.jp/dp/B08GSQ4BL3/ref=cm_sw_em_r_mt_dp_KpF4FbZXD0R0C)
-[アクション リーディング　1日30分でも自分を変える“行動読書”](https://www.amazon.co.jp/dp/B01G6U99B8/ref=cm_sw_em_r_mt_dp_.pF4Fb02PN2ZJ)
-[SCRUM BOOT CAMP THE BOOK【増補改訂版】 スクラムチームではじめるアジャイル開発](https://www.amazon.co.jp/dp/B086GBXRN6/ref=cm_sw_em_r_mt_dp_QqF4Fb57Z1QRF)
-[患者目線の医療改革](https://www.amazon.co.jp/dp/B07Y229JV4/ref=cm_sw_em_r_mt_dp_lrF4FbC8MKZF4)
-[プロダクトマネジメント ―ビルドトラップを避け顧客に価値を届ける](https://www.amazon.co.jp/dp/4873119251/ref=cm_sw_em_r_mt_dp_XrF4FbBHDN6KD)
-[動かしながらゼロから学ぶ Linuxカーネルの教科書](https://www.amazon.co.jp/dp/B08HQKJK2S/ref=cm_sw_em_r_mt_dp_psF4FbFAG2S1E)
-[機械学習のエッセンス　実装しながら学ぶPython、数学、アルゴリズム](https://www.amazon.co.jp/dp/B07GYS3RG7/ref=cm_sw_em_r_mt_dp_2sF4FbP12MD51)
+[マスタリングTCP/IP―入門編―(第6版)](https://www.amazon.co.jp/dp/4274224473/ref=cm_sw_em_r_mt_dp_1eF4FbCGVCFTK)  
+
+[［試して理解］Linuxのしくみ ～実験と図解で学ぶOSとハードウェアの基礎知識](https://www.amazon.co.jp/dp/B079YJS1J1/ref=cm_sw_em_r_mt_dp_VfF4FbQC99TVZ)  
+
+[アルゴリズムイントロダクション 第3版 第1巻: 基礎・ソート・データ構造・数学 (世界標準MIT教科書)](https://www.amazon.co.jp/dp/4764904063/ref=cm_sw_em_r_mt_dp_ugF4Fb0DB6X1R)  
+
+[Kubernetesで実践するクラウドネイティブDevOps](https://www.amazon.co.jp/dp/4873119014/ref=cm_sw_em_r_mt_dp_8gF4Fb44HT084)  
+
+[DNSがよくわかる教科書](https://www.amazon.co.jp/dp/B07KQSRZ1S/ref=cm_sw_em_r_mt_dp_whF4FbDRQ280K)  
+
+[UNIXという考え方](https://www.amazon.co.jp/dp/4274064069/ref=cm_sw_em_r_mt_dp_XhF4Fb5AJG5JT)  
+
+[Infrastructure as Code](https://www.amazon.co.jp/dp/4873117968/ref=cm_sw_em_r_mt_dp_qiF4FbV6CPS20)  
+
+[マイクロサービスアーキテクチャ](https://www.amazon.co.jp/dp/4873117607/ref=cm_sw_em_r_mt_dp_RiF4FbTBMKWGQ)  
+
+[絵でみてわかるOS/ストレージ/ネットワーク](https://www.amazon.co.jp/dp/B07VV2C2QN/ref=cm_sw_em_r_mt_dp_jjF4FbRS0ZMQ3)  
+
+[Elasticsearch実践ガイド](https://www.amazon.co.jp/dp/B07DN87LQV/ref=cm_sw_em_r_mt_dp_HjF4FbXQ9WERC)  
+
+[珠玉のプログラミング](https://www.amazon.co.jp/dp/4621066072/ref=cm_sw_em_r_mt_dp_ikF4Fb2FFSEFT)  
+
+[高速文字列解析の世界](https://www.amazon.co.jp/dp/4000069748/ref=cm_sw_em_r_mt_dp_DkF4FbRKEQJM6)  
+
+[コンピュータシステムの理論と実装](https://www.amazon.co.jp/dp/4873117127/ref=cm_sw_em_r_mt_dp_9kF4FbP90CQX8)  
+
+[実践 ビッグデータ分析基盤開発ストーリーで学ぶGoogle BigQuery](https://www.amazon.co.jp/dp/B0824F8ZZD/ref=cm_sw_em_r_mt_dp_wlF4FbBHT2HEN)  
+
+[Effective Python 第2版 ―Pythonプログラムを改良する90項目](https://www.amazon.co.jp/dp/4873119170/ref=cm_sw_em_r_mt_dp_YlF4FbYHSC2G9)  
+
+[採用基準](https://www.amazon.co.jp/dp/B00B42SX70/ref=cm_sw_em_r_mt_dp_GoF4FbFBEREZ1)  
+
+[HIGH OUTPUT MANAGEMENT](https://www.amazon.co.jp/dp/B01MU055XH/ref=cm_sw_em_r_mt_dp_9oF4FbEXXAQRD)  
+
+[Engineers in VOYAGE ― 事業をエンジニアリングする技術者たち](https://www.amazon.co.jp/dp/B08GSQ4BL3/ref=cm_sw_em_r_mt_dp_KpF4FbZXD0R0C)  
+
+[アクション リーディング　1日30分でも自分を変える“行動読書”](https://www.amazon.co.jp/dp/B01G6U99B8/ref=cm_sw_em_r_mt_dp_.pF4Fb02PN2ZJ)  
+
+[SCRUM BOOT CAMP THE BOOK【増補改訂版】 スクラムチームではじめるアジャイル開発](https://www.amazon.co.jp/dp/B086GBXRN6/ref=cm_sw_em_r_mt_dp_QqF4Fb57Z1QRF)  
+
+[患者目線の医療改革](https://www.amazon.co.jp/dp/B07Y229JV4/ref=cm_sw_em_r_mt_dp_lrF4FbC8MKZF4)  
+
+[プロダクトマネジメント ―ビルドトラップを避け顧客に価値を届ける](https://www.amazon.co.jp/dp/4873119251/ref=cm_sw_em_r_mt_dp_XrF4FbBHDN6KD)  
+
+[動かしながらゼロから学ぶ Linuxカーネルの教科書](https://www.amazon.co.jp/dp/B08HQKJK2S/ref=cm_sw_em_r_mt_dp_psF4FbFAG2S1E)  
+
+[機械学習のエッセンス　実装しながら学ぶPython、数学、アルゴリズム](https://www.amazon.co.jp/dp/B07GYS3RG7/ref=cm_sw_em_r_mt_dp_2sF4FbP12MD51)  
+
 [失敗の科学　失敗から学習する組織、学習できない組織](https://www.amazon.co.jp/dp/B01MU364ID/ref=cm_sw_em_r_mt_dp_ytF4Fb3393BMK)
 
 ## 第5位

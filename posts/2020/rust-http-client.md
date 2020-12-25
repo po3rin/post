@@ -62,7 +62,7 @@ let Res {total} = surf::get("https://example.com").recv_json().await?;
 println!("{},{}", total, s);
 ```
 
-検索クエリをセットしたい場合は```set_query```を使います。Query構造体を用意してSerialize/Deserialize traitを実装させてそれを利用するだけです。
+検索クエリをセットしたい場合は```set_query```を使います。Query構造体を用意して```Serialize/Deserialize```traitを実装させてそれを利用するだけです。
 
 ```rust
 #[derive(Serialize, Deserialize)]

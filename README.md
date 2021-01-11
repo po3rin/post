@@ -65,3 +65,12 @@ specify id
 ```bash
 $ postctl sync -u http://localhost:8081/post filepath
 ```
+
+#### Sync Post with Es
+
+you can sync posts with elasticsearch directry.
+
+```bash
+go run ./cmd/postctl essync -u <user> -p <pass> -e <endpoint>
+```
+

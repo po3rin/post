@@ -17,6 +17,7 @@ func TestMdMeta(t *testing.T) {
 		want     metaData
 	}{
 		{
+			name:     "draft",
 			filepath: "testdata/withmeta.md",
 			want: metaData{
 				title:       "Try Go",
@@ -30,11 +31,27 @@ func TestMdMeta(t *testing.T) {
 				draft: true,
 			},
 		},
+		{
+			name:     "external",
+			filepath: "testdata/external.md",
+			want: metaData{
+				title:       "Try Go",
+				cover:       "img/gopher.png",
+				date:        date,
+				id:          "dsds",
+				description: "Go is a programming language that makes it easy to build simple",
+				tags: []string{
+					"golang", "markdown",
+				},
+				isExternal:  true,
+				externalURL: "xxx.com",
+			},
+		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			input, err := ioutil.ReadFile("testdata/withmeta.md")
+			input, err := ioutil.ReadFile(tt.filepath)
 			if err != nil {
 				t.Fatalf("unexpected err: %+v", err)
 			}
@@ -45,7 +62,7 @@ func TestMdMeta(t *testing.T) {
 			}
 
 			if !reflect.DeepEqual(tt.want, got) {
-				t.Fatalf("want: %+v, got: %+v\n", tt.want, got)
+				t.Fatalf("\nwant: %+v\ngot : %+v\n", tt.want, got)
 			}
 		})
 	}

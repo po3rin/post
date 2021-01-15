@@ -66,6 +66,8 @@ type request struct {
 	Tags        []string  `json:"tags"`
 	CreatedAt   time.Time `json:"created_at"`
 	UpdatedAt   time.Time `json:"updated_at"`
+	IsExternal  bool      `json:"isExternal"`
+	ExternalURL string    `json:"externalURL"`
 }
 
 // newCmd represents the new command

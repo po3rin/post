@@ -146,6 +146,8 @@ func (e *es) syncEsPost(ctx context.Context, files []string) error {
 			Tags:        m.tags,
 			CreatedAt:   m.date,
 			UpdatedAt:   time.Now(),
+			IsExternal:  m.isExternal,
+			ExternalURL: m.externalURL,
 		}
 
 		_, err = e.client.Index().

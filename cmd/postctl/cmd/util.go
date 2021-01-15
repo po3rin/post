@@ -42,6 +42,8 @@ type metaData struct {
 	date        time.Time
 	tags        []string
 	draft       bool
+	isExternal  bool
+	externalURL string
 }
 
 func mdMeta(md []byte) (metaData, error) {
@@ -100,6 +102,30 @@ func mdMeta(md []byte) (metaData, error) {
 		date:        t,
 		tags:        tagsSlice,
 	}
+
+	var isExternal bool
+	var externalURL string
+	e, ok := m["isExternal"]
+	if ok {
+		isExternal, ok = e.(bool)
+		if !ok {
+			return metaData{}, errors.New("isExternal field requires boolean")
+		}
+		if isExternal {
+			exurl, ok := m["externalURL"]
+			if !ok {
+				return metaData{}, errors.New("if you use isExternal=true, requires externalURL")
+			}
+			str, ok := exurl.(string)
+			if !ok {
+				return metaData{}, errors.Wrap(err, "convert externalURL to string")
+			}
+			externalURL = str
+		}
+	}
+
+	meta.isExternal = isExternal
+	meta.externalURL = externalURL
 
 	d, ok := m["draft"]
 	if !ok {

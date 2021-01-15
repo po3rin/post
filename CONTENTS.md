@@ -14,6 +14,8 @@
 
 [Elasticsearch の Mapping 管理を Go + CUE に移行した](https://github.com/po3rin/post/tree/master/posts/2020/mapping-cue.md)
 
+[Go で Chrome Bookmark Fuzzy-finder を作ってたら無限ネスト JSON を平らにしてた](https://github.com/po3rin/post/tree/master/posts/2020/m3-fzf-bookmark.md)
+
 [Go製ダブル配列パッケージと最長一致法を使った形態素解析の実装](https://github.com/po3rin/post/tree/master/posts/2020/longest-match.md)
 
 [エムスリーに転職します](https://github.com/po3rin/post/tree/master/posts/2020/join-m3.md)

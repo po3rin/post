@@ -1,5 +1,9 @@
 # Blog post
 
+## 2021
+
+[サウナ好きエンジニアの為にサ活バッジを作ったので動的バッジの作り方を解説する](https://github.com/po3rin/post/tree/master/posts/2021/dynamic-badge.md)
+
 ## 2020
 
 [Elasticsearchを理解するためにLuceneを使った検索エンジン構築に入門してみた](https://github.com/po3rin/post/tree/master/posts/2020/try-lucene.md)

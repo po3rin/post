@@ -1,5 +1,5 @@
 ---
-title: サウナ好きエンジニアの為にサ活バッジを作ったので動的バッジの作り方を解説する
+title: サウナ好きエンジニアの為にサ活数を表示するバッジを作った
 cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/sauna-dynamic-badge.jpg
 date: 2021/01/23
 id: dynamic-badge

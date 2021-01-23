@@ -97,7 +97,7 @@ def tonttu_badge(user_id):
 
 確認したところ、[サウナイキタイ](https://sauna-ikitai.com/)では```robot.txt```を設定していないようです。また、今回はaタグを追っていかないのでrelチェック行いません。```robot meta```も確認したところ、大丈夫そうです。スクレイピングする場合は絶対にここは確認しておきましょう。また、実際のコードではスクレイピングの作法であるUser-agentも設定しています。
 
-```
+```py
 headers = {
     "User-Agent": f"saunadge/{__version__} (https://github.com/po3rin/saunadge)"
 }

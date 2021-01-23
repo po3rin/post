@@ -65,17 +65,19 @@ https://img.shields.io/endpoint?url=<external api endpoint>
 
 [saunadge](https://github.com/po3rin/saunadge) は Python + Flask で動かしています。インフラはGCPのCloud Runを利用しています。
 
+下記のサンプルコードは見やすいように実際のコードから例外処理などを省いています。
+
 ```py
 BASE_URL = "https://sauna-ikitai.com/saunners/"
 
 @app.route("/api/v1/badge/<int:user_id>")
 def tonttu_badge(user_id):
     res = requests.get(BASE_URL + f"{user_id}")
-    soup = BeautifulSoup(res.text, "html.parser")
+    soup = BeautifulSoup(res.text, "lxml")
 
     sakatsu = (
         soup.find("body")
-        # 省略... 頑張ってスクレイピング...
+        # 省略... 
         .get_text()
         .strip()
     )
@@ -90,7 +92,19 @@ def tonttu_badge(user_id):
     }
 ```
 
-[サウナイキタイ](https://sauna-ikitai.com/)のサ活数はBeautiful Soupによるスクレイピングで取得しています。
+[サウナイキタイ](https://sauna-ikitai.com/)のサ活数はBeautiful Soupによるスクレイピングで取得しています。スクレイピングに関する注意事項は下記が詳しいです。
+[Webスクレイピングする際のルールとPythonによる規約の読み込み](https://vaaaaaanquish.hatenablog.com/entry/2017/12/01/064227)
+
+確認したところ、[サウナイキタイ](https://sauna-ikitai.com/)では```robot.txt```を設定していないようです。また、今回はaタグを追っていかないのでrelチェック行いません。```robot meta```も確認したところ、大丈夫そうです。スクレイピングする場合は絶対にここは確認しておきましょう。また、実際のコードではスクレイピングの作法であるUser-agentも設定しています。
+
+```
+headers = {
+    "User-Agent": f"saunadge/{__version__} (https://github.com/po3rin/saunadge)"
+}
+res = requests.get(BASE_URL + f"{user_id}", headers=headers)
+```
+
+また、負荷をかけないようにキャッシュを効かせることも重要です。今回は固定で1800sというかなり長いキャッシュを shields.io に支持しています。
 
 logoSvgフィールドはバッジに付与するSVGアイコンを設定できます。そのまま値として渡せばOKです。動的にアイコンが変更するようにしても面白いかもしれません。SVGアイコンを利用する場合は sheilds.io のエンドポイントが少し変わるので注意です。
 

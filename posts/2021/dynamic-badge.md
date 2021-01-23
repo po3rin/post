@@ -95,7 +95,7 @@ def tonttu_badge(user_id):
 [サウナイキタイ](https://sauna-ikitai.com/)のサ活数はBeautiful Soupによるスクレイピングで取得しています。スクレイピングに関する注意事項は下記が詳しいです。
 [Webスクレイピングする際のルールとPythonによる規約の読み込み](https://vaaaaaanquish.hatenablog.com/entry/2017/12/01/064227)
 
-確認したところ、[サウナイキタイ](https://sauna-ikitai.com/)では```robot.txt```を設定していないようです。また、今回はaタグを追っていかないのでrelチェック行いません。```robot meta```も確認したところ、大丈夫そうです。スクレイピングする場合は絶対にここは確認しておきましょう。また、実際のコードではスクレイピングの作法であるUser-agentも設定しています。
+確認したところ、[サウナイキタイ](https://sauna-ikitai.com/)では```robot.txt```を設定していないようです。relチェックも必要ですが、今回はaタグを追っていかないのでrelチェック行いません。```robot meta```も確認したところ大丈夫そうです。スクレイピングする場合はこのへんはおさえておきましょう。実際のコードではスクレイピングの作法であるUser-Agentも設定しています。
 
 ```py
 headers = {

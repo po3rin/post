@@ -20,7 +20,7 @@ tags:
 
 コードはこちら！！
 
-![saunadge-github](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/saunadge-github.png)
+[![saunadge-github](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/saunadge-github.png)](https://github.com/po3rin/saunadge)
 
 saunadge CLIの使い方は簡単で、サウナイキタイのユーザーIDを渡せばバッジのフォーマットを出力してくれます。これをREADME.mdなどにそのまま貼れば完了です。
 

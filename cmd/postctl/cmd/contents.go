@@ -154,12 +154,12 @@ func (c *Contents) Walk(path string, info os.FileInfo, err error) error {
 
 	md, err := ioutil.ReadFile(path)
 	if err != nil {
-		return errors.Wrap(err, "contents: get title")
+		return errors.Wrapf(err, "contents: read file in %v", path)
 	}
 
 	meta, err := mdMeta(md)
 	if err != nil {
-		return errors.Wrap(err, "contentws: get title")
+		return errors.Wrapf(err, "content: get meta in %v", path)
 	}
 
 	if meta.draft {

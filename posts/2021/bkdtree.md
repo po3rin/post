@@ -62,6 +62,8 @@ Bkd-Treeはバランスの取れたkd-treeの集合で構成されています�
 
 ![bkd-tree](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/bkd-tree.png)
 
+複数のkd-treeを使うことで効率的な動的アップデートを実現します。そのためにBkd-treeの2つの工夫点を抑える必要があります。
+
 * bulk loading algorithm
 * logarithmic method
 
@@ -69,7 +71,7 @@ Bkd-Treeはバランスの取れたkd-treeの集合で構成されています�
 
 普通のkd-treeはポイントを最初にソートしてルートからトップダウンで構築しますが、ここで1つのレベルを1個ずつ作成する代わりにまとめて木を構築していきます。
 
-```md
+```go
 Algorithm Bulk Load (grid)
 (1) x,y軸ごとに2つのソートされたリストを作成
 (2) 高さ log_2 t の高さの木を構築する
@@ -113,7 +115,7 @@ Bkd-Treeでは最大 $\log_2 (N / M)$ 個のkd-treeで構成されます。i番�
 
 例えばポイントの削除では各ツリーに並行にクエリを実行して、ポイントを含むツリー $T_i$ を見つけ、$T_i$ からポイントを削除します。 最大で $\log_2 (N / M)$ ツリーがあるため、削除によって実行されるI/O回数は $O(log_B (N / B)log_2 (N / M))$ となります。
 
-```md
+```go
 Algorithm Delete(p)
 (1) T^{M}_{0} にクエリを投げる。そこにポイントpがあれば削除する 
 (2) 空じゃない T_i に対してクエリを投げてポイントpがあれば削除する

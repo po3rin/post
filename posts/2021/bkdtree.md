@@ -11,7 +11,7 @@ tags:
 
 ## Overview
 
-Elasticsearch & Lucene 輪読会を弊社で毎週開催しているのですが、Codecを読んでいくと[Bkd-Tree](https://users.cs.duke.edu/~pankaj/publications/papers/bkd-sstd.pdf)というアルゴリズムに行き着きました。そこで今回はBkd-Treeの論文を読んでみたのでまとめました。
+こんにちは [pon](https://twitter.com/po3rin) です。Elasticsearch & Lucene 輪読会を弊社で毎週開催しているのですが、そこで[Bkd-Tree](https://users.cs.duke.edu/~pankaj/publications/papers/bkd-sstd.pdf)というアルゴリズムに行き着きました。そこでBkd-Treeの論文を読んでみたので、まとめたものを共有しようと思います。
 
 論文はこちら
 [Bkd-Tree: A Dynamic Scalable kd-Tree](https://users.cs.duke.edu/~pankaj/publications/papers/bkd-sstd.pdf)
@@ -32,7 +32,7 @@ Bkd-TreeはLucene6から導入されたようで下記のようにスペース�
 
 ## kd-Tree
 
-kd-Tree(k-dimensional tree)はBSPに属するデータ構造です。以下のように軸を循環しながら木を構築していきます。一般的には、kd-treeの根ノードから葉ノードまでの各ノードには1つのポイント(N次元数値データ)が格納されます。図は[An Advanced k Nearest Neighbor Classification Algorithm Based on KD-tree](https://www.researchgate.net/publication/332434248_An_Advanced_k_Nearest_Neighbor_Classification_Algorithm_Based_on_KD-tree)から引用。
+kd-Tree(k-dimensional tree)は以下の図のように軸を循環しながら木を構築していきます。一般的には、kd-treeの根ノードから葉ノードまでの各ノードには1つのポイント(N次元数値データ)が格納されます。図は[An Advanced k Nearest Neighbor Classification Algorithm Based on KD-tree](https://www.researchgate.net/publication/332434248_An_Advanced_k_Nearest_Neighbor_Classification_Algorithm_Based_on_KD-tree)から引用。
 
 ![kdtree](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/kdtree.png)
 
@@ -52,7 +52,7 @@ K-D-B-treeの大きな欠点は更新処理です。ある内部ノードを新�
 
 ![split-kdb](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/split-kdb.png)
 
-その為、Elasticsearchのようにガンガン更新されるミドルウェアの場合は更新処理に最適化したデータ構造が必要です。
+その為、Elasticsearchのようにガンガン更新されるミドルウェアの場合は更新処理に最適化し、かつI/O効率を意識したデータ構造が必要です。
 
 ## Bkd-Tree
 

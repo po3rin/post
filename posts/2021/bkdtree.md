@@ -1,7 +1,7 @@
 ---
 title: 楽しいBkd-Tree
 cover: img/gopher.png
-date: 2021/01/08
+date: 2021/02/03
 id: bkdtree
 description: Elasticsearchの数値データ保管に使われるBkd-Treeというアルゴリズムの仕組みをまとめました。
 tags:

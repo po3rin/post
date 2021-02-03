@@ -11,10 +11,14 @@ tags:
 
 ## Overview
 
-Elasticsearch & Lucene 輪読会を弊社で毎週開催しているのですが、Codecを読んでいくと[Bkd-Tree](https://users.cs.duke.edu/~pankaj/publications/papers/bkd-sstd.pdf)というアルゴリズムに行き着きました。
+Elasticsearch & Lucene 輪読会を弊社で毎週開催しているのですが、Codecを読んでいくと[Bkd-Tree](https://users.cs.duke.edu/~pankaj/publications/papers/bkd-sstd.pdf)というアルゴリズムに行き着きました。そこで今回はBkd-Treeの論文を読んでみたのでまとめました。
 
 論文はこちら
 [Bkd-Tree: A Dynamic Scalable kd-Tree](https://users.cs.duke.edu/~pankaj/publications/papers/bkd-sstd.pdf)
+
+[[toc]]
+
+## LuceneでのBkd-Tree
 
 Bkd-TreeはLucene6から導入されたようで下記のようにスペース効率、パフォーマンスが大幅に改善されたようです。
 
@@ -24,7 +28,7 @@ Bkd-TreeはLucene6から導入されたようで下記のようにスペース�
 
 ...まじか。すごいぞBkd-Tree!!!
 
-そこで今回はBkd-Treeの論文を読んで仕組みをまとめました。ただいきなりBkd-Treeの説明から入っても難しいので、Bkd-Treeにつながる簡単なデータ構造から説明していきます。
+ただいきなりBkd-Treeの説明から入っても難しいので、Bkd-Treeにつながる簡単なデータ構造から説明していきます。
 
 ## kd-Tree
 
@@ -68,16 +72,16 @@ Bkd-Treeはバランスの取れたkd-treeの集合で構成されています�
 ```md
 Algorithm Bulk Load (grid)
 (1) x,y軸ごとに2つのソートされたリストを作成
-(2) 高さ log{2} t の高さの木を構築する
+(2) 高さ log_2 t の高さの木を構築する
     (a) x,yそれぞれ直行するtグリッド線を計算する
     (b) グリッドセルのカウントを要素に持つグリッド行列Aを作成します。
-    (c) グリッド行列を使って高さ log{2} tの木を作成
+    (c) グリッド行列を使って高さ log_2 tの木を作成
     (d) t個の葉に対応するように入力をt個に分割する
 (3) 最下位レベルを構築するか、step(2) を再帰的に実行する。
 ```
 
 上のアルゴリズムを一発で理解するのは多分無理なので1個ずつ見ていきます。
-\(N\) がポイントの総数で、\(B\) がディスクブロックに収まるポイントの数、\(M\) がメモリバッファが格納できるポイントの数だとすると一回で上位レベル \( \log{2} t \) までサブツリーを作ります。ここで \(t\) はポイント
+$N$ がポイントの総数で、$B$ がディスクブロックに収まるポイントの数、$M$ がメモリバッファが格納できるポイントの数だとすると一回で上位レベル $\log_2 t$ までサブツリーを作ります。ここで $t$ はポイント
 
 \[
   t = Θ(min{M/B, \sqrt{M}})
@@ -87,15 +91,15 @@ Algorithm Bulk Load (grid)
 
 ![grid-cells-1](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/grid-cells1.png)
 
-そして高さ \( log{2} t \) の上位サブツリートップダウンアプローチを使用して（ステップ2-cで）計算できます。 
+そして高さ $log_2 t$ の上位サブツリートップダウンアプローチを使用して（ステップ2-cで）計算できます。 
 
-例えば、ルートノードが垂直な分割線を使用してポイントを分割する時を考えます。グリッド行列Aを使用して、分割線を含むセルの帯\( X_k \)を見つけます。その帯の中のポイントを分割する分割線を見つけます。
+例えば、ルートノードが垂直な分割線を使用してポイントを分割する時を考えます。グリッド行列Aを使用して、分割線を含むセルの帯 $X_k$ を見つけます。その帯の中のポイントを分割する分割線を見つけます。
 
-続いてその線を中心にグリッド行列Aを左右に分割し、左右それぞれのグリッド行列で再帰的に分割線を見つけていきます。グリッド行列Aの分割は帯\( X_k \)だけをスキャンするだけで決定できます。下記の図では帯\( X_k \)に含まれるセル\( C_{j,k} \)を分割しています。
+続いてその線を中心にグリッド行列Aを左右に分割し、左右それぞれのグリッド行列で再帰的に分割線を見つけていきます。グリッド行列Aの分割は帯 $X_k$ だけをスキャンするだけで決定できます。下記の図では帯 $X_k$ に含まれるセル$C_{j,k}$を分割しています。
 
 ![grid-cells-2](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/grid-cells2.png)
 
-この処理をメモリバッファ\(M\) が埋まるまで、つまり\( \log{2} t \)のレベルまで一気に作成します。この時点で最終的に分割される長方形の数が決定するのでサブツリーを利用してポイントをこれらの長方形に分配します（ステップ2-d）。
+この処理をメモリバッファ $M$ が埋まるまで、つまり $\log_2 t$ のレベルまで一気に作成します。この時点で最終的に分割される長方形の数が決定するのでサブツリーを利用してポイントをこれらの長方形に分配します（ステップ2-d）。
 
 これによりルートから毎回ソートしながらトップダウンで構築する代わりにグリッド行列を使って一気に木を構築する仕組みがわかりました。この bulk loading algorithm は更新処理の中で次に説明する ***logarithmic method*** と合わせて利用します。
 
@@ -103,11 +107,11 @@ Algorithm Bulk Load (grid)
 
 Bkd-Treeでは ***logarithmic method*** という方法を使って動的なアップデートを改善します。
 
-Bkd-Treeでは最大 \( \log{2} (N / M) \) 個のkd-treeで構成されます。i番目のkdツリー \( T_i \) は、空であるか、\( 2^i×M \) ポイントを含みます。 したがって、\( T_0 \) は最大でMポイントを格納できます。さらに、\( T^{M}_{0} \) は内部メモリに保持されます。下記は論文からの引用です。
+Bkd-Treeでは最大 $\log_2 (N / M)$ 個のkd-treeで構成されます。i番目のkdツリー $T_i$ は、空であるか、$2^i×M$ ポイントを含みます。 したがって、$T_0$ は最大でMポイントを格納できます。さらに、$T^{M}_{0}$ は内部メモリに保持されます。下記は論文からの引用です。
 
 ![dynamic-update](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/dynamic-update.png)
 
-例えばポイントの削除では各ツリーに並行にクエリを実行して、ポイントを含むツリー \( T_i \) を見つけ、\( T_i \) から削除します。 最大で \( \log{2} (N / M) \) ツリーがあるため、削除によって実行されるI/O回数は \( O(log{B} (N / B)log{2} (N / M)） \) となります。
+例えばポイントの削除では各ツリーに並行にクエリを実行して、ポイントを含むツリー $T_i$ を見つけ、$T_i$ からポイントを削除します。 最大で $\log_2 (N / M)$ ツリーがあるため、削除によって実行されるI/O回数は $O(log_B (N / B)log_2 (N / M))$ となります。
 
 ```md
 Algorithm Delete(p)
@@ -115,9 +119,9 @@ Algorithm Delete(p)
 (2) 空じゃない T_i に対してクエリを投げてポイントpがあれば削除する
 ```
 
-挿入アルゴリズムはメモリ内の0で直接実行されます。\( T^{M}_{0} \) に直接実行されます。 \( T^{M}_{0} \) がいっぱいになると、空の\( T_k \) kdツリーのなかで \( k \) が最小のものを見つけ、 次に、\( T^{M}_{0} \) と \( T_i ( 0 	\leq i 	< k ) \) のkd-treeのポイントを全て抽出し、前節で説明した ***bulk loading*** を実行します。
+挿入アルゴリズムはメモリ内の $T^{M}_{0}$ に対して直接実行されます。 $T^{M}_{0}$ に格納するポイント数がいっぱいになると、空の $T_k$ kdツリーのなかで $k$ が最小のものを見つけ、 次に、$T^{M}_{0}$ と $T_i ( 0 	\leq i 	< k )$ のkd-treeのポイントを全て抽出し、前節で説明した ***bulk loading*** を実行します。
 
- \( T^{M}_{0} \) は \( M \) ポイントを格納し、各 \( T_i ( 0 	\leq i 	< k ) \) は \( 2^iM \) ポイントを格納している為、bulk loading後の \( T_k \) に格納されているポイントの数は \( 2^kM \) になります。 最後に、\( T^{M}_{0} \) と \( T_i ( 0 	\leq i 	< k ) \)を空にします 。 
+ $T^{M}_{0}$ は $M$ ポイントを格納し、各 $T_i ( 0 \leq i 	< k )$ は $2^iM$ ポイントを格納している為、bulk loading後の $T_k$ に格納されているポイントの数は $2^kM$ になります。 最後に、$T^{M}_{0}$ と $T_i ( 0 \leq i 	< k )$を空にします 。 
  
 つまり、ポイントはメモリ内構造に挿入され、小さなkd-treeを、1つの大きなkd-treeに定期的に再編成することにより、大きなkdツリーに向かって徐々に統合されていきます。
 
@@ -127,7 +131,7 @@ K-D-B-treeとBkd-treeのポイント挿入クエリを比べたが論文にあ�
 
 ![bkd-tree-@erformance](https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/performance.png)
 
-## Luceneでの実装
+## LuceneでのBkd-Tree実装
 
 Elasticsearch内部、LuceneではBkd-Treeの実装があります。
 [Package org.apache.lucene.util.bkd](https://lucene.apache.org/core/8_8_0/core/org/apache/lucene/util/bkd/package-summary.html)
@@ -136,7 +140,7 @@ Elasticsearch内部、LuceneではBkd-Treeの実装があります。
 
 今回はkd-treeのからK-D-B-treeの紹介を経て、Bkd-Treeを説明しました。解釈が違うところがもしあればご指摘いただければ幸いです。
 
-## 参考
+### 参考
 
 [Bkd-Tree: A Dynamic Scalable kd-Tree](https://users.cs.duke.edu/~pankaj/publications/papers/bkd-sstd.pdf)
 

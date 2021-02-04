@@ -3,7 +3,7 @@ title: 検索エンジンの数値インデックスを支える Bkd-Tree
 cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/bkdtree.jpeg
 date: 2021/02/04
 id: bkdtree
-description: Elasticsearchの数値データインデックスに使われるBkd-Treeというアルゴリズムを論文を読んでまとめました。
+description: Elasticsearchの数値データインデックスに使われるBkd-Treeというアルゴリズムを論文を読みながらまとめました。
 tags:
     - Computer Science
     - Algorithm

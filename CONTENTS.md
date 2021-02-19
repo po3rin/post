@@ -2,6 +2,8 @@
 
 ## 2021
 
+[GiNZAと患者表現辞書を使って患者テキストの表記ゆれを吸収した意味構造検索を試した](https://github.com/po3rin/post/tree/master/posts/2021/m3-meaning-structure-search.md)
+
 [サウナ好きエンジニアの為にサ活数を表示するバッジを作った](https://github.com/po3rin/post/tree/master/posts/2021/dynamic-badge.md)
 
 [検索エンジンの数値インデックスを支える Bkd-Tree](https://github.com/po3rin/post/tree/master/posts/2021/bkdtree.md)

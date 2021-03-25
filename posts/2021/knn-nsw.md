@@ -101,6 +101,25 @@ public void testSearch() throws Exception {
   }
 ```
 
+ちなみに```SearchStrategy```は```enum```になっており、HNSWに使う"距離"をユークリッド距離、ドット積の中から選べる。
+
+```java
+ public enum SearchStrategy {
+
+    /**
+     * No search strategy is provided. Note: {@link VectorValues#search(float[], int, int)} is not
+     * supported for fields specifying this strategy.
+     */
+    NONE,
+
+    /** HNSW graph built using Euclidean distance */
+    EUCLIDEAN_HNSW(true),
+
+    /** HNSW graph buit using dot product */
+    DOT_PRODUCT_HNSW;
+ }
+```
+
 ```createHnswType```の中身は```FieldType```の生成につとめている。```createHnswType```の引数のドキュメントがあるのでここ読むとなんとなく引数の意味が見えてくる。
 
 ```java

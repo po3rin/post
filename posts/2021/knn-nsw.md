@@ -7,7 +7,6 @@ description: Lucene v9 の近似最近某検索が待ちきれないので、ぶ
 tags:
     - Search Engine
     - Lucene
-draft: true
 ---
 
 ## Overview
@@ -364,6 +363,8 @@ public final class Lucene90VectorWriter extends VectorWriter {
   }
 }
 ```
+
+ここで力尽きた。。次はwriteXXX系の中身を見ていく。
 
 ## References
 

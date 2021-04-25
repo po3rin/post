@@ -8,6 +8,8 @@
 
 [Elasticsearchで関連キーワード機能がどれだけ低コストで実装できるかの旅路](https://github.com/po3rin/post/tree/master/posts/2021/m3-es-related-keywords.md)
 
+[Lucene v9で登場するベクトルの近似最近傍検索をゆるくコードリーディング](https://github.com/po3rin/post/tree/master/posts/2021/knn-nsw.md)
+
 [サウナ好きエンジニアの為にサ活数を表示するバッジを作った](https://github.com/po3rin/post/tree/master/posts/2021/dynamic-badge.md)
 
 [検索エンジンの数値インデックスを支える Bkd-Tree](https://github.com/po3rin/post/tree/master/posts/2021/bkdtree.md)

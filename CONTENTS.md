@@ -2,13 +2,13 @@
 
 ## 2021
 
+[PyhtonのテストでElasticsearchをDockerで起動して、テストが終わったら止める](https://github.com/po3rin/post/tree/master/posts/2021/python-docker-test.md)
+
 [クエリ修正を考慮した検索評価指標sDCGを使ってユーザーの検索体験を監視をしたい](https://github.com/po3rin/post/tree/master/posts/2021/m3-sdcg.md)
 
 [GiNZAと患者表現辞書を使って患者テキストの表記ゆれを吸収した意味構造検索を試した](https://github.com/po3rin/post/tree/master/posts/2021/m3-meaning-structure-search.md)
 
 [Elasticsearchで関連キーワード機能がどれだけ低コストで実装できるかの旅路](https://github.com/po3rin/post/tree/master/posts/2021/m3-es-related-keywords.md)
-
-[Lucene v9で登場するベクトルの近似最近傍検索をゆるくコードリーディング](https://github.com/po3rin/post/tree/master/posts/2021/knn-nsw.md)
 
 [サウナ好きエンジニアの為にサ活数を表示するバッジを作った](https://github.com/po3rin/post/tree/master/posts/2021/dynamic-badge.md)
 

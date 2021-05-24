@@ -7,11 +7,12 @@ description: Lucene v9 の近似最近某検索が待ちきれないので、ぶ
 tags:
     - Search Engine
     - Lucene
+draft: true
 ---
 
 ## Overview
 
-こんにちは[po3rin](https://twitter.com/po3rin)です。この記事ではLuceneの次期メジャーバージョンで登場するベクトルの近似最近傍検索(ANN-search)のコードをゆるりと追ってみた記録です。
+こんにちは[po3rin](https://twitter.com/po3rin)です。この記事ではLuceneの次期メジャーバージョンで登場するベクトルの近似最近傍検索(ANN-search)のコードをゆるりと追ってみた記録です。```Lucene90VectorWriter```で力尽きているので注意。。。
 
 [[toc]]
 
@@ -364,7 +365,7 @@ public final class Lucene90VectorWriter extends VectorWriter {
 }
 ```
 
-ここで力尽きた。。次はwriteXXX系の中身を見ていく。
+ここで力尽きた。。もし次があればwriteXXX系の中身を見ていく。
 
 ## References
 
@@ -372,3 +373,4 @@ public final class Lucene90VectorWriter extends VectorWriter {
 world graphs," Information Systems, vol. 45, pp. 61-68, 2014.](https://publications.hse.ru/mirror/pubs/share/folder/x5p6h7thif/direct/128296059)
 
 [2] [ベクトル検索（近似最近傍探索）でいい感じの MoreLikeThis を実現する](https://mocobeta.medium.com/%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB%E6%A4%9C%E7%B4%A2-%E8%BF%91%E4%BC%BC%E6%9C%80%E8%BF%91%E5%82%8D%E6%8E%A2%E7%B4%A2-%E3%81%A7%E3%81%84%E3%81%84%E6%84%9F%E3%81%98%E3%81%AE-morelikethis-%E3%82%92%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B-7eba63ffb593)
+

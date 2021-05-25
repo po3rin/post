@@ -89,11 +89,11 @@ eskeeperではYAMLファイルにインデックス名とJSONでのインデッ�
 
 ```yml
 index:
-  - name: workplace
-    mapping: eskeeper/mapping/workplace.json
+  - name: index1
+    mapping: eskeeper/mapping/index1.json
 
-  - name: university
-    mapping: eskeeper/mapping/university.json
+  - name: index2
+    mapping: eskeeper/mapping/index2.json
 ```
 
 実行

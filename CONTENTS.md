@@ -2,7 +2,9 @@
 
 ## 2021
 
-[PyhtonのテストでElasticsearchをDockerで起動して、テストが終わったら止める](https://github.com/po3rin/post/tree/master/posts/2021/python-docker-test.md)
+[PythonのテストでElasticsearchをDockerで起動して、テストが終わったら止める](https://github.com/po3rin/post/tree/master/posts/2021/python-docker-test.md)
+
+[Google AnalyticsのBigQuery Exportを使って検索ログデータ分析基盤を構築した](https://github.com/po3rin/post/tree/master/posts/2021/m3-search-log-analysis-platform.md)
 
 [クエリ修正を考慮した検索評価指標sDCGを使ってユーザーの検索体験を監視をしたい](https://github.com/po3rin/post/tree/master/posts/2021/m3-sdcg.md)
 

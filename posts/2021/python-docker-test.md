@@ -1,5 +1,5 @@
 ---
-title: PyhtonのテストでElasticsearchをDockerで起動して、テストが終わったら止める
+title: PythonのテストでElasticsearchをDockerで起動して、テストが終わったら止める
 cover: https://pon-blog-media.s3-ap-northeast-1.amazonaws.com/media/python-docker-test.jpeg
 date: 2021/05/25
 id: python-docker-test
@@ -68,7 +68,7 @@ class ESManager(ESManager):
 
 https://docker-py.readthedocs.io/en/stable/
 
-```__enter__```と```__exit__```メソッドは```with```句とと利用するための実装です。下記のように```with```と利用することでコンテナの止め忘れを防止できる。
+```__enter__```と```__exit__```メソッドは```with```句で利用するための実装です。下記のように```with```と利用することでコンテナの止め忘れを防止できる。
 
 ```py
 with ESManager() as es_manager:

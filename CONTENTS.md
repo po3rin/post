@@ -12,6 +12,8 @@
 
 [GiNZAと患者表現辞書を使って患者テキストの表記ゆれを吸収した意味構造検索を試した](https://github.com/po3rin/post/tree/master/posts/2021/m3-meaning-structure-search.md)
 
+[Luceneのメモリ上でのインデックス構造とその仕組み](https://github.com/po3rin/post/tree/master/posts/2021/m3-lucene-memory-index.md)
+
 [Elasticsearchで関連キーワード機能がどれだけ低コストで実装できるかの旅路](https://github.com/po3rin/post/tree/master/posts/2021/m3-es-related-keywords.md)
 
 [サウナ好きエンジニアの為にサ活数を表示するバッジを作った](https://github.com/po3rin/post/tree/master/posts/2021/dynamic-badge.md)

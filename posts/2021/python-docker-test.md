@@ -37,7 +37,7 @@ class ESManager(ESManager):
         return self
 
     def __exit__(self, exception_type, exception_value, traceback):
-        self.stop()
+        self.container.stop()
 
     def run(self) -> None:
         try:
@@ -62,6 +62,9 @@ class ESManager(ESManager):
         while c.status != 'running' and elapsed_time < timeout:
             sleep(stop_time)
             elapsed_time += stop_time
+
+    def stop(self) -> None:
+        self.container.stop()
 ```
 
 主に使うのは[Python Docker SDK](https://docker-py.readthedocs.io/en/stable/)で各種Docker操作がPythonからできて便利。
@@ -129,7 +132,7 @@ class TestES(unittest.TestCase):
         self.es_client = ESClient()
 
         # ES on Docker起動
-        self.es_manager = ESDockerManager()
+        self.es_manager = ESManager()
         self.es_manager.run()
 
     # インデックス作成

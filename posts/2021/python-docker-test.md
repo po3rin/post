@@ -135,6 +135,8 @@ class TestES(unittest.TestCase):
         self.es_manager = ESManager()
         self.es_manager.run()
 
+	#ESがAvailableになるのを待つ...
+
     # インデックス作成
 setup_index(es_host="localhost:9200", config_path='eskeeper/eskeeper.yml')
 

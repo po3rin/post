@@ -37,7 +37,7 @@ class ESManager(ESManager):
         return self
 
     def __exit__(self, exception_type, exception_value, traceback):
-        self.container.stop()
+        self.stop()
 
     def run(self) -> None:
         try:

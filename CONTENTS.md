@@ -6,6 +6,8 @@
 
 [分散密ベクトル探索エンジンValdとSentence-BERTを使った類似文書検索を試す](https://github.com/po3rin/post/tree/master/posts/2021/m3-vald-sentence-bert.md)
 
+[検索基盤チームのElasticsearch×Sudachi移行戦略と実践](https://github.com/po3rin/post/tree/master/posts/2021/m3-sudachi-es.md)
+
 [Google AnalyticsのBigQuery Exportを使って検索ログデータ分析基盤を構築した](https://github.com/po3rin/post/tree/master/posts/2021/m3-search-log-analysis-platform.md)
 
 [クエリ修正を考慮した検索評価指標sDCGを使ってユーザーの検索体験を監視をしたい](https://github.com/po3rin/post/tree/master/posts/2021/m3-sdcg.md)

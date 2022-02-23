@@ -1,5 +1,9 @@
 # Blog post
 
+## 2022
+
+[Cascade Model に適用する Bandit Algorithms の理論と実装](https://github.com/po3rin/post/tree/master/posts/2022/m3-cascading-bandits.md)
+
 ## 2021
 
 [PythonのテストでElasticsearchをDockerで起動して、テストが終わったら止める](https://github.com/po3rin/post/tree/master/posts/2021/python-docker-test.md)
@@ -10,11 +14,17 @@
 
 [Google AnalyticsのBigQuery Exportを使って検索ログデータ分析基盤を構築した](https://github.com/po3rin/post/tree/master/posts/2021/m3-search-log-analysis-platform.md)
 
+[ユーザー投稿型ドキュメントのタイトル多様性を考慮した検索リランキングを試す](https://github.com/po3rin/post/tree/master/posts/2021/m3-search-diversity.md)
+
+[検索エンジンのABテストで発生するユーザー内相関を突破する](https://github.com/po3rin/post/tree/master/posts/2021/m3-search-ab.md)
+
 [クエリ修正を考慮した検索評価指標sDCGを使ってユーザーの検索体験を監視をしたい](https://github.com/po3rin/post/tree/master/posts/2021/m3-sdcg.md)
 
 [GiNZAと患者表現辞書を使って患者テキストの表記ゆれを吸収した意味構造検索を試した](https://github.com/po3rin/post/tree/master/posts/2021/m3-meaning-structure-search.md)
 
 [Luceneのメモリ上でのインデックス構造とその仕組み](https://github.com/po3rin/post/tree/master/posts/2021/m3-lucene-memory-index.md)
+
+[LLRを使った複合語分割で医療用語辞書を検索特化させたい](https://github.com/po3rin/post/tree/master/posts/2021/m3-llr-dict.md)
 
 [Elasticsearchで関連キーワード機能がどれだけ低コストで実装できるかの旅路](https://github.com/po3rin/post/tree/master/posts/2021/m3-es-related-keywords.md)
 

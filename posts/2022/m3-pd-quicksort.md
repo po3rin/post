@@ -1,5 +1,5 @@
 ---
-title: Pattern-defeating Quicksort
+title: Go1.19に採用されたPattern-defeating Quicksortの紹介
 cover: img/gopher.png
 date: 2022/07/05
 id: m3-pd-quicksort
@@ -9,6 +9,3 @@ tags:
     - Algorithm
 draft: true
 ---
-
-# Go1.19に採用されたPattern-defeating Quicksortの紹介
-

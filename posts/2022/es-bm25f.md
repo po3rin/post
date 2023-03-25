@@ -133,7 +133,7 @@ public CombinedFieldQuery build() {
 }
 ```
 
-最後に```CombinedFieldQuery```というプライベートクラスを返している。ここで渡させた全ての設定をまとめ上げる。
+最後に```CombinedFieldQuery```というプライベートクラスを返している。ここで渡した全ての設定をまとめ上げる。
 
 ```java
 private CombinedFieldQuery(TreeMap<String, FieldAndWeight> fieldAndWeights, BytesRef[] terms) {

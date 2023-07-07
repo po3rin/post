@@ -1,5 +1,5 @@
 ---
-title: cruft実践入門 ~cookiecutter templateの変更に追従する~
+title: 本名とニックネームが混じった検索の改善
 cover: img/gopher.png
 date: 2023/03/05
 id: m3-cruft
@@ -9,3 +9,4 @@ tags:
     - markdown
 draft: true
 ---
+

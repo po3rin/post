@@ -5,7 +5,7 @@ date: 2022/12/18
 id: m3-search-offline-bandit
 description: sample
 tags:
-    - Terraform
+    - Search Engine
 draft: true
 ---
 

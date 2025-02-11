@@ -1,5 +1,9 @@
 # Blog post
 
+## 2024
+
+[日本語埋め込みモデルRuriを使ったBM42 on Elasticsearchと形態素解析器Sudachiによるトークン矯正](https://github.com/po3rin/post/tree/master/posts/2024/ruri.md)
+
 ## 2022
 
 [Cascade Model に適用する Bandit Algorithms の理論と実装](https://github.com/po3rin/post/tree/master/posts/2022/m3-cascading-bandits.md)

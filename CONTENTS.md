@@ -1,5 +1,19 @@
 # Blog post
 
+## 2024
+
+[日本語埋め込みモデルRuriを使ったBM42 on Elasticsearchと形態素解析器Sudachiによるトークン矯正](https://github.com/po3rin/post/tree/master/posts/2024/m3-ruri-bm42.md)
+
+[レビュー依頼の優先度について考えていたら、レビュー依頼をスコアリングしてソートするツールができた](https://github.com/po3rin/post/tree/master/posts/2024/m3-gitlab-todos-sort.md)
+
+## 2023
+
+[BigQueryでSendGrid Activityをセキュアに管理する仕組みを構築した](https://github.com/po3rin/post/tree/master/posts/2023/sg-event-webhook.md)
+
+[Pythonによる麻雀点数計算問題の自動生成と音声による点数申告](https://github.com/po3rin/post/tree/master/posts/2023/majiang-question.md)
+
+[cruft実践入門 ~cookiecutter templateの変更に追従する~](https://github.com/po3rin/post/tree/master/posts/2023/m3-cruft.md)
+
 ## 2022
 
 [Cascade Model に適用する Bandit Algorithms の理論と実装](https://github.com/po3rin/post/tree/master/posts/2022/m3-cascading-bandits.md)

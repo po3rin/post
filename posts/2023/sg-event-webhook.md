@@ -1,6 +1,6 @@
 ---
 title: BigQueryでSendGrid Activityをセキュアに管理する仕組みを構築した
-cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/ruri.jpg
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/sendgrid.jpg
 date: 2023/07/01
 id: sg-event-webhook
 description: BigQueryでSendGrid Activityをセキュアに管理する仕組みを構築したのでその紹介をします。

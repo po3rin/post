@@ -1,6 +1,6 @@
 ---
 title: Pythonによる麻雀点数計算問題の自動生成と音声による点数申告
-cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/ruri.jpg
+cover: https://pon-blog-media.s3.ap-northeast-1.amazonaws.com/media/mahjang.jpg
 date: 2023/12/01
 id: majiang-question
 description: レベルに合った麻雀の点数計算問題を生成して、点数申告の練習をする方法を探求した。

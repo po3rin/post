@@ -1,5 +1,9 @@
 # Blog post
 
+## 2025
+
+[JINS ASSISTを使ったソフトウェアエンジニアの新しい作業効率化を探求しようか](https://github.com/po3rin/post/tree/master/posts/2025/jinsassist.md)
+
 ## 2024
 
 [日本語埋め込みモデルRuriを使ったBM42 on Elasticsearchと形態素解析器Sudachiによるトークン矯正](https://github.com/po3rin/post/tree/master/posts/2024/m3-ruri-bm42.md)
